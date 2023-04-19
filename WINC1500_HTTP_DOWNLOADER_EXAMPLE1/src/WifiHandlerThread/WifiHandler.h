@@ -39,15 +39,15 @@ extern "C" {
 #define WIFI_PRIORITY (configMAX_PRIORITIES - 2)
 
 /** Wi-Fi AP Settings. */
-#define MAIN_WLAN_SSID "EdWifi"             /**< Destination SSID. Change to your WIFI SSID */
-#define MAIN_WLAN_AUTH M2M_WIFI_SEC_WPA_PSK /**< Security manner */
-#define MAIN_WLAN_PSK "Armitage"            /**< Password for Destination SSID. Change to your password. Please dont hack my WiFi router */
+#define MAIN_WLAN_SSID "EvoPhilly"             /**< Destination SSID. Change to your WIFI SSID */
+#define MAIN_WLAN_AUTH M2M_WIFI_SEC_OPEN /**< Security manner */
+#define MAIN_WLAN_PSK "aWt1234567"            /**< Password for Destination SSID. Change to your password. Please dont hack my WiFi router */
 
 /** IP address parsing. */
 #define IPV4_BYTE(val, index) ((val >> (index * 8)) & 0xFF)
 
 /** Content URI for download. */
-#define MAIN_HTTP_FILE_URL "https://www.seas.upenn.edu/~edgarc/IoT.pdf"  ///< Change me to the URL to download your OTAU binary file from!
+#define MAIN_HTTP_FILE_URL "https://74.235.175.41/TestB.bin"  ///< Change me to the URL to download your OTAU binary file from!
 
 /** Maximum size for packet buffer. */
 #define MAIN_BUFFER_MAX_SIZE (512)
@@ -88,6 +88,11 @@ struct RgbColorPacket {
     uint8_t blue;
 };
 
+// Structure to hold a test packet
+struct TestPacket {
+	uint8_t test;
+};
+
 /* Max size of UART buffer. */
 #define MAIN_CHAT_BUFFER_SIZE 64
 
@@ -104,21 +109,22 @@ struct RgbColorPacket {
 
 #ifdef PLAYER1
 /* Chat MQTT topic. */
-#define LED_TOPIC "P1_LED_ESE516_T0"            // Students to change to an unique identifier for each device! LED Data
-#define GAME_TOPIC_IN "P1_GAME_ESE516_T0"       // Students to change to an unique identifier for each device! Game Data
-#define GAME_TOPIC_OUT "P2_GAME_ESE516_T0"      // Students to change to an unique identifier for each device! Game Data
-#define IMU_TOPIC "P1_IMU_ESE516_T0"            // Students to change to an unique identifier for each device! IMU Data
-#define DISTANCE_TOPIC "P1_DISTANCE_ESE516_T0"  // Students to change to an unique identifier for each device! Distance Data
-#define TEMPERATURE_TOPIC "P1_TEMPERATURE_ESE516_T0" // Students to change to an unique identifier for each device! Distance Data
+#define LED_TOPIC "P1_LED_ESE516_T9"            // Students to change to an unique identifier for each device! LED Data
+#define GAME_TOPIC_IN "P1_GAME_ESE516_T9"       // Students to change to an unique identifier for each device! Game Data
+#define GAME_TOPIC_OUT "P2_GAME_ESE516_T9"      // Students to change to an unique identifier for each device! Game Data
+#define IMU_TOPIC "P1_IMU_ESE516_T9"            // Students to change to an unique identifier for each device! IMU Data
+#define DISTANCE_TOPIC "P1_DISTANCE_ESE516_T9"  // Students to change to an unique identifier for each device! Distance Data
+#define TEMPERATURE_TOPIC "P1_TEMPERATURE_ESE516_T9" // Students to change to an unique identifier for each device! Distance Data
+#define TEST_TOPIC "TEST_TOPIC_516_T9"          // used to test whether MQTT can properly work
 
 #else
 /* Chat MQTT topic. */
-#define LED_TOPIC "P2_LED_ESE516_T0"            // Students to change to an unique identifier for each device! LED Data
-#define GAME_TOPIC_IN "P2_GAME_ESE516_T0"       // Students to change to an unique identifier for each device! Game Data
-#define GAME_TOPIC_OUT "P1_GAME_ESE516_T0"      // Students to change to an unique identifier for each device! Game Data
-#define IMU_TOPIC "P2_IMU_ESE516_T0"            // Students to change to an unique identifier for each device! IMU Data
-#define DISTANCE_TOPIC "P2_DISTANCE_ESE516_T0"  // Students to change to an unique identifier for each device! Distance Data
-#define TEMPERATURE_TOPIC "P2_TEMPERATURE_ESE516_T0" // Students to change to an unique identifier for each device! Distance Data
+#define LED_TOPIC "P2_LED_ESE516_T9"            // Students to change to an unique identifier for each device! LED Data
+#define GAME_TOPIC_IN "P2_GAME_ESE516_T9"       // Students to change to an unique identifier for each device! Game Data
+#define GAME_TOPIC_OUT "P1_GAME_ESE516_T9"      // Students to change to an unique identifier for each device! Game Data
+#define IMU_TOPIC "P2_IMU_ESE516_T9"            // Students to change to an unique identifier for each device! IMU Data
+#define DISTANCE_TOPIC "P2_DISTANCE_ESE516_T9"  // Students to change to an unique identifier for each device! Distance Data
+#define TEMPERATURE_TOPIC "P2_TEMPERATURE_ESE516_T9" // Students to change to an unique identifier for each device! Distance Data
 
 #endif
 
@@ -159,6 +165,7 @@ void WifiHandlerSetState(uint8_t state);
 int WifiAddDistanceDataToQueue(uint16_t *distance);
 int WifiAddImuDataToQueue(struct ImuDataPacket *imuPacket);
 int WifiAddGameDataToQueue(struct GameDataPacket *game);
+int WifiAddTestDataToQueue(struct TestPacket *test);
 void SubscribeHandlerLedTopic(MessageData *msgData);
 void SubscribeHandlerGameTopic(MessageData *msgData);
 void SubscribeHandlerImuTopic(MessageData *msgData);

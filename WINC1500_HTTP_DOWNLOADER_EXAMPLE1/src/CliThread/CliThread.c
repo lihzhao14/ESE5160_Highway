@@ -47,7 +47,8 @@ static const CLI_Command_Definition_t xDistanceSensorGetDistance = {"getdistance
                                                                     0};
 
 static const CLI_Command_Definition_t xSendDummyGameData = {"game", "game: Sends dummy game data\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_SendDummyGameData, 0};
-static const CLI_Command_Definition_t xI2cScan = {"i2c", "i2c: Scans I2C bus\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_i2cScan, 0};	
+static const CLI_Command_Definition_t xI2cScan = {"i2c", "i2c: Scans I2C bus\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_i2cScan, 0};
+static const CLI_Command_Definition_t xSendTestData = {"test", "test: Sends test data\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_SendTestData, 0};		
 	
 	
 	
@@ -81,6 +82,7 @@ void vCommandConsoleTask(void *pvParameters)
     FreeRTOS_CLIRegisterCommand(&xNeotrellisProcessButtonCommand);
     FreeRTOS_CLIRegisterCommand(&xDistanceSensorGetDistance);
     FreeRTOS_CLIRegisterCommand(&xSendDummyGameData);
+	FreeRTOS_CLIRegisterCommand(&xSendTestData);
 	FreeRTOS_CLIRegisterCommand(&xI2cScan);
 
     char cRxedChar[2];
@@ -263,7 +265,6 @@ BaseType_t CLI_GetImuData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const i
     static float acceleration_mg[3];
     uint8_t reg;
     stmdev_ctx_t *dev_ctx = GetImuStruct();
-	struct ImuDataPacket imuPacket;
 
     /* Read output only if new xl value is available */
     lsm6dso_xl_flag_data_ready_get(dev_ctx, &reg);
@@ -276,16 +277,8 @@ BaseType_t CLI_GetImuData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const i
         acceleration_mg[2] = lsm6dso_from_fs2_to_mg(data_raw_acceleration[2]);
 
         snprintf((char *)pcWriteBuffer, xWriteBufferLen, "Acceleration [mg]:X %d\tY %d\tZ %d\r\n", (int)acceleration_mg[0], (int)acceleration_mg[1], (int)acceleration_mg[2]);
-		imuPacket.xmg = (int)acceleration_mg[0];
-		imuPacket.ymg = (int)acceleration_mg[1];
-		imuPacket.zmg = (int)acceleration_mg[2];
-		WifiAddImuDataToQueue(&imuPacket);
     } else {
-        snprintf((char *)pcWriteBuffer, xWriteBufferLen, "No data ready! Sending dummy data \r\n");
-		imuPacket.xmg = -1;
-		imuPacket.ymg = -2;
-		imuPacket.zmg = -3;
-		WifiAddImuDataToQueue(&imuPacket);
+        snprintf((char *)pcWriteBuffer, xWriteBufferLen, "No data ready! \r\n");
     }
     return pdFALSE;
 }
@@ -464,6 +457,18 @@ BaseType_t CLI_SendDummyGameData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, 
     return pdFALSE;
 }
 
+BaseType_t CLI_SendTestData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
+{
+	struct TestPacket testvar;
+
+	testvar.test = 6;
+
+	int error = WifiAddTestDataToQueue(&testvar);
+	if (error == pdTRUE) {
+		snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Test Data MQTT Post\r\n");
+	}
+	return pdFALSE;
+}
 
 /**************************************************************************/ /**
  * @brief    Scan both i2c
@@ -496,18 +501,18 @@ BaseType_t CLI_i2cScan(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8
                 for (int j = 0; j < 16; j++)
                 {
 
-                    i2cOled.address = (i + j);
+                    i2cOled.address = (i + j) << 1;
 
                     	
-                    int32_t ret = I2cPingAddressWait(&i2cOled, 100, 100);
+                    int32_t ret = I2cWriteDataWait(&i2cOled, 100);
                     if (ret == 0)
                     {
-						snprintf(bufCli, CLI_MSG_LEN - 1, "%02x ", i2cOled.address);
+						snprintf(bufCli, CLI_MSG_LEN - 1, "%02x: ", i2cOled.address);
                         SerialConsoleWriteString(bufCli);
                     }
                     else
                     {
-                        snprintf(bufCli, CLI_MSG_LEN - 1, "X  ");
+                        snprintf(bufCli, CLI_MSG_LEN - 1, "X ");
 						SerialConsoleWriteString(bufCli);
                     }
                 }

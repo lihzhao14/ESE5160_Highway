@@ -31,6 +31,7 @@ QueueHandle_t xQueueWifiState = NULL;       ///< Queue to determine the Wifi sta
 QueueHandle_t xQueueGameBuffer = NULL;      ///< Queue to send the next play to the cloud
 QueueHandle_t xQueueImuBuffer = NULL;       ///< Queue to send IMU data to the cloud
 QueueHandle_t xQueueDistanceBuffer = NULL;  ///< Queue to send the distance to the cloud
+QueueHandle_t xQueueTestBuffer = NULL;  ///< Queue to send the distance to the cloud
 
 /*HTTP DOWNLOAD RELATED DEFINES AND VARIABLES*/
 
@@ -75,6 +76,7 @@ static unsigned char mqtt_send_buffer[MAIN_MQTT_BUFFER_SIZE];
 static void MQTT_InitRoutine(void);
 static void MQTT_HandleGameMessages(void);
 static void MQTT_HandleImuMessages(void);
+static void MQTT_HandleTestMessages(void);
 static void HTTP_DownloadFileInit(void);
 static void HTTP_DownloadFileTransaction(void);
 /******************************************************************************
@@ -573,8 +575,8 @@ static void configure_http_client(void)
 
     httpc_conf.recv_buffer_size = MAIN_BUFFER_MAX_SIZE;
     httpc_conf.timer_inst = &swt_module_inst;
-    httpc_conf.port = 443;
-    httpc_conf.tls = 1;
+    //httpc_conf.port = 443;
+    //httpc_conf.tls = 1;
 
     ret = http_client_init(&http_client_module_inst, &httpc_conf);
     if (ret < 0) {
@@ -682,13 +684,11 @@ void SubscribeHandlerGameTopic(MessageData *msgData)
 
 void SubscribeHandlerImuTopic(MessageData *msgData)
 {
-	LogMessage(LOG_DEBUG_LVL, "\r\nIMU topic received!\r\n");
     LogMessage(LOG_DEBUG_LVL, "\r\n %.*s", msgData->topicName->lenstring.len, msgData->topicName->lenstring.data);
 }
 
 void SubscribeHandlerDistanceTopic(MessageData *msgData)
 {
-	LogMessage(LOG_DEBUG_LVL, "\r\nDistance topic received!\r\n");
     LogMessage(LOG_DEBUG_LVL, "\r\n %.*s", msgData->topicName->lenstring.len, msgData->topicName->lenstring.data);
 }
 
@@ -750,7 +750,8 @@ static void mqtt_callback(struct mqtt_module *module_inst, int type, union mqtt_
                 /* Subscribe chat topic. */
                 mqtt_subscribe(module_inst, GAME_TOPIC_IN, 2, SubscribeHandlerGameTopic);
                 mqtt_subscribe(module_inst, LED_TOPIC, 2, SubscribeHandlerLedTopic);
-                mqtt_subscribe(module_inst, IMU_TOPIC, 2, SubscribeHandlerImuTopic);
+                // mqtt_subscribe(module_inst, IMU_TOPIC, 2, SubscribeHandlerImuTopic);
+                // mqtt_subscribe(module_inst, DISTANCE_TOPIC, 2, SubscribeHandlerDistanceTopic);
                 /* Enable USART receiving callback. */
 
                 LogMessage(LOG_DEBUG_LVL, "MQTT Connected\r\n");
@@ -885,14 +886,15 @@ static void HTTP_DownloadFileTransaction(void)
     char test_file_name[] = "0:FlagA.txt";
     test_file_name[0] = LUN_ID_SD_MMC_0_MEM + '0';
     FRESULT res = f_open(&file_object, (char const *)test_file_name, FA_CREATE_ALWAYS | FA_WRITE);
+    res = f_open(&file_object, (char const *)test_file_name, FA_CREATE_ALWAYS | FA_WRITE);
 
     if (res != FR_OK) {
         LogMessage(LOG_INFO_LVL, "[FAIL] res %d\r\n", res);
     } else {
         SerialConsoleWriteString("FlagA.txt added!\r\n");
     }
-	
-	f_close(&file_object);
+    delay_ms(100);
+    system_reset();
     wifiStateMachine = WIFI_MQTT_INIT;
 }
 
@@ -937,6 +939,7 @@ static void MQTT_HandleTransactions(void)
     // Check if data has to be sent!
     MQTT_HandleGameMessages();
     MQTT_HandleImuMessages();
+	MQTT_HandleTestMessages();
 
     // Handle MQTT messages
     if (mqtt_inst.isConnected) mqtt_yield(&mqtt_inst, 100);
@@ -949,6 +952,15 @@ static void MQTT_HandleImuMessages(void)
         snprintf(mqtt_msg, 63, "{\"imux\":%d, \"imuy\": %d, \"imuz\": %d}", imuDataVar.xmg, imuDataVar.ymg, imuDataVar.zmg);
         mqtt_publish(&mqtt_inst, IMU_TOPIC, mqtt_msg, strlen(mqtt_msg), 1, 0);
     }
+}
+
+static void MQTT_HandleTestMessages(void)
+{
+	struct TestPacket TestDataVar;
+	if (pdPASS == xQueueReceive(xQueueTestBuffer, &TestDataVar, 0)) {
+		snprintf(mqtt_msg, 63, "{\"test\":%d }", TestDataVar.test);
+		mqtt_publish(&mqtt_inst, TEST_TOPIC, mqtt_msg, strlen(mqtt_msg), 1, 0);
+	}
 }
 
 static void MQTT_HandleGameMessages(void)
@@ -992,9 +1004,10 @@ void vWifiTask(void *pvParameters)
     xQueueWifiState = xQueueCreate(5, sizeof(uint32_t));
     xQueueImuBuffer = xQueueCreate(5, sizeof(struct ImuDataPacket));
     xQueueGameBuffer = xQueueCreate(2, sizeof(struct GameDataPacket));
+	xQueueTestBuffer = xQueueCreate(5, sizeof(struct TestPacket));
     xQueueDistanceBuffer = xQueueCreate(5, sizeof(uint16_t));
 
-    if (xQueueWifiState == NULL || xQueueImuBuffer == NULL || xQueueGameBuffer == NULL || xQueueDistanceBuffer == NULL) {
+    if (xQueueWifiState == NULL || xQueueImuBuffer == NULL || xQueueGameBuffer == NULL || xQueueDistanceBuffer == NULL || xQueueTestBuffer == NULL) {
         SerialConsoleWriteString("ERROR Initializing Wifi Data queues!\r\n");
     }
 
@@ -1080,7 +1093,7 @@ void vWifiTask(void *pvParameters)
             wifiStateMachine = DataToReceive;  // Update new state
         }
 
-        //Check if we need to publish something. In this example, we publish the "temperature" when the button was pressed.
+        //Check if we need to publis something. In this example, we publish the "temperature" when the button was pressed.
         if(isPressed)
         {
             mqtt_publish(&mqtt_inst, TEMPERATURE_TOPIC, mqtt_msg_temp, strlen(mqtt_msg_temp), 1, 0);
@@ -1144,4 +1157,10 @@ int WifiAddGameDataToQueue(struct GameDataPacket *game)
 {
     int error = xQueueSend(xQueueGameBuffer, game, (TickType_t)10);
     return error;
+}
+
+int WifiAddTestDataToQueue(struct TestPacket *test)
+{
+	int error = xQueueSend(xQueueTestBuffer, test, (TickType_t)10);
+	return error;
 }

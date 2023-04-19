@@ -46,7 +46,7 @@ controlStateMachine_state controlState;  ///< Holds the current state of the con
  ******************************************************************************/
 
 /**
- * @fn		void vControlHandlerTask( void *pvParameters )
+ * @fn		void vUiHandlerTask( void *pvParameters )
  * @brief	STUDENT TO FILL THIS
  * @details 	student to fill this
 
