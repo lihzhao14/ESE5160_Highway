@@ -1297,6 +1297,7 @@
     <Folder Include="src\IMU" />
     <Folder Include="src\DistanceDriver" />
     <Folder Include="src\ControlThread" />
+    <Folder Include="src\servo" />
     <Folder Include="src\UiHandlerThread" />
     <Folder Include="src\SeesawDriver" />
     <Folder Include="src\WifiHandlerThread" />
@@ -1488,6 +1489,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\SeesawDriver\SeesawDriver.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\servo\servo.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\servo\servo.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\UiHandlerThread\UiHandlerThread.c">

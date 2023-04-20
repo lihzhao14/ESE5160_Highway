@@ -217,6 +217,7 @@ SUBDIRS :=  \
 ../src/IMU \
 ../src/DistanceDriver \
 ../src/ControlThread \
+../src/servo \
 ../src/UiHandlerThread \
 ../src/SeesawDriver \
 ../src/WifiHandlerThread \
@@ -248,6 +249,7 @@ C_SRCS +=  \
 ../src/I2cDriver/I2cDriver.c \
 ../src/IMU/lsm6dso_reg.c \
 ../src/SeesawDriver/SeesawDriver.c \
+../src/servo/servo.c \
 ../src/UiHandlerThread/UiHandlerThread.c \
 ../src/WifiHandlerThread/WifiHandler.c \
 ../src/ASF/common/services/freertos/dbg_print/dbg_print.c \
@@ -380,6 +382,7 @@ src/DistanceDriver/DistanceSensor.o \
 src/I2cDriver/I2cDriver.o \
 src/IMU/lsm6dso_reg.o \
 src/SeesawDriver/SeesawDriver.o \
+src/servo/servo.o \
 src/UiHandlerThread/UiHandlerThread.o \
 src/WifiHandlerThread/WifiHandler.o \
 src/ASF/common/services/freertos/dbg_print/dbg_print.o \
@@ -505,6 +508,7 @@ src/DistanceDriver/DistanceSensor.o \
 src/I2cDriver/I2cDriver.o \
 src/IMU/lsm6dso_reg.o \
 src/SeesawDriver/SeesawDriver.o \
+src/servo/servo.o \
 src/UiHandlerThread/UiHandlerThread.o \
 src/WifiHandlerThread/WifiHandler.o \
 src/ASF/common/services/freertos/dbg_print/dbg_print.o \
@@ -630,6 +634,7 @@ src/DistanceDriver/DistanceSensor.d \
 src/I2cDriver/I2cDriver.d \
 src/IMU/lsm6dso_reg.d \
 src/SeesawDriver/SeesawDriver.d \
+src/servo/servo.d \
 src/UiHandlerThread/UiHandlerThread.d \
 src/WifiHandlerThread/WifiHandler.d \
 src/ASF/common/services/freertos/dbg_print/dbg_print.d \
@@ -755,6 +760,7 @@ src/DistanceDriver/DistanceSensor.d \
 src/I2cDriver/I2cDriver.d \
 src/IMU/lsm6dso_reg.d \
 src/SeesawDriver/SeesawDriver.d \
+src/servo/servo.d \
 src/UiHandlerThread/UiHandlerThread.d \
 src/WifiHandlerThread/WifiHandler.d \
 src/ASF/common/services/freertos/dbg_print/dbg_print.d \
@@ -1026,6 +1032,13 @@ src/IMU/lsm6dso_reg.o: ../src/IMU/lsm6dso_reg.c
 	
 
 src/SeesawDriver/SeesawDriver.o: ../src/SeesawDriver/SeesawDriver.c
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAMD21G18A__ -DDEBUG -DSD_MMC_ENABLE -DBOARD=SAMW25_XPLAINED_PRO -D__SAMD21G18A__ -DEXTINT_CALLBACK_MODE=true -DTCC_ASYNC=true -DARM_MATH_CM0PLUS=true -DSPI_CALLBACK_MODE=true -DUSART_CALLBACK_MODE=true -DRTC_CALENDAR_ASYNC=true -DSYSTICK_MODE -DMQTT_PLATFORM_WINC15x0 -DTC_ASYNC=true -D__FREERTOS__ -DI2C_MASTER_CALLBACK_MODE=true -DADC_CALLBACK_MODE=true -DDAC_CALLBACK_MODE=true -DEVENTS_INTERRUPT_HOOKS_MODE=true -DGFX_MONO_UG_2832HSWEG04=1  -I"../src/iot/http" -I"../src" -I"../src/iot" -I"../src/ASF/common/components/wifi/winc1500" -I"../src/ASF/sam0/drivers/port" -I"../src/ASF/sam0/utils" -I"../src/ASF/sam0/utils/header_files" -I"../src/ASF/sam0/utils/preprocessor" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src/ASF/sam0/utils/cmsis/samd21/include" -I"../src/ASF/sam0/utils/cmsis/samd21/source" -I"../src/ASF/sam0/drivers/system/pinmux" -I"../src/ASF/sam0/drivers/sercom/spi" -I"../src/ASF/sam0/drivers/sercom" -I"../src/ASF/sam0/drivers/system" -I"../src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da_ha1" -I"../src/ASF/sam0/drivers/system/clock" -I"../src/ASF/sam0/drivers/system/interrupt" -I"../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samd21" -I"../src/ASF/sam0/drivers/system/power" -I"../src/ASF/sam0/drivers/system/power/power_sam_d_r_h" -I"../src/ASF/sam0/drivers/system/reset" -I"../src/ASF/sam0/drivers/system/reset/reset_sam_d_r_h" -I"../src/ASF/common2/services/delay" -I"../src/ASF/common2/services/delay/sam0" -I"../src/ASF/sam0/drivers/extint" -I"../src/ASF/sam0/drivers/tcc" -I"../src/ASF/sam0/drivers/rtc" -I"../src/ASF/sam0/utils/stdio/stdio_serial" -I"../src/ASF/common/services/serial" -I"../src/ASF/sam0/drivers/sercom/usart" -I"../src/ASF/common2/components/memory/sd_mmc" -I"../src/ASF/common/services/storage/ctrl_access" -I"../src/ASF/thirdparty/fatfs/fatfs-r0.09/src" -I"../src/ASF/thirdparty/fatfs/fatfs-port-r0.09/sam0" -I"../src/ASF/sam0/boards" -I"../src/ASF/sam0/boards/samw25_xplained_pro" -I"../src/ASF/common/boards" -I"../src/ASF/common/components/wifi/winc1500/http_downloader_example/samd21g18a_samw25_xplained_pro" -I"../src/config" -I"../src/ASF/thirdparty/pahomqtt" -I"../src/ASF/thirdparty/pahomqtt/MQTTPacket" -I"../src/ASF/thirdparty/pahomqtt/MQTTClient/Platforms" -I"../src/ASF/thirdparty/pahomqtt/MQTTClient/Wrapper" -I"../src/SerialConsole" -I"../src/ASF/common/services/crc32" -I"../src/ASF/sam0/drivers/dsu" -I"../src/ASF/sam0/drivers/dsu/crc32" -I"../src/ASF/sam0/drivers/nvm" -I"../src/ASF/sam0/drivers/pac" -I"../src/ASF/sam0/drivers/pac/pac_sam_d_r_h" -I"../src/ASF/common/services/freertos/dbg_print" -I"../src/ASF/common/services/sleepmgr" -I"../src/ASF/sam0/drivers/sercom/i2c" -I"../src/ASF/sam0/drivers/sercom/i2c/i2c_sam0" -I"../src/ASF/sam0/drivers/tc" -I"../src/ASF/sam0/drivers/tc/tc_sam_d_r_h" -I"../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include" -I"../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/portable/GCC/ARM_CM0" -I"../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include" -I"../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-CLI" -I"../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/config" -I"..\src\ASF\thirdparty\freertos\freertos-10.0.0\Source\FreeRTOS-Plus-Trace\streamports\Jlink_RTT\include" -I"../src/ASF/common2/services/gfx_mono" -I"../src/ASF/sam0/drivers/adc" -I"../src/ASF/sam0/drivers/adc/adc_sam_d_r_h" -I"../src/ASF/sam0/drivers/dac" -I"../src/ASF/sam0/drivers/dac/dac_sam_d_c_h" -I"../src/ASF/sam0/drivers/dma" -I"../src/ASF/sam0/drivers/events/events_sam_d_r_h" -I"../src/ASF/sam0/drivers/events" -I"../src/ASF/common2/components/display/ssd1306" -I"../src/I2cDriver"  -O0 -fdata-sections -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m0plus -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+src/servo/servo.o: ../src/servo/servo.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAMD21G18A__ -DDEBUG -DSD_MMC_ENABLE -DBOARD=SAMW25_XPLAINED_PRO -D__SAMD21G18A__ -DEXTINT_CALLBACK_MODE=true -DTCC_ASYNC=true -DARM_MATH_CM0PLUS=true -DSPI_CALLBACK_MODE=true -DUSART_CALLBACK_MODE=true -DRTC_CALENDAR_ASYNC=true -DSYSTICK_MODE -DMQTT_PLATFORM_WINC15x0 -DTC_ASYNC=true -D__FREERTOS__ -DI2C_MASTER_CALLBACK_MODE=true -DADC_CALLBACK_MODE=true -DDAC_CALLBACK_MODE=true -DEVENTS_INTERRUPT_HOOKS_MODE=true -DGFX_MONO_UG_2832HSWEG04=1  -I"../src/iot/http" -I"../src" -I"../src/iot" -I"../src/ASF/common/components/wifi/winc1500" -I"../src/ASF/sam0/drivers/port" -I"../src/ASF/sam0/utils" -I"../src/ASF/sam0/utils/header_files" -I"../src/ASF/sam0/utils/preprocessor" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src/ASF/sam0/utils/cmsis/samd21/include" -I"../src/ASF/sam0/utils/cmsis/samd21/source" -I"../src/ASF/sam0/drivers/system/pinmux" -I"../src/ASF/sam0/drivers/sercom/spi" -I"../src/ASF/sam0/drivers/sercom" -I"../src/ASF/sam0/drivers/system" -I"../src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da_ha1" -I"../src/ASF/sam0/drivers/system/clock" -I"../src/ASF/sam0/drivers/system/interrupt" -I"../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samd21" -I"../src/ASF/sam0/drivers/system/power" -I"../src/ASF/sam0/drivers/system/power/power_sam_d_r_h" -I"../src/ASF/sam0/drivers/system/reset" -I"../src/ASF/sam0/drivers/system/reset/reset_sam_d_r_h" -I"../src/ASF/common2/services/delay" -I"../src/ASF/common2/services/delay/sam0" -I"../src/ASF/sam0/drivers/extint" -I"../src/ASF/sam0/drivers/tcc" -I"../src/ASF/sam0/drivers/rtc" -I"../src/ASF/sam0/utils/stdio/stdio_serial" -I"../src/ASF/common/services/serial" -I"../src/ASF/sam0/drivers/sercom/usart" -I"../src/ASF/common2/components/memory/sd_mmc" -I"../src/ASF/common/services/storage/ctrl_access" -I"../src/ASF/thirdparty/fatfs/fatfs-r0.09/src" -I"../src/ASF/thirdparty/fatfs/fatfs-port-r0.09/sam0" -I"../src/ASF/sam0/boards" -I"../src/ASF/sam0/boards/samw25_xplained_pro" -I"../src/ASF/common/boards" -I"../src/ASF/common/components/wifi/winc1500/http_downloader_example/samd21g18a_samw25_xplained_pro" -I"../src/config" -I"../src/ASF/thirdparty/pahomqtt" -I"../src/ASF/thirdparty/pahomqtt/MQTTPacket" -I"../src/ASF/thirdparty/pahomqtt/MQTTClient/Platforms" -I"../src/ASF/thirdparty/pahomqtt/MQTTClient/Wrapper" -I"../src/SerialConsole" -I"../src/ASF/common/services/crc32" -I"../src/ASF/sam0/drivers/dsu" -I"../src/ASF/sam0/drivers/dsu/crc32" -I"../src/ASF/sam0/drivers/nvm" -I"../src/ASF/sam0/drivers/pac" -I"../src/ASF/sam0/drivers/pac/pac_sam_d_r_h" -I"../src/ASF/common/services/freertos/dbg_print" -I"../src/ASF/common/services/sleepmgr" -I"../src/ASF/sam0/drivers/sercom/i2c" -I"../src/ASF/sam0/drivers/sercom/i2c/i2c_sam0" -I"../src/ASF/sam0/drivers/tc" -I"../src/ASF/sam0/drivers/tc/tc_sam_d_r_h" -I"../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include" -I"../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/portable/GCC/ARM_CM0" -I"../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include" -I"../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-CLI" -I"../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/config" -I"..\src\ASF\thirdparty\freertos\freertos-10.0.0\Source\FreeRTOS-Plus-Trace\streamports\Jlink_RTT\include" -I"../src/ASF/common2/services/gfx_mono" -I"../src/ASF/sam0/drivers/adc" -I"../src/ASF/sam0/drivers/adc/adc_sam_d_r_h" -I"../src/ASF/sam0/drivers/dac" -I"../src/ASF/sam0/drivers/dac/dac_sam_d_c_h" -I"../src/ASF/sam0/drivers/dma" -I"../src/ASF/sam0/drivers/events/events_sam_d_r_h" -I"../src/ASF/sam0/drivers/events" -I"../src/ASF/common2/components/display/ssd1306" -I"../src/I2cDriver"  -O0 -fdata-sections -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m0plus -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

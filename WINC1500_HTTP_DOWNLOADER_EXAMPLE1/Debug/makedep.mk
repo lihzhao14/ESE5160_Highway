@@ -48,6 +48,8 @@ src\IMU\lsm6dso_reg.c
 
 src\SeesawDriver\SeesawDriver.c
 
+src\servo\servo.c
+
 src\UiHandlerThread\UiHandlerThread.c
 
 src\WifiHandlerThread\WifiHandler.c

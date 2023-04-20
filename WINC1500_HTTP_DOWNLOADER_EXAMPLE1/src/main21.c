@@ -28,6 +28,7 @@
 #include "driver/include/m2m_wifi.h"
 #include "main.h"
 #include "stdio_serial.h"
+#include "servo/servo.h"
 
 /****
  * Defines and Types
@@ -67,7 +68,16 @@ int main(void)
 {
     /* Initialize the board. */
     system_init();
-
+	/* test servo */
+	//configure_tcc();
+	//servo_setDuty(2);
+	//while (1)
+	//{
+		//servo_setDuty(2);
+		//delay_ms(2000);
+		//servo_setDuty(3);
+		//delay_ms(2000);
+	//}
     /* Initialize the UART console. */
     InitializeSerialConsole();
 
