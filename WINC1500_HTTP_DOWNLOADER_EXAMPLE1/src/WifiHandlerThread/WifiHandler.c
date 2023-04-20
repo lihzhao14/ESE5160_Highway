@@ -750,6 +750,7 @@ static void mqtt_callback(struct mqtt_module *module_inst, int type, union mqtt_
                 /* Subscribe chat topic. */
                 mqtt_subscribe(module_inst, GAME_TOPIC_IN, 2, SubscribeHandlerGameTopic);
                 mqtt_subscribe(module_inst, LED_TOPIC, 2, SubscribeHandlerLedTopic);
+				mqtt_subscribe(module_inst, LED_TOPIC, 2, SubscribeHandler);
                 // mqtt_subscribe(module_inst, IMU_TOPIC, 2, SubscribeHandlerImuTopic);
                 // mqtt_subscribe(module_inst, DISTANCE_TOPIC, 2, SubscribeHandlerDistanceTopic);
                 /* Enable USART receiving callback. */
