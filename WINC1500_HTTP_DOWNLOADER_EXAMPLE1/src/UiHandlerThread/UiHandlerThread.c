@@ -69,7 +69,8 @@ void vUiHandlerTask(void *pvParameters)
     // Do initialization code here
 	SerialConsoleWriteString("UI Task Started!");
     uiState = UI_STATE_IGNORE_PRESSES;  // Initial state
-
+	configure_tcc();
+	servo_setDuty(2);
 
 	
     // Graphics Test - Students to uncomment to test out the OLED driver if you are using it! 

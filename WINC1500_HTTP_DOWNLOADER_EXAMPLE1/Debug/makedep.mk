@@ -46,6 +46,8 @@ src\I2cDriver\I2cDriver.c
 
 src\IMU\lsm6dso_reg.c
 
+src\nau7802\nau7802.c
+
 src\SeesawDriver\SeesawDriver.c
 
 src\servo\servo.c

@@ -11,6 +11,7 @@
 #include "asf.h"
 #include "SerialConsole.h"
 #include "FreeRTOS_CLI.h"
+#include "servo/servo.h"
 
 
 #define CLI_TASK_SIZE	400		///<STUDENT FILL
@@ -51,3 +52,6 @@ BaseType_t CLI_ResetDevice( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const i
 BaseType_t CLI_SendDummyGameData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString);
 BaseType_t CLI_i2cScan(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString);
 BaseType_t CLI_SendTestData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString);
+BaseType_t CLI_SendWeightData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString);
+BaseType_t CLI_ServoOpen(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString);
+BaseType_t CLI_ServoClose(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString);

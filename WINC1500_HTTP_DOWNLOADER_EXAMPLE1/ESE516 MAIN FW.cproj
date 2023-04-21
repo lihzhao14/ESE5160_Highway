@@ -1297,6 +1297,7 @@
     <Folder Include="src\IMU" />
     <Folder Include="src\DistanceDriver" />
     <Folder Include="src\ControlThread" />
+    <Folder Include="src\nau7802" />
     <Folder Include="src\servo" />
     <Folder Include="src\UiHandlerThread" />
     <Folder Include="src\SeesawDriver" />
@@ -1483,6 +1484,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\IMU\lsm6dso_reg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\nau7802\nau7802.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\nau7802\nau7802.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\SeesawDriver\Seesaw.h">

@@ -15,6 +15,8 @@
 #include "IMU\lsm6dso_reg.h"
 #include "SeesawDriver/Seesaw.h"
 #include "WifiHandlerThread/WifiHandler.h"
+#include "nau7802/nau7802.h"
+#include "servo/servo.h"
 
 /******************************************************************************
  * Defines
@@ -48,7 +50,10 @@ static const CLI_Command_Definition_t xDistanceSensorGetDistance = {"getdistance
 
 static const CLI_Command_Definition_t xSendDummyGameData = {"game", "game: Sends dummy game data\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_SendDummyGameData, 0};
 static const CLI_Command_Definition_t xI2cScan = {"i2c", "i2c: Scans I2C bus\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_i2cScan, 0};
-static const CLI_Command_Definition_t xSendTestData = {"test", "test: Sends test data\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_SendTestData, 0};		
+static const CLI_Command_Definition_t xSendTestData = {"test", "test: Sends test data\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_SendTestData, 0};
+static const CLI_Command_Definition_t xSendWeightData = {"nau", "nau: Sends weight data\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_SendWeightData, 0};
+static const CLI_Command_Definition_t xServoOpen = {"open", "servo: Open\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_ServoOpen, 0};
+static const CLI_Command_Definition_t xServoClose = {"close", "servo: Close\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_ServoClose, 0};		
 	
 	
 	
@@ -84,6 +89,9 @@ void vCommandConsoleTask(void *pvParameters)
     FreeRTOS_CLIRegisterCommand(&xSendDummyGameData);
 	FreeRTOS_CLIRegisterCommand(&xSendTestData);
 	FreeRTOS_CLIRegisterCommand(&xI2cScan);
+	FreeRTOS_CLIRegisterCommand(&xSendWeightData);
+	FreeRTOS_CLIRegisterCommand(&xServoOpen);
+	FreeRTOS_CLIRegisterCommand(&xServoClose);
 
     char cRxedChar[2];
     unsigned char cInputIndex = 0;
@@ -467,6 +475,44 @@ BaseType_t CLI_SendTestData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const
 	if (error == pdTRUE) {
 		snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Test Data MQTT Post\r\n");
 	}
+	return pdFALSE;
+}
+
+BaseType_t CLI_ServoOpen(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
+{
+	servo_setDuty(2);	
+	return pdFALSE;
+}
+
+BaseType_t CLI_ServoClose(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
+{
+	servo_setDuty(3);
+	return pdFALSE;
+}
+
+BaseType_t CLI_SendWeightData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
+{
+	//SerialConsoleWriteString( "hello  NAU7802!\r\n");
+	I2cInitializeDriver();
+	//SerialConsoleWriteString( "I2C Initial!\r\n");
+	ADCchip_Init();
+	//SerialConsoleWriteString( "ADC Initial!\r\n");
+	ADC_StartConversion();
+	//SerialConsoleWriteString( "ADC Conver!\r\n");
+	
+	
+	while ((ADC_ReadReg(PU_CTRL_ADDR)&CR_Msk) != CR_DATA_RDY);
+	uint32_t ADC_value=ADC_Read_Conversion_Data();
+	
+	int i32ConversionData = (int)(ADC_value << 8);
+	/* Shift the number back right to recover its intended magnitude */
+	i32ConversionData = (i32ConversionData >> 8);
+	
+	char help[64];
+	//snprintf(help, 64, "input vol = VIN1P - VIN1N = %.2f\r\n",((float)i32ConversionData / 16777216) * (float)(3.14));
+	snprintf(help, 64, "input vol = VIN1P - VIN1N = %d\r\n",ADC_value);
+	SerialConsoleWriteString(help);
+	
 	return pdFALSE;
 }
 

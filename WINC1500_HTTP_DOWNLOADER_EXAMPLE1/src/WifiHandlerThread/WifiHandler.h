@@ -39,8 +39,8 @@ extern "C" {
 #define WIFI_PRIORITY (configMAX_PRIORITIES - 2)
 
 /** Wi-Fi AP Settings. */
-#define MAIN_WLAN_SSID "EvoPhilly"             /**< Destination SSID. Change to your WIFI SSID */
-#define MAIN_WLAN_AUTH M2M_WIFI_SEC_OPEN /**< Security manner */
+#define MAIN_WLAN_SSID "a"             /**< Destination SSID. Change to your WIFI SSID */
+#define MAIN_WLAN_AUTH M2M_WIFI_SEC_WPA_PSK /**< Security manner */
 #define MAIN_WLAN_PSK "aWt1234567"            /**< Password for Destination SSID. Change to your password. Please dont hack my WiFi router */
 
 /** IP address parsing. */

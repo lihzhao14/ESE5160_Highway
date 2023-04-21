@@ -238,7 +238,7 @@ src/main21.d src/main21.o: ../src/main21.c \
  ../src/ASF/sam0/drivers/tcc/tcc.h ../src/SerialConsole/SerialConsole.h \
  ../src/SerialConsole/circular_buffer.h \
  ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-CLI/FreeRTOS_CLI.h \
- ../src/ControlThread\ControlThread.h \
+ ../src/servo/servo.h ../src/ControlThread\ControlThread.h \
  ../src/WifiHandlerThread/WifiHandler.h \
  ../src/ASF/thirdparty/pahomqtt/MQTTClient/Wrapper/mqtt.h \
  ../src/ASF/common/components/wifi/winc1500/socket/include/socket.h \
@@ -771,6 +771,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../src/SerialConsole/circular_buffer.h:
 
 ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-CLI/FreeRTOS_CLI.h:
+
+../src/servo/servo.h:
 
 ../src/ControlThread\ControlThread.h:
 

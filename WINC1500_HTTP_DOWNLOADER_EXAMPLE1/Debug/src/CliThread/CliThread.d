@@ -236,7 +236,8 @@ src/CliThread/CliThread.d src/CliThread/CliThread.o: \
  ../src/ASF/sam0/drivers/tcc/tcc.h ../src/SerialConsole/SerialConsole.h \
  ../src/SerialConsole/circular_buffer.h \
  ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-CLI/FreeRTOS_CLI.h \
- ../src/DistanceDriver/DistanceSensor.h ../src/IMU\lsm6dso_reg.h \
+ ../src/servo/servo.h ../src/DistanceDriver/DistanceSensor.h \
+ ../src/IMU\lsm6dso_reg.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h \
  ../src/SeesawDriver/Seesaw.h ../src/I2cDriver/I2cDriver.h \
  ../src/WifiHandlerThread/WifiHandler.h \
@@ -264,7 +265,7 @@ src/CliThread/CliThread.d src/CliThread/CliThread.o: \
  ../src/ASF/common/components/wifi/winc1500/driver/source/nmdrv.h \
  ../src/iot/http/http_client.h ../src/iot/sw_timer.h \
  ../src/ASF/common/components/wifi/winc1500/http_downloader_example/samd21g18a_samw25_xplained_pro/conf_sw_timer.h \
- ../src/iot/http/http_entity.h ../src/main.h
+ ../src/iot/http/http_entity.h ../src/main.h ../src/nau7802/nau7802.h
 
 ../src/CliThread/CliThread.h:
 
@@ -762,6 +763,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-CLI/FreeRTOS_CLI.h:
 
+../src/servo/servo.h:
+
 ../src/DistanceDriver/DistanceSensor.h:
 
 ../src/IMU\lsm6dso_reg.h:
@@ -829,3 +832,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../src/iot/http/http_entity.h:
 
 ../src/main.h:
+
+../src/nau7802/nau7802.h:

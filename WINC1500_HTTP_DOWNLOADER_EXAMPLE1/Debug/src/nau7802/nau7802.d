@@ -1,9 +1,7 @@
-src/SerialConsole/SerialConsole.d src/SerialConsole/SerialConsole.o: \
- ../src/SerialConsole/SerialConsole.c \
- ../src/SerialConsole/SerialConsole.h ../src/asf.h \
- ../src/ASF/sam0/drivers/adc/adc.h ../src/ASF/sam0/utils/compiler.h \
+src/nau7802/nau7802.d src/nau7802/nau7802.o: ../src/nau7802/nau7802.c \
+ ../src/nau7802/NAU7802.h ../src/I2cDriver/I2cDriver.h \
+ ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/FreeRTOS.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h \
- ../src/ASF/common/utils/parts.h ../src/ASF/sam0/utils/status_codes.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_default_types.h \
@@ -11,6 +9,10 @@ src/SerialConsole/SerialConsole.d src/SerialConsole/SerialConsole.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_newlib_version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_intsup.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_stdint.h \
+ ../src/config/FreeRTOSConfig.h \
+ ../src/ASF/sam0/drivers/system/clock/gclk.h \
+ ../src/ASF/sam0/utils/compiler.h ../src/ASF/common/utils/parts.h \
+ ../src/ASF/sam0/utils/status_codes.h \
  ../src/ASF/sam0/utils/preprocessor/preprocessor.h \
  ../src/ASF/sam0/utils/preprocessor/tpaste.h \
  ../src/ASF/sam0/utils/preprocessor/stringz.h \
@@ -109,9 +111,24 @@ src/SerialConsole/SerialConsole.d src/SerialConsole/SerialConsole.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h \
  ../src/ASF/common/utils/interrupt.h \
  ../src/ASF/common/utils/interrupt/interrupt_sam_nvic.h \
+ ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcRecorder.h \
+ ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/config/trcConfig.h \
+ ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcPortDefines.h \
+ ../src/ASF/common/boards/board.h \
+ ../src/ASF/sam0/boards/samw25_xplained_pro/samw25_xplained_pro.h \
+ ../src/config/conf_board.h \
+ ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/config/trcSnapshotConfig.h \
+ ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcPortDefines.h \
+ ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcHardwarePort.h \
+ ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcKernelPort.h \
+ ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/projdefs.h \
+ ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/portable.h \
+ ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/deprecated_definitions.h \
+ ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/portable/GCC/ARM_CM0/portmacro.h \
+ ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/mpu_wrappers.h \
+ ../src/asf.h ../src/ASF/sam0/drivers/adc/adc.h \
  ../src/ASF/sam0/drivers/system/system.h \
  ../src/ASF/sam0/drivers/system/clock/clock.h \
- ../src/ASF/sam0/drivers/system/clock/gclk.h \
  ../src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da_ha1/clock_feature.h \
  ../src/ASF/sam0/drivers/system/pinmux/pinmux.h \
  ../src/ASF/sam0/drivers/system/power/power_sam_d_r_h/power.h \
@@ -127,9 +144,7 @@ src/SerialConsole/SerialConsole.d src/SerialConsole/SerialConsole.o: \
  ../src/ASF/sam0/drivers/dac/dac.h ../src/ASF/sam0/drivers/dma/dma.h \
  ../src/config/conf_dma.h ../src/ASF/sam0/drivers/dma/dma_crc.h \
  ../src/ASF/common/services/freertos/dbg_print/dbg_print.h \
- ../src/config/conf_dbg_print.h ../src/ASF/common/boards/board.h \
- ../src/ASF/sam0/boards/samw25_xplained_pro/samw25_xplained_pro.h \
- ../src/config/conf_board.h \
+ ../src/config/conf_dbg_print.h \
  ../src/ASF/common/services/freertos/dbg_print/quick_start_basic/qs_dbg_print_basic.h \
  ../src/ASF/common2/services/delay/delay.h \
  ../src/ASF/common2/services/delay/sam0/systick_counter.h \
@@ -147,20 +162,6 @@ src/SerialConsole/SerialConsole.d src/SerialConsole/SerialConsole.o: \
  ../src/config/conf_fatfs.h \
  ../src/ASF/thirdparty/fatfs/fatfs-r0.09/src/ffconf.h \
  ../src/ASF/thirdparty/fatfs/fatfs-r0.09/src/integer.h \
- ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/FreeRTOS.h \
- ../src/config/FreeRTOSConfig.h \
- ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcRecorder.h \
- ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/config/trcConfig.h \
- ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcPortDefines.h \
- ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/config/trcSnapshotConfig.h \
- ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcPortDefines.h \
- ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcHardwarePort.h \
- ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcKernelPort.h \
- ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/projdefs.h \
- ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/portable.h \
- ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/deprecated_definitions.h \
- ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/portable/GCC/ARM_CM0/portmacro.h \
- ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/mpu_wrappers.h \
  ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/stack_macros.h \
  ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/croutine.h \
  ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/list.h \
@@ -234,24 +235,16 @@ src/SerialConsole/SerialConsole.d src/SerialConsole/SerialConsole.o: \
  ../src/ASF/sam0/drivers/tc/tc_interrupt.h \
  ../src/ASF/sam0/drivers/tc/tc.h ../src/ASF/sam0/drivers/tcc/tcc.h \
  ../src/ASF/sam0/drivers/tcc/tcc_callback.h \
- ../src/ASF/sam0/drivers/tcc/tcc.h ../src/SerialConsole/circular_buffer.h \
- ../src/CliThread/CliThread.h ../src/SerialConsole/SerialConsole.h \
- ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-CLI/FreeRTOS_CLI.h \
- ../src/servo/servo.h
+ ../src/ASF/sam0/drivers/tcc/tcc.h ../src/SerialConsole/SerialConsole.h \
+ ../src/SerialConsole/circular_buffer.h
 
-../src/SerialConsole/SerialConsole.h:
+../src/nau7802/NAU7802.h:
 
-../src/asf.h:
+../src/I2cDriver/I2cDriver.h:
 
-../src/ASF/sam0/drivers/adc/adc.h:
-
-../src/ASF/sam0/utils/compiler.h:
+../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/FreeRTOS.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h:
-
-../src/ASF/common/utils/parts.h:
-
-../src/ASF/sam0/utils/status_codes.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdint.h:
 
@@ -266,6 +259,16 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_intsup.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_stdint.h:
+
+../src/config/FreeRTOSConfig.h:
+
+../src/ASF/sam0/drivers/system/clock/gclk.h:
+
+../src/ASF/sam0/utils/compiler.h:
+
+../src/ASF/common/utils/parts.h:
+
+../src/ASF/sam0/utils/status_codes.h:
 
 ../src/ASF/sam0/utils/preprocessor/preprocessor.h:
 
@@ -463,11 +466,43 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../src/ASF/common/utils/interrupt/interrupt_sam_nvic.h:
 
+../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcRecorder.h:
+
+../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/config/trcConfig.h:
+
+../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcPortDefines.h:
+
+../src/ASF/common/boards/board.h:
+
+../src/ASF/sam0/boards/samw25_xplained_pro/samw25_xplained_pro.h:
+
+../src/config/conf_board.h:
+
+../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/config/trcSnapshotConfig.h:
+
+../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcPortDefines.h:
+
+../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcHardwarePort.h:
+
+../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcKernelPort.h:
+
+../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/projdefs.h:
+
+../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/portable.h:
+
+../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/deprecated_definitions.h:
+
+../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/portable/GCC/ARM_CM0/portmacro.h:
+
+../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/mpu_wrappers.h:
+
+../src/asf.h:
+
+../src/ASF/sam0/drivers/adc/adc.h:
+
 ../src/ASF/sam0/drivers/system/system.h:
 
 ../src/ASF/sam0/drivers/system/clock/clock.h:
-
-../src/ASF/sam0/drivers/system/clock/gclk.h:
 
 ../src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da_ha1/clock_feature.h:
 
@@ -505,12 +540,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../src/config/conf_dbg_print.h:
 
-../src/ASF/common/boards/board.h:
-
-../src/ASF/sam0/boards/samw25_xplained_pro/samw25_xplained_pro.h:
-
-../src/config/conf_board.h:
-
 ../src/ASF/common/services/freertos/dbg_print/quick_start_basic/qs_dbg_print_basic.h:
 
 ../src/ASF/common2/services/delay/delay.h:
@@ -544,34 +573,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../src/ASF/thirdparty/fatfs/fatfs-r0.09/src/ffconf.h:
 
 ../src/ASF/thirdparty/fatfs/fatfs-r0.09/src/integer.h:
-
-../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/FreeRTOS.h:
-
-../src/config/FreeRTOSConfig.h:
-
-../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcRecorder.h:
-
-../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/config/trcConfig.h:
-
-../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcPortDefines.h:
-
-../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/config/trcSnapshotConfig.h:
-
-../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcPortDefines.h:
-
-../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcHardwarePort.h:
-
-../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/Include/trcKernelPort.h:
-
-../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/projdefs.h:
-
-../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/portable.h:
-
-../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/deprecated_definitions.h:
-
-../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/portable/GCC/ARM_CM0/portmacro.h:
-
-../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/mpu_wrappers.h:
 
 ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/include/stack_macros.h:
 
@@ -729,12 +730,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../src/ASF/sam0/drivers/tcc/tcc.h:
 
-../src/SerialConsole/circular_buffer.h:
-
-../src/CliThread/CliThread.h:
-
 ../src/SerialConsole/SerialConsole.h:
 
-../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-CLI/FreeRTOS_CLI.h:
-
-../src/servo/servo.h:
+../src/SerialConsole/circular_buffer.h:
