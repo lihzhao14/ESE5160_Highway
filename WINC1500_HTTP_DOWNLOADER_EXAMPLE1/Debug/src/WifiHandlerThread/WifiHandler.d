@@ -266,7 +266,7 @@ src/WifiHandlerThread/WifiHandler.d src/WifiHandlerThread/WifiHandler.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\errno.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\errno.h \
  ../src/ControlThread/ControlThread.h \
- ../src/UiHandlerThread/UiHandlerThread.h
+ ../src/UiHandlerThread/UiHandlerThread.h ../src/servo/servo.h
 
 ../src/WifiHandlerThread/WifiHandler.h:
 
@@ -827,3 +827,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../src/ControlThread/ControlThread.h:
 
 ../src/UiHandlerThread/UiHandlerThread.h:
+
+../src/servo/servo.h:

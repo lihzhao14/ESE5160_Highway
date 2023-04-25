@@ -269,7 +269,7 @@ src/UiHandlerThread/UiHandlerThread.d \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\errno.h \
  ../src/DistanceDriver/DistanceSensor.h ../src/IMU/lsm6dso_reg.h \
  ../src/SeesawDriver/Seesaw.h ../src/I2cDriver/I2cDriver.h \
- ../src/servo/servo.h
+ ../src/servo/servo.h ../src/nau7802/nau7802.h
 
 ../src/UiHandlerThread/UiHandlerThread.h:
 
@@ -838,3 +838,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../src/I2cDriver/I2cDriver.h:
 
 ../src/servo/servo.h:
+
+../src/nau7802/nau7802.h:

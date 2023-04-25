@@ -17,6 +17,7 @@
 #include "WifiHandlerThread/WifiHandler.h"
 #include "nau7802/nau7802.h"
 #include "servo/servo.h"
+#include "gfx_mono.h"
 
 /******************************************************************************
  * Defines
@@ -493,32 +494,37 @@ BaseType_t CLI_ServoClose(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const i
 BaseType_t CLI_SendWeightData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
 {
 	struct NauPacket nauvar;
-	//SerialConsoleWriteString( "hello  NAU7802!\r\n");
 	I2cInitializeDriver();
-	//SerialConsoleWriteString( "I2C Initial!\r\n");
 	ADCchip_Init();
-	//SerialConsoleWriteString( "ADC Initial!\r\n");
 	ADC_StartConversion();
-	//SerialConsoleWriteString( "ADC Conver!\r\n");
 	
 	
 	while ((ADC_ReadReg(PU_CTRL_ADDR)&CR_Msk) != CR_DATA_RDY);
 	uint32_t ADC_value=ADC_Read_Conversion_Data();
+	int ADC_Array[2];
 	
-	int i32ConversionData = (int)(ADC_value << 8);
-	/* Shift the number back right to recover its intended magnitude */
-	i32ConversionData = (i32ConversionData >> 8);
+	//int i32ConversionData = (int)(ADC_value << 8);
+	///* Shift the number back right to recover its intended magnitude */
+	//i32ConversionData = (i32ConversionData >> 8);
+	Value_conversion(ADC_value,ADC_Array);
 	
 	char help[64];
 	//snprintf(help, 64, "input vol = VIN1P - VIN1N = %.2f\r\n",((float)i32ConversionData / 16777216) * (float)(3.14));
-	snprintf(help, 64, "input vol = VIN1P - VIN1N = %d\r\n",ADC_value);
+	snprintf(help, 64, "input vol = VIN1P - VIN1N = %d\r\n",ADC_Array[0]);
+	
 	SerialConsoleWriteString(help);
-	nauvar.nau = ADC_value;
+	nauvar.nau_i = ADC_Array[0];
+	nauvar.nau_f = ADC_Array[1];
 	
 	int error = WifiAddNauDataToQueue(&nauvar);
 	if (error == pdTRUE) {
 		snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Nau Data MQTT Post\r\n");
 	}
+	gfx_mono_init();
+	uint8_t charge = 100;
+	char charge_char[64];
+	sprintf(charge_char, "%d", charge);
+	gfx_mono_draw_string(charge_char, 0, 8, &sysfont);
 	return pdFALSE;
 }
 

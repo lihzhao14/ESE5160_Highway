@@ -39,9 +39,12 @@ extern "C" {
 #define WIFI_PRIORITY (configMAX_PRIORITIES - 2)
 
 /** Wi-Fi AP Settings. */
-#define MAIN_WLAN_SSID "a"             /**< Destination SSID. Change to your WIFI SSID */
+//#define MAIN_WLAN_SSID "a"             /**< Destination SSID. Change to your WIFI SSID */
+//#define MAIN_WLAN_AUTH M2M_WIFI_SEC_WPA_PSK /**< Security manner */
+//#define MAIN_WLAN_PSK "aWt1234567"            /**< Password for Destination SSID. Change to your password. Please dont hack my WiFi router */
+#define MAIN_WLAN_SSID "z"             /**< Destination SSID. Change to your WIFI SSID */
 #define MAIN_WLAN_AUTH M2M_WIFI_SEC_WPA_PSK /**< Security manner */
-#define MAIN_WLAN_PSK "aWt1234567"            /**< Password for Destination SSID. Change to your password. Please dont hack my WiFi router */
+#define MAIN_WLAN_PSK "z12345678"            /**< Password for Destination SSID. Change to your password. Please dont hack my WiFi router
 
 /** IP address parsing. */
 #define IPV4_BYTE(val, index) ((val >> (index * 8)) & 0xFF)
@@ -94,7 +97,8 @@ struct TestPacket {
 };
 
 struct NauPacket {
-	uint32_t nau;
+	uint32_t nau_i;
+	uint32_t nau_f;
 };
 
 /* Max size of UART buffer. */
@@ -121,6 +125,7 @@ struct NauPacket {
 #define TEMPERATURE_TOPIC "P1_TEMPERATURE_ESE516_T9" // Students to change to an unique identifier for each device! Distance Data
 #define TEST_TOPIC "TEST_TOPIC_516_T9"          // used to test whether MQTT can properly work
 #define NAU_TOPIC "NAU_TOPIC_516_T9"          // used to test whether MQTT can properly work
+#define SERVO_TOPIC "SERVO_TOPIC_516_T9"          // used to test whether MQTT can properly work
 
 #else
 /* Chat MQTT topic. */
@@ -176,6 +181,7 @@ void SubscribeHandlerLedTopic(MessageData *msgData);
 void SubscribeHandlerGameTopic(MessageData *msgData);
 void SubscribeHandlerImuTopic(MessageData *msgData);
 void SubscribeHandlerDistanceTopic(MessageData *msgData);
+//void SubscribeHandlerServo(MessageData *msgData);
 void configure_extint_channel(void);
 void configure_extint_callbacks(void);
 

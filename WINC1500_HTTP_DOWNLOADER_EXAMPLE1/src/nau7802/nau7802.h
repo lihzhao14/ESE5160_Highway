@@ -393,3 +393,4 @@ void ADC_Calibration(void);
 int32_t I2C_ReadMultiBytesOneReg(uint8_t u8RegAddr1, uint8_t u8RegAddr2,uint8_t *data,uint32_t len);
 static  int32_t reg_read(void *handle, uint8_t reg, uint8_t *bufp, uint16_t len);
 static int32_t reg_write(void *handle, uint8_t reg, uint8_t *bufp,uint16_t len);
+void Value_conversion(int value,int final[2]);

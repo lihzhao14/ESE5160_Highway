@@ -14,6 +14,7 @@
 #include <errno.h>
 #include "ControlThread/ControlThread.h"
 #include "UiHandlerThread/UiHandlerThread.h"
+#include "servo/servo.h"
 
 /******************************************************************************
  * Defines
@@ -594,7 +595,7 @@ static void configure_http_client(void)
 
 /** Prototype for MQTT subscribe Callback */
 void SubscribeHandler(MessageData *msgData);
-
+//void SubscribeHandlerServo(MessageData *msgData);
 /**
  * \brief Callback to get the Socket event.
  *
@@ -712,6 +713,23 @@ void SubscribeHandler(MessageData *msgData)
     }
 }
 
+//void SubscribeHandlerServo(MessageData *msgData)
+//{
+	///* You received publish message which you had subscribed. */
+	///* Print Topic and message */
+	//LogMessage(LOG_DEBUG_LVL, "\r\n %.*s", msgData->topicName->lenstring.len, msgData->topicName->lenstring.data);
+	//LogMessage(LOG_DEBUG_LVL, " >> ");
+	//LogMessage(LOG_DEBUG_LVL, "%.*s", msgData->message->payloadlen, (char *)msgData->message->payload);
+//
+	//// Handle LedData message
+	//if (strncmp((char *)msgData->topicName->lenstring.data, SERVO_TOPIC, msgData->message->payloadlen) == 0) {
+		//if (strncmp((char *)msgData->message->payload, LED_TOPIC_LED_OFF, msgData->message->payloadlen) == 0) {
+			//servo_setDuty(2);
+			//} else if (strncmp((char *)msgData->message->payload, LED_TOPIC_LED_ON, msgData->message->payloadlen) == 0) {
+			//servo_setDuty(3);
+		//}
+	//}
+//}
 /**
  * \brief Callback to get the MQTT status update.
  *
@@ -753,6 +771,7 @@ static void mqtt_callback(struct mqtt_module *module_inst, int type, union mqtt_
                 mqtt_subscribe(module_inst, GAME_TOPIC_IN, 2, SubscribeHandlerGameTopic);
                 mqtt_subscribe(module_inst, LED_TOPIC, 2, SubscribeHandlerLedTopic);
 				mqtt_subscribe(module_inst, LED_TOPIC, 2, SubscribeHandler);
+				//mqtt_subscribe(module_inst, SERVO_TOPIC, 2, SubscribeHandlerServo);
                 // mqtt_subscribe(module_inst, IMU_TOPIC, 2, SubscribeHandlerImuTopic);
                 // mqtt_subscribe(module_inst, DISTANCE_TOPIC, 2, SubscribeHandlerDistanceTopic);
                 /* Enable USART receiving callback. */
@@ -971,7 +990,7 @@ static void MQTT_HandleNauMessages(void)
 {
 	struct NauPacket NauDataVar;
 	if (pdPASS == xQueueReceive(xQueueNauBuffer, &NauDataVar, 0)) {
-		snprintf(mqtt_msg, 63, "{\"test\":%d }", NauDataVar.nau);
+		snprintf(mqtt_msg, 63, "{\"nau_i\":%d,  \"nau_f\": %d}", NauDataVar.nau_i, NauDataVar.nau_f);
 		mqtt_publish(&mqtt_inst, NAU_TOPIC, mqtt_msg, strlen(mqtt_msg), 1, 0);
 	}
 }
@@ -1179,8 +1198,8 @@ int WifiAddTestDataToQueue(struct TestPacket *test)
 	return error;
 }
 
-int WifiAddNauDataToQueue(struct NauPacket *test)
+int WifiAddNauDataToQueue(struct NauPacket *nau)
 {
-	int error = xQueueSend(xQueueNauBuffer, test, (TickType_t)10);
+	int error = xQueueSend(xQueueNauBuffer, nau, (TickType_t)10);
 	return error;
 }

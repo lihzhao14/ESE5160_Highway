@@ -23,6 +23,7 @@ Thread for ESE516 Spring (Online) Edition
 #include "gfx_mono.h"
 #include "main.h"
 #include "servo/servo.h"
+#include "nau7802/nau7802.h"
 
 /******************************************************************************
  * Defines
@@ -80,12 +81,26 @@ void vUiHandlerTask(void *pvParameters)
     gfx_mono_draw_string("HIGHWAY", 0, 18, &sysfont);
 	uint8_t count = 0;
 	bool servo_flag = false;
+	I2cInitializeDriver();
+	ADCchip_Init();
 	
 
     // Here we start the loop for the UI State Machine
     while (1) {
+		ADC_StartConversion();
+		struct NauPacket nauvar;
 		
-
+		while ((ADC_ReadReg(PU_CTRL_ADDR)&CR_Msk) != CR_DATA_RDY);
+		uint32_t ADC_value=ADC_Read_Conversion_Data();
+		int ADC_Array[2];
+		Value_conversion(ADC_value,ADC_Array);
+		char help[64];
+		//snprintf(help, 64, "input vol = VIN1P - VIN1N = %d\r\n",ADC_Array[0]);
+		nauvar.nau_i = ADC_Array[0];
+		nauvar.nau_f = ADC_Array[1];
+		
+		int error = WifiAddNauDataToQueue(&nauvar);
+		
 		
         //switch (uiState) {
             //case (UI_STATE_IGNORE_PRESSES): {
@@ -183,7 +198,7 @@ void vUiHandlerTask(void *pvParameters)
         //}
 		
         // After execution, you can put a thread to sleep for some time.
-        vTaskDelay(50);
+        vTaskDelay(200);
     }
 }
 

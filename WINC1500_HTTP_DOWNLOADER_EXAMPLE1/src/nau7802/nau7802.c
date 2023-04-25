@@ -237,3 +237,51 @@ uint32_t ADC_Read_Conversion_Data(void)
 	//((rdata[0] << 16) | (rdata[1] << 8) | rdata[2]);
 	return result;
 }
+
+void Value_conversion(int value,int final[2]){
+	float calibrate_adc;
+	float gain;
+	float offset;
+	uint8_t gain_reg[4];
+	uint8_t offset_reg[3];
+	//int final[2];
+	gain_reg[0]=ADC_ReadReg(GCAL1_B3_ADDR);
+	gain_reg[1]=ADC_ReadReg(GCAL1_B2_ADDR);
+	gain_reg[2]=ADC_ReadReg(GCAL1_B1_ADDR);
+	gain_reg[3]=ADC_ReadReg(GCAL1_B0_ADDR);
+	offset_reg[0]=ADC_ReadReg(OCAL1_B2_ADDR);
+	offset_reg[1]=ADC_ReadReg(OCAL1_B1_ADDR);
+	offset_reg[2]=ADC_ReadReg(OCAL1_B0_ADDR);
+	
+	char help[32];
+	for(int j=0;j<4;j++)
+	{
+		//snprintf(help, 32, "gain_reg[%d] = %d\r\n",j,gain_reg[j]);
+		//SerialConsoleWriteString(help);
+		//snprintf(help, 32, "offset_reg [%d]= %d\r\n",j%4,offset_reg[j%4]);
+		//SerialConsoleWriteString(help);
+	}
+
+	for(int i=31;i>=0;i--){
+		gain+=(float)(((gain_reg[3-i/8]>>(i%8))&0x01)*(2<<(i-23)*10000));
+	}
+	for(int i=22;i>=0;i--){
+		offset+=(float)(((offset_reg[2-i/8]>>(i%8))&0x01)*(2<<(i-23)*10000));
+	}
+	offset*=(float)(1-(offset_reg[0]>>7)&0x01);
+	snprintf(help, 32, " gain= %d\r\n",gain);
+	SerialConsoleWriteString(help);
+	snprintf(help, 32, "final offset= %d\r\n",offset);
+	SerialConsoleWriteString(help);
+	
+	calibrate_adc=(float)gain/10000*((float)value-(float)offset/10000);
+	
+	final[0]=(int)calibrate_adc;
+	final[1]=10000*(calibrate_adc-final[0]);
+	snprintf(help, 32, "final_int= %d\r\n",final[0]);
+	SerialConsoleWriteString(help);
+	snprintf(help, 32, "final_decimal= %d\r\n",final[1]);
+	SerialConsoleWriteString(help);
+	//return final;
+	//final=(float)((float)value / 16777216) * (float)(3.14);
+}
