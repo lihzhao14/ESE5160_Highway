@@ -32,6 +32,7 @@ QueueHandle_t xQueueGameBuffer = NULL;      ///< Queue to send the next play to 
 QueueHandle_t xQueueImuBuffer = NULL;       ///< Queue to send IMU data to the cloud
 QueueHandle_t xQueueDistanceBuffer = NULL;  ///< Queue to send the distance to the cloud
 QueueHandle_t xQueueTestBuffer = NULL;  ///< Queue to send the distance to the cloud
+QueueHandle_t xQueueNauBuffer = NULL;  ///< Queue to send the distance to the cloud
 
 /*HTTP DOWNLOAD RELATED DEFINES AND VARIABLES*/
 
@@ -77,6 +78,7 @@ static void MQTT_InitRoutine(void);
 static void MQTT_HandleGameMessages(void);
 static void MQTT_HandleImuMessages(void);
 static void MQTT_HandleTestMessages(void);
+static void MQTT_HandleNauMessages(void);
 static void HTTP_DownloadFileInit(void);
 static void HTTP_DownloadFileTransaction(void);
 /******************************************************************************
@@ -941,6 +943,7 @@ static void MQTT_HandleTransactions(void)
     MQTT_HandleGameMessages();
     MQTT_HandleImuMessages();
 	MQTT_HandleTestMessages();
+	MQTT_HandleNauMessages();
 
     // Handle MQTT messages
     if (mqtt_inst.isConnected) mqtt_yield(&mqtt_inst, 100);
@@ -961,6 +964,15 @@ static void MQTT_HandleTestMessages(void)
 	if (pdPASS == xQueueReceive(xQueueTestBuffer, &TestDataVar, 0)) {
 		snprintf(mqtt_msg, 63, "{\"test\":%d }", TestDataVar.test);
 		mqtt_publish(&mqtt_inst, TEST_TOPIC, mqtt_msg, strlen(mqtt_msg), 1, 0);
+	}
+}
+
+static void MQTT_HandleNauMessages(void)
+{
+	struct NauPacket NauDataVar;
+	if (pdPASS == xQueueReceive(xQueueNauBuffer, &NauDataVar, 0)) {
+		snprintf(mqtt_msg, 63, "{\"test\":%d }", NauDataVar.nau);
+		mqtt_publish(&mqtt_inst, NAU_TOPIC, mqtt_msg, strlen(mqtt_msg), 1, 0);
 	}
 }
 
@@ -1006,9 +1018,10 @@ void vWifiTask(void *pvParameters)
     xQueueImuBuffer = xQueueCreate(5, sizeof(struct ImuDataPacket));
     xQueueGameBuffer = xQueueCreate(2, sizeof(struct GameDataPacket));
 	xQueueTestBuffer = xQueueCreate(5, sizeof(struct TestPacket));
+	xQueueNauBuffer = xQueueCreate(5, sizeof(struct NauPacket));
     xQueueDistanceBuffer = xQueueCreate(5, sizeof(uint16_t));
 
-    if (xQueueWifiState == NULL || xQueueImuBuffer == NULL || xQueueGameBuffer == NULL || xQueueDistanceBuffer == NULL || xQueueTestBuffer == NULL) {
+    if (xQueueWifiState == NULL || xQueueImuBuffer == NULL || xQueueGameBuffer == NULL || xQueueDistanceBuffer == NULL || xQueueTestBuffer == NULL || xQueueNauBuffer) {
         SerialConsoleWriteString("ERROR Initializing Wifi Data queues!\r\n");
     }
 
@@ -1163,5 +1176,11 @@ int WifiAddGameDataToQueue(struct GameDataPacket *game)
 int WifiAddTestDataToQueue(struct TestPacket *test)
 {
 	int error = xQueueSend(xQueueTestBuffer, test, (TickType_t)10);
+	return error;
+}
+
+int WifiAddNauDataToQueue(struct NauPacket *test)
+{
+	int error = xQueueSend(xQueueNauBuffer, test, (TickType_t)10);
 	return error;
 }

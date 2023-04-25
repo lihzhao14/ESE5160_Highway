@@ -492,6 +492,7 @@ BaseType_t CLI_ServoClose(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const i
 
 BaseType_t CLI_SendWeightData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
 {
+	struct NauPacket nauvar;
 	//SerialConsoleWriteString( "hello  NAU7802!\r\n");
 	I2cInitializeDriver();
 	//SerialConsoleWriteString( "I2C Initial!\r\n");
@@ -512,7 +513,12 @@ BaseType_t CLI_SendWeightData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, con
 	//snprintf(help, 64, "input vol = VIN1P - VIN1N = %.2f\r\n",((float)i32ConversionData / 16777216) * (float)(3.14));
 	snprintf(help, 64, "input vol = VIN1P - VIN1N = %d\r\n",ADC_value);
 	SerialConsoleWriteString(help);
+	nauvar.nau = ADC_value;
 	
+	int error = WifiAddNauDataToQueue(&nauvar);
+	if (error == pdTRUE) {
+		snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Nau Data MQTT Post\r\n");
+	}
 	return pdFALSE;
 }
 

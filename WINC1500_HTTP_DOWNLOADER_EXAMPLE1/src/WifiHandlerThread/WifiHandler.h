@@ -93,6 +93,10 @@ struct TestPacket {
 	uint8_t test;
 };
 
+struct NauPacket {
+	uint32_t nau;
+};
+
 /* Max size of UART buffer. */
 #define MAIN_CHAT_BUFFER_SIZE 64
 
@@ -116,6 +120,7 @@ struct TestPacket {
 #define DISTANCE_TOPIC "P1_DISTANCE_ESE516_T9"  // Students to change to an unique identifier for each device! Distance Data
 #define TEMPERATURE_TOPIC "P1_TEMPERATURE_ESE516_T9" // Students to change to an unique identifier for each device! Distance Data
 #define TEST_TOPIC "TEST_TOPIC_516_T9"          // used to test whether MQTT can properly work
+#define NAU_TOPIC "NAU_TOPIC_516_T9"          // used to test whether MQTT can properly work
 
 #else
 /* Chat MQTT topic. */
@@ -166,6 +171,7 @@ int WifiAddDistanceDataToQueue(uint16_t *distance);
 int WifiAddImuDataToQueue(struct ImuDataPacket *imuPacket);
 int WifiAddGameDataToQueue(struct GameDataPacket *game);
 int WifiAddTestDataToQueue(struct TestPacket *test);
+int WifiAddNauDataToQueue(struct NauPacket *nau);
 void SubscribeHandlerLedTopic(MessageData *msgData);
 void SubscribeHandlerGameTopic(MessageData *msgData);
 void SubscribeHandlerImuTopic(MessageData *msgData);
