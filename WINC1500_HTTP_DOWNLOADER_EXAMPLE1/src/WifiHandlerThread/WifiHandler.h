@@ -181,7 +181,7 @@ void SubscribeHandlerLedTopic(MessageData *msgData);
 void SubscribeHandlerGameTopic(MessageData *msgData);
 void SubscribeHandlerImuTopic(MessageData *msgData);
 void SubscribeHandlerDistanceTopic(MessageData *msgData);
-//void SubscribeHandlerServo(MessageData *msgData);
+void SubscribeHandlerServo(MessageData *msgData);
 void configure_extint_channel(void);
 void configure_extint_callbacks(void);
 

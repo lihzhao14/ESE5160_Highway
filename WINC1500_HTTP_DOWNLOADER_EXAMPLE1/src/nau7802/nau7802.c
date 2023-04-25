@@ -270,18 +270,18 @@ void Value_conversion(int value,int final[2]){
 	}
 	offset*=(float)(1-(offset_reg[0]>>7)&0x01);
 	snprintf(help, 32, " gain= %d\r\n",gain);
-	SerialConsoleWriteString(help);
-	snprintf(help, 32, "final offset= %d\r\n",offset);
-	SerialConsoleWriteString(help);
+	//SerialConsoleWriteString(help);
+	//snprintf(help, 32, "final offset= %d\r\n",offset);
+	//SerialConsoleWriteString(help);
 	
 	calibrate_adc=(float)gain/10000*((float)value-(float)offset/10000);
 	
 	final[0]=(int)calibrate_adc;
 	final[1]=10000*(calibrate_adc-final[0]);
-	snprintf(help, 32, "final_int= %d\r\n",final[0]);
-	SerialConsoleWriteString(help);
-	snprintf(help, 32, "final_decimal= %d\r\n",final[1]);
-	SerialConsoleWriteString(help);
+	//snprintf(help, 32, "final_int= %d\r\n",final[0]);
+	//SerialConsoleWriteString(help);
+	//snprintf(help, 32, "final_decimal= %d\r\n",final[1]);
+	//SerialConsoleWriteString(help);
 	//return final;
 	//final=(float)((float)value / 16777216) * (float)(3.14);
 }
