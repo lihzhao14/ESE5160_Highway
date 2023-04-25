@@ -80,6 +80,7 @@ void vUiHandlerTask(void *pvParameters)
     gfx_mono_draw_string("ESE516", 0, 8, &sysfont);
     gfx_mono_draw_string("HIGHWAY", 0, 18, &sysfont);
 	uint8_t count = 0;
+	char oled_display[64];
 	bool servo_flag = false;
 	I2cInitializeDriver();
 	ADCchip_Init();
@@ -100,6 +101,17 @@ void vUiHandlerTask(void *pvParameters)
 		nauvar.nau_f = ADC_Array[1];
 		
 		int error = WifiAddNauDataToQueue(&nauvar);
+		if(count!=100)
+		{
+			count = count + 1;
+		}
+		else
+		{
+			count = 0;
+			gfx_mono_init();
+			sprintf(oled_display, "%d.%d", ADC_Array[0], ADC_Array[1]);
+			gfx_mono_draw_string(oled_display, 0, 8, &sysfont);
+		}
 		
 		
         //switch (uiState) {
