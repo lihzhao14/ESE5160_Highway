@@ -97,8 +97,10 @@ struct TestPacket {
 };
 
 struct NauPacket {
-	uint32_t nau_i;
-	uint32_t nau_f;
+	uint16_t nau_i;
+	uint16_t nau_f;
+	//uint32_t nau_i;
+	//uint32_t nau_f;
 };
 
 /* Max size of UART buffer. */

@@ -80,6 +80,9 @@ void vUiHandlerTask(void *pvParameters)
     gfx_mono_draw_string("ESE516", 0, 8, &sysfont);
     gfx_mono_draw_string("HIGHWAY", 0, 18, &sysfont);
 	uint8_t count = 0;
+	uint8_t count_nau = 0;
+	uint16_t nau_i_total = 0;
+	uint16_t nau_f_total = 0;
 	char oled_display[64];
 	bool servo_flag = false;
 	I2cInitializeDriver();
@@ -93,14 +96,33 @@ void vUiHandlerTask(void *pvParameters)
 		
 		while ((ADC_ReadReg(PU_CTRL_ADDR)&CR_Msk) != CR_DATA_RDY);
 		uint32_t ADC_value=ADC_Read_Conversion_Data();
-		int ADC_Array[2];
+		uint16_t ADC_Array[2];
+		//int ADC_Array[2];
 		Value_conversion(ADC_value,ADC_Array);
 		char help[64];
 		//snprintf(help, 64, "input vol = VIN1P - VIN1N = %d\r\n",ADC_Array[0]);
 		nauvar.nau_i = ADC_Array[0];
 		nauvar.nau_f = ADC_Array[1];
+		//nau_i_total = ADC_Array[0] + nau_i_total;
+		//nau_f_total = ADC_Array[1] + nau_f_total;
 		
 		int error = WifiAddNauDataToQueue(&nauvar);
+		//if(count_nau!=3)
+		//{
+			//count_nau = count_nau + 1;
+		//}
+		//else
+		//{
+			//count_nau = 0;
+			//nauvar.nau_i = nau_i_total/3;
+			//nauvar.nau_f = nau_f_total/3;
+			//nau_i_total = 0;
+			//nau_i_total = 0;
+			//int error = WifiAddNauDataToQueue(&nauvar);
+		//}
+		//
+		
+		
 		if(count!=100)
 		{
 			count = count + 1;
@@ -210,7 +232,7 @@ void vUiHandlerTask(void *pvParameters)
         //}
 		
         // After execution, you can put a thread to sleep for some time.
-        vTaskDelay(200);
+        vTaskDelay(50);
     }
 }
 
