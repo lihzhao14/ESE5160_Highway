@@ -34,8 +34,6 @@ Thread for ESE516 Spring (Online) Edition
  * Variables
  ******************************************************************************/
 uiStateMachine_state uiState;         ///< Holds the current state of the UI
-struct GameDataPacket gamePacketIn;   ///< Holds the game packet to show
-struct GameDataPacket gamePacketOut;  ///< Holds the game packet to send back
 volatile uint8_t red = 0;             ///< Holds the color of the red LEDs. Can be set by MQTT
 volatile uint8_t green = 100;         ///< Holds the color of the green LEDs. Can be set by MQTT
 volatile uint8_t blue = 50;           ///< Holds the color of the blue LEDs. Can be set by MQTT
@@ -236,25 +234,6 @@ void vUiHandlerTask(void *pvParameters)
     }
 }
 
-/******************************************************************************
- * Functions
- ******************************************************************************/
-void UiOrderShowMoves(struct GameDataPacket *packetIn)
-{
-    memcpy(&gamePacketIn, packetIn, sizeof(gamePacketIn));
-    uiState = UI_STATE_SHOW_MOVES;
-    playIsDone = false;  // Set play to false
-}
-
-bool UiPlayIsDone(void)
-{
-    return playIsDone;
-}
-
-struct GameDataPacket *UiGetGamePacketOut(void)
-{
-    return &gamePacketOut;
-}
 
 /**
  int UIChangeColors(uint8_t r, uint8_t g, uint8_t b);

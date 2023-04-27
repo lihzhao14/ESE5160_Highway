@@ -29,7 +29,6 @@ volatile char mqtt_msg_temp[64] = "{\"d\":{\"temp\":17}}\"";
 volatile uint32_t temperature = 1;
 int8_t wifiStateMachine = WIFI_MQTT_INIT;   ///< Global variable that determines the state of the WIFI handler.
 QueueHandle_t xQueueWifiState = NULL;       ///< Queue to determine the Wifi state from other threads.
-QueueHandle_t xQueueGameBuffer = NULL;      ///< Queue to send the next play to the cloud
 QueueHandle_t xQueueImuBuffer = NULL;       ///< Queue to send IMU data to the cloud
 QueueHandle_t xQueueDistanceBuffer = NULL;  ///< Queue to send the distance to the cloud
 QueueHandle_t xQueueTestBuffer = NULL;  ///< Queue to send the distance to the cloud
@@ -76,7 +75,6 @@ static unsigned char mqtt_send_buffer[MAIN_MQTT_BUFFER_SIZE];
  * Forward Declarations
  ******************************************************************************/
 static void MQTT_InitRoutine(void);
-static void MQTT_HandleGameMessages(void);
 static void MQTT_HandleImuMessages(void);
 static void MQTT_HandleTestMessages(void);
 static void MQTT_HandleNauMessages(void);
@@ -651,39 +649,6 @@ void SubscribeHandlerLedTopic(MessageData *msgData)
     }
 }
 
-void SubscribeHandlerGameTopic(MessageData *msgData)
-{
-    struct GameDataPacket game;
-    memset(game.game, 0xff, sizeof(game.game));
-
-    // Parse input. The start string must be '{"game":['
-    if (strncmp(msgData->message->payload, "{\"game\":[", 9) == 0) {
-        LogMessage(LOG_DEBUG_LVL, "\r\nGame message received!\r\n");
-        LogMessage(LOG_DEBUG_LVL, "\r\n %.*s", msgData->topicName->lenstring.len, msgData->topicName->lenstring.data);
-        LogMessage(LOG_DEBUG_LVL, "%.*s", msgData->message->payloadlen, (char *)msgData->message->payload);
-
-        int nb = 0;
-        char *p = &msgData->message->payload[9];
-        while (nb < GAME_SIZE && *p) {
-            game.game[nb++] = strtol(p, &p, 10);
-            if (*p != ',') break;
-            p++; /* skip, */
-        }
-        LogMessage(LOG_DEBUG_LVL, "\r\nParsed Command: ");
-        for (int i = 0; i < GAME_SIZE; i++) {
-            LogMessage(LOG_DEBUG_LVL, "%d,", game.game[i]);
-        }
-
-        if (pdTRUE == ControlAddGameData(&game)) {
-            LogMessage(LOG_DEBUG_LVL, "\r\nSent play to control!\r\n");
-        }
-
-    } else {
-        LogMessage(LOG_DEBUG_LVL, "\r\nGame message received but not understood!\r\n");
-        LogMessage(LOG_DEBUG_LVL, "\r\n %.*s", msgData->topicName->lenstring.len, msgData->topicName->lenstring.data);
-        LogMessage(LOG_DEBUG_LVL, "%.*s", msgData->message->payloadlen, (char *)msgData->message->payload);
-    }
-}
 
 void SubscribeHandlerImuTopic(MessageData *msgData)
 {
@@ -768,7 +733,6 @@ static void mqtt_callback(struct mqtt_module *module_inst, int type, union mqtt_
         case MQTT_CALLBACK_CONNECTED:
             if (data->connected.result == MQTT_CONN_RESULT_ACCEPT) {
                 /* Subscribe chat topic. */
-                mqtt_subscribe(module_inst, GAME_TOPIC_IN, 2, SubscribeHandlerGameTopic);
                 mqtt_subscribe(module_inst, LED_TOPIC, 2, SubscribeHandlerLedTopic);
 				mqtt_subscribe(module_inst, LED_TOPIC, 2, SubscribeHandler);
 				mqtt_subscribe(module_inst, SERVO_TOPIC, 2, SubscribeHandlerServo);
@@ -959,7 +923,6 @@ static void MQTT_HandleTransactions(void)
     sw_timer_task(&swt_module_inst);
 
     // Check if data has to be sent!
-    MQTT_HandleGameMessages();
     MQTT_HandleImuMessages();
 	MQTT_HandleTestMessages();
 	MQTT_HandleNauMessages();
@@ -994,31 +957,6 @@ static void MQTT_HandleNauMessages(void)
 		mqtt_publish(&mqtt_inst, NAU_TOPIC, mqtt_msg, strlen(mqtt_msg), 1, 0);
 	}
 }
-
-static void MQTT_HandleGameMessages(void)
-{
-    struct GameDataPacket gamePacket;
-    if (pdPASS == xQueueReceive(xQueueGameBuffer, &gamePacket, 0)) {
-        snprintf(mqtt_msg, 63, "{\"game\":[");
-        for (int iter = 0; iter < GAME_SIZE; iter++) {
-            char numGame[5];
-            if (gamePacket.game[iter] != 0xFF) {
-                snprintf(numGame, 3, "%d", gamePacket.game[iter]);
-                strcat(mqtt_msg, numGame);
-                if (gamePacket.game[iter + 1] != 0xFF && iter + 1 < GAME_SIZE) {
-                    snprintf(numGame, 5, ",");
-                    strcat(mqtt_msg, numGame);
-                }
-            } else {
-                break;
-            }
-        }
-        strcat(mqtt_msg, "]}");
-        LogMessage(LOG_DEBUG_LVL, mqtt_msg);
-        LogMessage(LOG_DEBUG_LVL, "\r\n");
-        mqtt_publish(&mqtt_inst, GAME_TOPIC_OUT, mqtt_msg, strlen(mqtt_msg), 1, 0);
-    }
-}
 /**
  * \brief Main application function.
  *
@@ -1035,12 +973,11 @@ void vWifiTask(void *pvParameters)
     // Create buffers to send data
     xQueueWifiState = xQueueCreate(5, sizeof(uint32_t));
     xQueueImuBuffer = xQueueCreate(5, sizeof(struct ImuDataPacket));
-    xQueueGameBuffer = xQueueCreate(2, sizeof(struct GameDataPacket));
 	xQueueTestBuffer = xQueueCreate(5, sizeof(struct TestPacket));
 	xQueueNauBuffer = xQueueCreate(5, sizeof(struct NauPacket));
     xQueueDistanceBuffer = xQueueCreate(5, sizeof(uint16_t));
 
-    if (xQueueWifiState == NULL || xQueueImuBuffer == NULL || xQueueGameBuffer == NULL || xQueueDistanceBuffer == NULL || xQueueTestBuffer == NULL || xQueueNauBuffer) {
+    if (xQueueWifiState == NULL || xQueueImuBuffer == NULL || xQueueDistanceBuffer == NULL || xQueueTestBuffer == NULL || xQueueNauBuffer) {
         SerialConsoleWriteString("ERROR Initializing Wifi Data queues!\r\n");
     }
 
@@ -1186,12 +1123,6 @@ int WifiAddDistanceDataToQueue(uint16_t *distance)
  * @note
 
 */
-int WifiAddGameDataToQueue(struct GameDataPacket *game)
-{
-    int error = xQueueSend(xQueueGameBuffer, game, (TickType_t)10);
-    return error;
-}
-
 int WifiAddTestDataToQueue(struct TestPacket *test)
 {
 	int error = xQueueSend(xQueueTestBuffer, test, (TickType_t)10);

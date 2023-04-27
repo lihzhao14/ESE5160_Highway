@@ -49,7 +49,6 @@ static const CLI_Command_Definition_t xDistanceSensorGetDistance = {"getdistance
                                                                     (const pdCOMMAND_LINE_CALLBACK)CLI_DistanceSensorGetDistance,
                                                                     0};
 
-static const CLI_Command_Definition_t xSendDummyGameData = {"game", "game: Sends dummy game data\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_SendDummyGameData, 0};
 static const CLI_Command_Definition_t xI2cScan = {"i2c", "i2c: Scans I2C bus\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_i2cScan, 0};
 static const CLI_Command_Definition_t xSendTestData = {"test", "test: Sends test data\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_SendTestData, 0};
 static const CLI_Command_Definition_t xSendWeightData = {"nau", "nau: Sends weight data\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_SendWeightData, 0};
@@ -87,7 +86,6 @@ void vCommandConsoleTask(void *pvParameters)
     FreeRTOS_CLIRegisterCommand(&xNeotrellisTurnLEDCommand);
     FreeRTOS_CLIRegisterCommand(&xNeotrellisProcessButtonCommand);
     FreeRTOS_CLIRegisterCommand(&xDistanceSensorGetDistance);
-    FreeRTOS_CLIRegisterCommand(&xSendDummyGameData);
 	FreeRTOS_CLIRegisterCommand(&xSendTestData);
 	FreeRTOS_CLIRegisterCommand(&xI2cScan);
 	FreeRTOS_CLIRegisterCommand(&xSendWeightData);
@@ -443,28 +441,6 @@ BaseType_t CLI_DistanceSensorGetDistance(int8_t *pcWriteBuffer, size_t xWriteBuf
                                  for more information on how to use the FreeRTOS CLI.
 
  */
-BaseType_t CLI_SendDummyGameData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
-{
-    struct GameDataPacket gamevar;
-
-    gamevar.game[0] = 0;
-    gamevar.game[1] = 1;
-    gamevar.game[2] = 2;
-    gamevar.game[3] = 3;
-    gamevar.game[4] = 4;
-    gamevar.game[5] = 5;
-    gamevar.game[6] = 6;
-    gamevar.game[7] = 7;
-    gamevar.game[8] = 8;
-    gamevar.game[9] = 9;
-    gamevar.game[10] = 0xFF;
-
-    int error = WifiAddGameDataToQueue(&gamevar);
-    if (error == pdTRUE) {
-        snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Dummy Game Data MQTT Post\r\n");
-    }
-    return pdFALSE;
-}
 
 BaseType_t CLI_SendTestData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
 {
