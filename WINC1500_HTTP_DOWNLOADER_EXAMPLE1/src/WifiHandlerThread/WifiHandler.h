@@ -72,20 +72,6 @@ typedef enum {
     CANCELED = 0x20        /*!< Download canceled. */
 } download_state;
 
-// Structure definition that holds IMU data
-struct ImuDataPacket {
-    int16_t xmg;
-    int16_t ymg;
-    int16_t zmg;
-};
-
-
-// Structure to hold an RGB LED Color packet
-struct RgbColorPacket {
-    uint8_t red;
-    uint8_t green;
-    uint8_t blue;
-};
 
 // Structure to hold a test packet
 struct TestPacket {
@@ -166,13 +152,9 @@ static const char main_mqtt_broker[] = "broker.hivemq.com";
 void vWifiTask(void *pvParameters);
 void init_storage(void);
 void WifiHandlerSetState(uint8_t state);
-int WifiAddDistanceDataToQueue(uint16_t *distance);
-int WifiAddImuDataToQueue(struct ImuDataPacket *imuPacket);
 int WifiAddTestDataToQueue(struct TestPacket *test);
 int WifiAddNauDataToQueue(struct NauPacket *nau);
 void SubscribeHandlerLedTopic(MessageData *msgData);
-void SubscribeHandlerImuTopic(MessageData *msgData);
-void SubscribeHandlerDistanceTopic(MessageData *msgData);
 void SubscribeHandlerServo(MessageData *msgData);
 void configure_extint_channel(void);
 void configure_extint_callbacks(void);

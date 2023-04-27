@@ -29,8 +29,6 @@ volatile char mqtt_msg_temp[64] = "{\"d\":{\"temp\":17}}\"";
 volatile uint32_t temperature = 1;
 int8_t wifiStateMachine = WIFI_MQTT_INIT;   ///< Global variable that determines the state of the WIFI handler.
 QueueHandle_t xQueueWifiState = NULL;       ///< Queue to determine the Wifi state from other threads.
-QueueHandle_t xQueueImuBuffer = NULL;       ///< Queue to send IMU data to the cloud
-QueueHandle_t xQueueDistanceBuffer = NULL;  ///< Queue to send the distance to the cloud
 QueueHandle_t xQueueTestBuffer = NULL;  ///< Queue to send the distance to the cloud
 QueueHandle_t xQueueNauBuffer = NULL;  ///< Queue to send the distance to the cloud
 
@@ -75,7 +73,6 @@ static unsigned char mqtt_send_buffer[MAIN_MQTT_BUFFER_SIZE];
  * Forward Declarations
  ******************************************************************************/
 static void MQTT_InitRoutine(void);
-static void MQTT_HandleImuMessages(void);
 static void MQTT_HandleTestMessages(void);
 static void MQTT_HandleNauMessages(void);
 static void HTTP_DownloadFileInit(void);
@@ -631,34 +628,7 @@ static void socket_resolve_handler(uint8_t *doamin_name, uint32_t server_ip)
  * \param[in] msgData Data to be received.
  */
 
-void SubscribeHandlerLedTopic(MessageData *msgData)
-{
-    uint8_t rgb[3] = {0, 0, 0};
-    LogMessage(LOG_DEBUG_LVL, "\r\n %.*s", msgData->topicName->lenstring.len, msgData->topicName->lenstring.data);
-    // Will receive something of the style "rgb(222, 224, 189)"
-    if (strncmp(msgData->message->payload, "rgb(", 4) == 0) {
-        char *p = (char *)&msgData->message->payload[4];
-        int nb = 0;
-        while (nb <= 2 && *p) {
-            rgb[nb++] = strtol(p, &p, 10);
-            if (*p != ',') break;
-            p++; /* skip, */
-        }
-        LogMessage(LOG_DEBUG_LVL, "\r\nRGB %d %d %d\r\n", rgb[0], rgb[1], rgb[2]);
-        UIChangeColors(rgb[0], rgb[1], rgb[2]);
-    }
-}
 
-
-void SubscribeHandlerImuTopic(MessageData *msgData)
-{
-    LogMessage(LOG_DEBUG_LVL, "\r\n %.*s", msgData->topicName->lenstring.len, msgData->topicName->lenstring.data);
-}
-
-void SubscribeHandlerDistanceTopic(MessageData *msgData)
-{
-    LogMessage(LOG_DEBUG_LVL, "\r\n %.*s", msgData->topicName->lenstring.len, msgData->topicName->lenstring.data);
-}
 
 void SubscribeHandler(MessageData *msgData)
 {
@@ -733,8 +703,8 @@ static void mqtt_callback(struct mqtt_module *module_inst, int type, union mqtt_
         case MQTT_CALLBACK_CONNECTED:
             if (data->connected.result == MQTT_CONN_RESULT_ACCEPT) {
                 /* Subscribe chat topic. */
-                mqtt_subscribe(module_inst, LED_TOPIC, 2, SubscribeHandlerLedTopic);
-				mqtt_subscribe(module_inst, LED_TOPIC, 2, SubscribeHandler);
+                //mqtt_subscribe(module_inst, LED_TOPIC, 2, SubscribeHandlerLedTopic);
+				//mqtt_subscribe(module_inst, LED_TOPIC, 2, SubscribeHandler);
 				mqtt_subscribe(module_inst, SERVO_TOPIC, 2, SubscribeHandlerServo);
                 // mqtt_subscribe(module_inst, IMU_TOPIC, 2, SubscribeHandlerImuTopic);
                 // mqtt_subscribe(module_inst, DISTANCE_TOPIC, 2, SubscribeHandlerDistanceTopic);
@@ -923,7 +893,6 @@ static void MQTT_HandleTransactions(void)
     sw_timer_task(&swt_module_inst);
 
     // Check if data has to be sent!
-    MQTT_HandleImuMessages();
 	MQTT_HandleTestMessages();
 	MQTT_HandleNauMessages();
 
@@ -931,14 +900,6 @@ static void MQTT_HandleTransactions(void)
     if (mqtt_inst.isConnected) mqtt_yield(&mqtt_inst, 100);
 }
 
-static void MQTT_HandleImuMessages(void)
-{
-    struct ImuDataPacket imuDataVar;
-    if (pdPASS == xQueueReceive(xQueueImuBuffer, &imuDataVar, 0)) {
-        snprintf(mqtt_msg, 63, "{\"imux\":%d, \"imuy\": %d, \"imuz\": %d}", imuDataVar.xmg, imuDataVar.ymg, imuDataVar.zmg);
-        mqtt_publish(&mqtt_inst, IMU_TOPIC, mqtt_msg, strlen(mqtt_msg), 1, 0);
-    }
-}
 
 static void MQTT_HandleTestMessages(void)
 {
@@ -972,12 +933,10 @@ void vWifiTask(void *pvParameters)
     init_state();
     // Create buffers to send data
     xQueueWifiState = xQueueCreate(5, sizeof(uint32_t));
-    xQueueImuBuffer = xQueueCreate(5, sizeof(struct ImuDataPacket));
 	xQueueTestBuffer = xQueueCreate(5, sizeof(struct TestPacket));
 	xQueueNauBuffer = xQueueCreate(5, sizeof(struct NauPacket));
-    xQueueDistanceBuffer = xQueueCreate(5, sizeof(uint16_t));
 
-    if (xQueueWifiState == NULL || xQueueImuBuffer == NULL || xQueueDistanceBuffer == NULL || xQueueTestBuffer == NULL || xQueueNauBuffer) {
+    if (xQueueWifiState == NULL || xQueueTestBuffer == NULL || xQueueNauBuffer == NULL) {
         SerialConsoleWriteString("ERROR Initializing Wifi Data queues!\r\n");
     }
 
@@ -1084,45 +1043,7 @@ void WifiHandlerSetState(uint8_t state)
     }
 }
 
-/**
- void WifiAddImuDataToQueue(struct ImuDataPacket* imuPacket)
- * @brief	Adds an IMU struct to the queue to send via MQTT
- * @param[out]
 
- * @return		Returns pdTrue if data can be added to queue, pdFalse if queue is full
- * @note
-
-*/
-int WifiAddImuDataToQueue(struct ImuDataPacket *imuPacket)
-{
-    int error = xQueueSend(xQueueImuBuffer, imuPacket, (TickType_t)10);
-    return error;
-}
-
-/**
- void WifiAddImuDataToQueue(struct ImuDataPacket* imuPacket)
- * @brief	Adds an Distance data to the queue to send via MQTT
- * @param[out]
-
- * @return		Returns pdTrue if data can be added to queue, pdFalse if queue is full
- * @note
-
-*/
-int WifiAddDistanceDataToQueue(uint16_t *distance)
-{
-    int error = xQueueSend(xQueueDistanceBuffer, distance, (TickType_t)10);
-    return error;
-}
-
-/**
- void WifiAddGameToQueue(struct ImuDataPacket* imuPacket)
- * @brief	Adds an game to the queue to send via MQTT. Game data must have 0xFF IN BYTES THAT WILL NOT BE SENT!
- * @param[out]
-
- * @return		Returns pdTrue if data can be added to queue, pdFalse if queue is full
- * @note
-
-*/
 int WifiAddTestDataToQueue(struct TestPacket *test)
 {
 	int error = xQueueSend(xQueueTestBuffer, test, (TickType_t)10);

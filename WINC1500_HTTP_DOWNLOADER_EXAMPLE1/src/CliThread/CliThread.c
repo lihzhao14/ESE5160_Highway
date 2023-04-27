@@ -28,26 +28,9 @@
  ******************************************************************************/
 static const char pcWelcomeMessage[]  = "FreeRTOS CLI.\r\nType Help to view a list of registered commands.\r\n";
 
-static const CLI_Command_Definition_t xImuGetCommand = {"imu", "imu: Returns a value from the IMU\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_GetImuData, 0};
-
 static const CLI_Command_Definition_t xOTAUCommand = {"fw", "fw: Download a file and perform an FW update\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_OTAU, 0};
 
 static const CLI_Command_Definition_t xResetCommand = {"reset", "reset: Resets the device\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_ResetDevice, 0};
-
-static const CLI_Command_Definition_t xNeotrellisTurnLEDCommand = {"led",
-                                                                   "led [keynum][R][G][B]: Sets the given LED to the given R,G,B values.\r\n",
-                                                                   (const pdCOMMAND_LINE_CALLBACK)CLI_NeotrellisSetLed,
-                                                                   4};
-
-static const CLI_Command_Definition_t xNeotrellisProcessButtonCommand = {"getbutton",
-                                                                         "getbutton: Processes and prints the FIFO button buffer from the seesaw.\r\n",
-                                                                         (const pdCOMMAND_LINE_CALLBACK)CLI_NeotrellProcessButtonBuffer,
-                                                                         0};
-
-static const CLI_Command_Definition_t xDistanceSensorGetDistance = {"getdistance",
-                                                                    "getdistance: Returns the distance from the US-100 Sensor.\r\n",
-                                                                    (const pdCOMMAND_LINE_CALLBACK)CLI_DistanceSensorGetDistance,
-                                                                    0};
 
 static const CLI_Command_Definition_t xI2cScan = {"i2c", "i2c: Scans I2C bus\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_i2cScan, 0};
 static const CLI_Command_Definition_t xSendTestData = {"test", "test: Sends test data\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_SendTestData, 0};
@@ -80,12 +63,8 @@ void vCommandConsoleTask(void *pvParameters)
 {
     // REGISTER COMMANDS HERE
     FreeRTOS_CLIRegisterCommand(&xOTAUCommand);
-    FreeRTOS_CLIRegisterCommand(&xImuGetCommand);
     FreeRTOS_CLIRegisterCommand(&xClearScreen);
     FreeRTOS_CLIRegisterCommand(&xResetCommand);
-    FreeRTOS_CLIRegisterCommand(&xNeotrellisTurnLEDCommand);
-    FreeRTOS_CLIRegisterCommand(&xNeotrellisProcessButtonCommand);
-    FreeRTOS_CLIRegisterCommand(&xDistanceSensorGetDistance);
 	FreeRTOS_CLIRegisterCommand(&xSendTestData);
 	FreeRTOS_CLIRegisterCommand(&xI2cScan);
 	FreeRTOS_CLIRegisterCommand(&xSendWeightData);
@@ -265,30 +244,6 @@ void CliCharReadySemaphoreGiveFromISR(void)
  * CLI Functions - Define here
  ******************************************************************************/
 
-// Example CLI Command. Reads from the IMU and returns data.
-BaseType_t CLI_GetImuData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
-{
-    static int16_t data_raw_acceleration[3];
-    static float acceleration_mg[3];
-    uint8_t reg;
-    stmdev_ctx_t *dev_ctx = GetImuStruct();
-
-    /* Read output only if new xl value is available */
-    lsm6dso_xl_flag_data_ready_get(dev_ctx, &reg);
-
-    if (reg) {
-        memset(data_raw_acceleration, 0x00, 3 * sizeof(int16_t));
-        lsm6dso_acceleration_raw_get(dev_ctx, data_raw_acceleration);
-        acceleration_mg[0] = lsm6dso_from_fs2_to_mg(data_raw_acceleration[0]);
-        acceleration_mg[1] = lsm6dso_from_fs2_to_mg(data_raw_acceleration[1]);
-        acceleration_mg[2] = lsm6dso_from_fs2_to_mg(data_raw_acceleration[2]);
-
-        snprintf((char *)pcWriteBuffer, xWriteBufferLen, "Acceleration [mg]:X %d\tY %d\tZ %d\r\n", (int)acceleration_mg[0], (int)acceleration_mg[1], (int)acceleration_mg[2]);
-    } else {
-        snprintf((char *)pcWriteBuffer, xWriteBufferLen, "No data ready! \r\n");
-    }
-    return pdFALSE;
-}
 
 // THIS COMMAND USES vt100 TERMINAL COMMANDS TO CLEAR THE SCREEN ON A TERMINAL PROGRAM LIKE TERA TERM
 // SEE http://www.csie.ntu.edu.tw/~r92094/c++/VT100.html for more info
@@ -317,130 +272,7 @@ BaseType_t CLI_ResetDevice(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const 
     return pdFALSE;
 }
 
-/**
- BaseType_t CLI_NeotrellisSetLed( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString )
- * @brief	CLI command to turn on a given LED to a given R,G,B, value
- * @param[out] *pcWriteBuffer. Buffer we can use to write the CLI command response to! See other CLI examples on how we use this to write back!
- * @param[in] xWriteBufferLen. How much we can write into the buffer
- * @param[in] *pcCommandString. Buffer that contains the complete input. You will find the additional arguments, if needed. Please see
- https://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_CLI/FreeRTOS_Plus_CLI_Implementing_A_Command.html#Example_Of_Using_FreeRTOS_CLIGetParameter
- Example 3
 
- * @return		Returns pdFALSE if the CLI command finished.
- * @note         Please see https://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_CLI/FreeRTOS_Plus_CLI_Accessing_Command_Line_Parameters.html
-                                 for more information on how to use the FreeRTOS CLI.
-
- */
-BaseType_t CLI_NeotrellisSetLed(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
-{
-    snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Students to fill out!");
-    // Check code SeesawSetLed and SeesawSetLed
-    // How do you get parameters? Checl link in comments!
-    // Check that the input is sanitized: Key between 0-15, RGB between 0-255. Print if there is an error!
-    // return pdFalse to tell the FreeRTOS CLI your call is done and does not need to call again.
-    // This function expects 4 arguments inside pcCommandString: key, R, G, B.
-    return pdFALSE;
-}
-
-/**
- BaseType_t CLI_NeotrellProcessButtonBuffer( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString )
- * @brief	CLI command to process the Neotrellis FIFO button buffer. The Seesaw driver will store all button events until we read them.
- This function will read all the events in the buffer and print the action of each one. For example this is a print:
-                 Key 10 pressed
-                 Key 11 pressed
-                 Key 11 released
-                 Key 10 released
-                 The function will print "Buffer Empty" if there is nothing on the button buffer.
- * @param[out] *pcWriteBuffer. Buffer we can use to write the CLI command response to! See other CLI examples on how we use this to write back!
- * @param[in] xWriteBufferLen. How much we can write into the buffer
- * @param[in] *pcCommandString. Buffer that contains the complete input. You will find the additional arguments, if needed. Please see
- https://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_CLI/FreeRTOS_Plus_CLI_Implementing_A_Command.html#Example_Of_Using_FreeRTOS_CLIGetParameter
- Example 3
-
- * @return		Returns pdFALSE if the CLI command finished.
- * @note         Please see https://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_CLI/FreeRTOS_Plus_CLI_Accessing_Command_Line_Parameters.html
-                                 for more information on how to use the FreeRTOS CLI.
-
- */
-BaseType_t CLI_NeotrellProcessButtonBuffer(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
-{
-    // See functions SeesawGetKeypadCount and SeesawReadKeypad
-    // Returns the number of key events currently on the Seesaw Keypad
-
-    // Returns the number of requested events in the Seesaw FIFO buffer into the buffer variable
-
-    //	NEO_TRELLIS_SEESAW_KEY(number) ;
-    // snprintf(pcWriteBuffer,xWriteBufferLen, "count: %d\num_req_eve:%d\t\n",count,num_req_eve);
-    // Print to pcWriteBuffer in order.
-    // If the string is too long to print, print what you can.
-    // The function you write will be useful in the future.
-    uint8_t buffer[64];
-    uint8_t count = SeesawGetKeypadCount();
-    if (count >= 1) {
-        int32_t res = SeesawReadKeypad(buffer, 1);
-        if (res == 0) {
-            uint8_t pos, press;
-            press = buffer[0] & 0x3;
-            pos = buffer[0] >> 2;
-            int num = NEO_TRELLIS_SEESAW_KEY(pos);
-            if (press == 0x2) {
-                snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Button #%d is released\r\n", NEO_TRELLIS_SEESAW_KEY(num));
-            } else if (press == 0x3) {
-                snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Button #%d is pressed\r\n", NEO_TRELLIS_SEESAW_KEY(num));
-            }
-        }
-        return pdTRUE;
-    } else {
-        pcWriteBuffer = 0;
-        return pdFALSE;
-    }
-}
-
-/**
- BaseType_t CLI_DistanceSensorGetDistance( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString )
- * @brief	Returns distance in mm
- * @param[out] *pcWriteBuffer. Buffer we can use to write the CLI command response to! See other CLI examples on how we use this to write back!
- * @param[in] xWriteBufferLen. How much we can write into the buffer
- * @param[in] *pcCommandString. Buffer that contains the complete input. You will find the additional arguments, if needed. Please see
- https://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_CLI/FreeRTOS_Plus_CLI_Implementing_A_Command.html#Example_Of_Using_FreeRTOS_CLIGetParameter
- Example 3
-
- * @return		Returns pdFALSE if the CLI command finished.
- * @note         Please see https://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_CLI/FreeRTOS_Plus_CLI_Accessing_Command_Line_Parameters.html
-                                 for more information on how to use the FreeRTOS CLI.
-
- */
-BaseType_t CLI_DistanceSensorGetDistance(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
-{
-    uint16_t distance = 0;
-    int error = DistanceSensorGetDistance(&distance, 100);
-    if (0 != error) {
-        snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Sensor Error %d!\r\n", error);
-    } else {
-        snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Distance: %d mm\r\n", distance);
-    }
-
-    error = WifiAddDistanceDataToQueue(&distance);
-    if (error == pdTRUE) {
-        strcat((char *) pcWriteBuffer, "Distance Data MQTT Post\r\n");
-    }
-    return pdFALSE;
-}
-
-/**
- BaseType_t CLI_SendDummyGameData( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString )
- * @brief	Returns dummy game data
- * @param[out] *pcWriteBuffer. Buffer we can use to write the CLI command response to! See other CLI examples on how we use this to write back!
- * @param[in] xWriteBufferLen. How much we can write into the buffer
- * @param[in] *pcCommandString. Buffer that contains the complete input. You will find the additional arguments, if needed. Please see
- https://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_CLI/FreeRTOS_Plus_CLI_Implementing_A_Command.html#Example_Of_Using_FreeRTOS_CLIGetParameter
- Example 3
-
- * @return		Returns pdFALSE if the CLI command finished.
- * @note         Please see https://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_CLI/FreeRTOS_Plus_CLI_Accessing_Command_Line_Parameters.html
-                                 for more information on how to use the FreeRTOS CLI.
-
- */
 
 BaseType_t CLI_SendTestData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
 {

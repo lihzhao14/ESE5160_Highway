@@ -28,21 +28,11 @@ Thread for ESE516 Spring (Online) Edition
 /******************************************************************************
  * Defines
  ******************************************************************************/
-#define BUTTON_PRESSES_MAX 16  ///< Number of maximum button presses to analize in one go
 
 /******************************************************************************
  * Variables
  ******************************************************************************/
-uiStateMachine_state uiState;         ///< Holds the current state of the UI
-volatile uint8_t red = 0;             ///< Holds the color of the red LEDs. Can be set by MQTT
-volatile uint8_t green = 100;         ///< Holds the color of the green LEDs. Can be set by MQTT
-volatile uint8_t blue = 50;           ///< Holds the color of the blue LEDs. Can be set by MQTT
 
-uint8_t pressedKeys = 0;              ///< Variable to count how many presses the player has done
-uint8_t keysToPress = 0;              ///< Variable that holds the number of new keypresses the user should do
-bool playIsDone = false;              ///< Boolean flag to indicate if the player has finished moving.
-                                      ///< Useful for COntrol to determine when to send back a play.
-uint8_t buttons[BUTTON_PRESSES_MAX];  ///< Array to hold button presses
 /******************************************************************************
  * Forward Declarations
  ******************************************************************************/
@@ -67,7 +57,6 @@ void vUiHandlerTask(void *pvParameters)
 {
     // Do initialization code here
 	SerialConsoleWriteString("UI Task Started!");
-    uiState = UI_STATE_IGNORE_PRESSES;  // Initial state
 	configure_tcc();
 	servo_setDuty(2);
 
@@ -137,20 +126,4 @@ void vUiHandlerTask(void *pvParameters)
         // After execution, you can put a thread to sleep for some time.
         vTaskDelay(50);
     }
-}
-
-
-/**
- int UIChangeColors(uint8_t r, uint8_t g, uint8_t b);
- * @brief	Changes the LED colors
- * @param [in]
- * @return
- * @note
-
-*/
-void UIChangeColors(uint8_t r, uint8_t g, uint8_t b)
-{
-    red = r;
-    green = g;
-    blue = b;
 }
