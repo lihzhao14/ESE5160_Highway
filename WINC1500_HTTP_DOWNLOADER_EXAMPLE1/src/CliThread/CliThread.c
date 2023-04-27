@@ -470,7 +470,6 @@ BaseType_t CLI_ServoClose(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const i
 BaseType_t CLI_SendWeightData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
 {
 	struct NauPacket nauvar;
-	I2cInitializeDriver();
 	ADCchip_Init();
 	ADC_StartConversion();
 	
