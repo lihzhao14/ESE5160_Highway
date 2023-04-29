@@ -1,0 +1,273 @@
+T77CC 216:657.563   SEGGER J-Link V7.86h Log File
+T77CC 216:657.654   DLL Compiled: Apr 12 2023 16:04:37
+T77CC 216:657.675   Logging started @ 2023-04-28 22:21
+T77CC 216:657.701 - 64355.740ms
+T77CC 216:673.329 JLINK_ExecCommand("Device = ATSAMD21G18A", ...). 
+T77CC 216:673.608   Device "ATSAMD21G18A" selected.
+T77CC 216:673.950 - 0.590ms returns 0x00
+T77CC 216:706.500 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T77CC 216:710.106 - 3.640ms returns 0x00
+T77CC 216:710.169 JLINK_SetSpeed(4000)
+T77CC 216:710.590 - 0.446ms
+T77CC 216:710.633 JLINK_ResetPullsRESET(OFF)
+T77CC 216:710.653 - 0.029ms
+T77CC 216:710.674 JLINK_Connect()
+T77CC 216:711.648   InitTarget() start
+T77CC 216:711.742    J-Link Script File: Executing InitTarget()
+T77CC 216:711.994   InitTarget()
+T77CC 216:717.838   InitTarget() end - Took 6.03ms
+T77CC 216:719.675   Found SW-DP with ID 0x0BC11477
+T77CC 216:723.857   DPIDR: 0x0BC11477
+T77CC 216:723.878   CoreSight SoC-400 or earlier
+T77CC 216:723.890   Scanning AP map to find all available APs
+T77CC 216:725.147   AP[1]: Stopped AP scan as end of AP map has been reached
+T77CC 216:725.171   AP[0]: AHB-AP (IDR: 0x04770031)
+T77CC 216:725.185   Iterating through AP map to find AHB-AP to use
+T77CC 216:727.256   AP[0]: Core found
+T77CC 216:727.286   AP[0]: AHB-AP ROM base: 0x41003000
+T77CC 216:728.106   CPUID register: 0x410CC601. Implementer code: 0x41 (ARM)
+T77CC 216:728.142   Found Cortex-M0 r0p1, Little endian.
+T77CC 216:729.113   -- Max. mem block: 0x00002BA8
+T77CC 216:729.946   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T77CC 216:730.663   CPU_WriteMem(4 bytes @ 0xE000EDF0)
+T77CC 216:731.318   CPU_ReadMem(4 bytes @ 0xE0002000)
+T77CC 216:732.203   FPUnit: 4 code (BP) slots and 0 literal slots
+T77CC 216:732.213   CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T77CC 216:732.776   CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T77CC 216:733.421   CPU_ReadMem(4 bytes @ 0xE0001000)
+T77CC 216:734.081   CPU_WriteMem(4 bytes @ 0xE0001000)
+T77CC 216:734.776   CoreSight components:
+T77CC 216:734.793   ROMTbl[0] @ 41003000
+T77CC 216:734.800   CPU_ReadMem(64 bytes @ 0x41003000)
+T77CC 216:736.057   CPU_ReadMem(32 bytes @ 0xE00FFFE0)
+T77CC 216:736.883   [0][0]: E00FF000 CID B105100D PID 000BB4C0 ROM Table
+T77CC 216:736.900   ROMTbl[1] @ E00FF000
+T77CC 216:736.910   CPU_ReadMem(64 bytes @ 0xE00FF000)
+T77CC 216:738.062   CPU_ReadMem(32 bytes @ 0xE000EFE0)
+T77CC 216:739.019   [1][0]: E000E000 CID B105E00D PID 000BB008 SCS
+T77CC 216:739.032   CPU_ReadMem(32 bytes @ 0xE0001FE0)
+T77CC 216:739.872   [1][1]: E0001000 CID B105E00D PID 000BB00A DWT
+T77CC 216:739.893   CPU_ReadMem(32 bytes @ 0xE0002FE0)
+T77CC 216:740.853   [1][2]: E0002000 CID B105E00D PID 000BB00B FPB
+T77CC 216:740.868   CPU_ReadMem(32 bytes @ 0x41006FE0)
+T77CC 216:741.705   [0][1]: 41006000 CID B105900D PID 001BB932 MTB-M0+
+T77CC 216:741.716 - 31.044ms returns 0x00
+T77CC 216:741.816 JLINK_ExecCommand("ExcludeFlashCacheRange 0x0 - 0x40000", ...). 
+T77CC 216:741.826 - 0.006ms returns 0x00
+T77CC 216:741.842 JLINK_Halt()
+T77CC 216:745.639 - 3.810ms returns 0x00
+T77CC 216:746.915 JLINK_JTAG_GetDeviceID(DeviceIndex = 0)
+T77CC 216:746.935 - 0.023ms returns 0
+T77CC 216:746.945 JLINK_ReadMemU32(0x41002018, 0x1 Items)
+T77CC 216:746.971   CPU_ReadMem(4 bytes @ 0x41002018)
+T77CC 216:747.673   Data:  05 03 01 10
+T77CC 216:747.690 - 0.748ms returns 1 (0x1)
+T59B8 216:756.184 JLINK_IsHalted()
+T59B8 216:757.056 - 0.888ms returns TRUE
+T59B8 216:757.083 JLINK_GetMOEs(...)
+T59B8 216:757.096   CPU_ReadMem(4 bytes @ 0xE000ED30)
+T59B8 216:757.768 - 0.692ms returns 0x01
+T59B8 216:757.785 JLINK_ReadReg(R15 (PC))
+T59B8 216:757.795 - 0.013ms returns 0x000001FC
+T77CC 216:767.457 JLINK_BeginDownload(Flags = 0x00000000)
+T77CC 216:767.481 - 0.027ms
+T77CC 216:767.499 JLINK_WriteMem(0x00000000, 0x4E6C Bytes, ...)
+T77CC 216:767.508   Data:  B8 29 00 20 09 3E 00 00 01 3F 00 00 01 3F 00 00 ...
+T77CC 216:767.808   completely In flash
+T77CC 216:767.822 - 0.326ms returns 0x4E6C
+T77CC 216:768.021 JLINK_WriteMem(0x00004E6C, 0x70 Bytes, ...)
+T77CC 216:768.031   Data:  40 1F 00 00 08 00 00 00 11 01 00 00 10 00 00 20 ...
+T77CC 216:768.102   completely In flash
+T77CC 216:768.111 - 0.092ms returns 0x70
+T59B8 216:961.685 JLINK_IsHalted()
+T59B8 216:961.710 - 0.026ms returns TRUE
+T77CC 216:962.623 JLINK_EndDownload()
+T77CC 216:963.124   CPU_ReadMem(4 bytes @ 0x41006004)
+T77CC 216:963.662   CPU_ReadMem(4 bytes @ 0xE000ED90)
+T77CC 216:964.255    -- --------------------------------------
+T77CC 216:964.266   Flash bank @ 0x00000000: Default: L2 verify disabled because algorithm performs L1 verify
+T77CC 216:964.272    -- Start of determining dirty areas in flash cache
+T77CC 216:964.279    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000000 if necessary
+T77CC 216:964.301    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000100 if necessary
+T77CC 216:964.308    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000200 if necessary
+T77CC 216:964.313    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000300 if necessary
+T77CC 216:964.319    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000400 if necessary
+T77CC 216:964.324    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000500 if necessary
+T77CC 216:964.330    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000600 if necessary
+T77CC 216:964.336    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000700 if necessary
+T77CC 216:964.341    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000800 if necessary
+T77CC 216:964.347    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000900 if necessary
+T77CC 216:964.352    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000A00 if necessary
+T77CC 216:964.358    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000B00 if necessary
+T77CC 216:964.363    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000C00 if necessary
+T77CC 216:964.368    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000D00 if necessary
+T77CC 216:964.374    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000E00 if necessary
+T77CC 216:964.379    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000F00 if necessary
+T77CC 216:964.385    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001000 if necessary
+T77CC 216:964.390    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001100 if necessary
+T77CC 216:964.395    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001200 if necessary
+T77CC 216:964.402    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001300 if necessary
+T77CC 216:964.407    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001400 if necessary
+T77CC 216:964.413    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001500 if necessary
+T77CC 216:964.419    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001600 if necessary
+T77CC 216:964.424    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001700 if necessary
+T77CC 216:964.430    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001800 if necessary
+T77CC 216:964.436    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001900 if necessary
+T77CC 216:964.441    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001A00 if necessary
+T77CC 216:964.447    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001B00 if necessary
+T77CC 216:964.459    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001C00 if necessary
+T77CC 216:964.482    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001D00 if necessary
+T77CC 216:964.488    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001E00 if necessary
+T77CC 216:964.532    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001F00 if necessary
+T77CC 216:964.537    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002000 if necessary
+T77CC 216:964.542    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002100 if necessary
+T77CC 216:964.548    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002200 if necessary
+T77CC 216:964.553    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002300 if necessary
+T77CC 216:964.558    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002400 if necessary
+T77CC 216:964.563    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002500 if necessary
+T77CC 216:964.569    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002600 if necessary
+T77CC 216:964.574    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002700 if necessary
+T77CC 216:964.579    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002800 if necessary
+T77CC 216:964.585    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002900 if necessary
+T77CC 216:964.590    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002A00 if necessary
+T77CC 216:964.596    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002B00 if necessary
+T77CC 216:964.602    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002C00 if necessary
+T77CC 216:964.608    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002D00 if necessary
+T77CC 216:964.615    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002E00 if necessary
+T77CC 216:964.621    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002F00 if necessary
+T77CC 216:964.627    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003000 if necessary
+T77CC 216:964.633    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003100 if necessary
+T77CC 216:964.639    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003200 if necessary
+T77CC 216:964.645    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003300 if necessary
+T77CC 216:964.651    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003400 if necessary
+T77CC 216:964.657    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003500 if necessary
+T77CC 216:964.663    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003600 if necessary
+T77CC 216:964.669    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003700 if necessary
+T77CC 216:964.676    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003800 if necessary
+T77CC 216:964.682    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003900 if necessary
+T77CC 216:964.688    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003A00 if necessary
+T77CC 216:964.694    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003B00 if necessary
+T77CC 216:964.700    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003C00 if necessary
+T77CC 216:964.708    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003D00 if necessary
+T77CC 216:964.713    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003E00 if necessary
+T77CC 216:964.718    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003F00 if necessary
+T77CC 216:964.724    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004000 if necessary
+T77CC 216:964.729    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004100 if necessary
+T77CC 216:964.735    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004200 if necessary
+T77CC 216:964.741    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004300 if necessary
+T77CC 216:964.746    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004400 if necessary
+T77CC 216:964.751    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004500 if necessary
+T77CC 216:964.757    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004600 if necessary
+T77CC 216:964.762    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004700 if necessary
+T77CC 216:964.767    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004800 if necessary
+T77CC 216:964.772    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004900 if necessary
+T77CC 216:964.778    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004A00 if necessary
+T77CC 216:964.783    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004B00 if necessary
+T77CC 216:964.788    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004C00 if necessary
+T77CC 216:964.793    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004D00 if necessary
+T77CC 216:964.805    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004E00 if necessary
+T77CC 216:964.851    -- End of determining dirty areas
+T77CC 216:964.856    -- Start of preparing flash programming
+T77CC 216:964.862    -- Calculating RAM usage
+T77CC 216:964.873    -- RAM usage = 3908 Bytes
+T77CC 216:964.878    -- Preserving CPU registers
+T77CC 216:964.892    -- Preparing target
+T77CC 216:964.897    -- Preserving target RAM temporarily used for programming
+T77CC 216:993.737    -- Downloading RAMCode
+T77CC 217:016.991    -- Preparing RAMCode
+T77CC 217:027.140    -- End of preparing flash programming
+T77CC 217:027.321   Looking for J-Link GUI Server exe at: C:\Program Files (x86)\Atmel\Studio\7.0\atbackend\JLinkGUIServer.exe
+T77CC 217:027.395   Looking for J-Link GUI Server exe at: C:\Program Files (x86)\SEGGER\JLink\JLinkGUIServer.exe
+T77CC 217:330.160   Failed to connect to J-Link GUI Server.
+T77CC 217:387.796    -- CPU speed could not be measured.
+T77CC 217:387.851    -- Start of comparing flash
+T77CC 217:387.876    -- CRC check was estimated as fastest method
+T77CC 217:387.889    -- Comparing range 0x0000 - 0x4EFF (79 Sectors, 19 KB), using multi-block CRC calculation
+T77CC 217:439.085    -- CRC does not match for sectors 0-78
+T77CC 217:439.111    -- End of comparing flash
+T77CC 217:439.120    -- Start of erasing sectors
+T77CC 217:439.130    -- Erasing range 0x00000000 - 0x000002FF (  3 Sectors, 768 Bytes)
+T77CC 217:444.136    -- End of erasing sectors
+T77CC 217:444.156    -- Start of flash programming
+T77CC 217:444.164    -- Programming range 0x00000000 - 0x00004EFF ( 79 Sectors, 19 KB)
+T77CC 217:709.301    -- End of flash programming
+T77CC 217:709.324    -- 0x0000 - 0x4EFF ( 79 Sectors, 19 KiB)
+T77CC 217:709.331    -- Start of restoring
+T77CC 217:709.337    -- Restoring RAMCode
+T77CC 217:738.454    -- Restoring target memory
+T77CC 217:765.705    -- Restore target
+T77CC 217:765.727    -- Restoring CPU registers
+T77CC 217:765.745    -- End of restoring
+T77CC 217:765.794    -- Bank 0 @ 0x00000000: 1 range affected (20224 bytes)
+T77CC 217:765.810    -- Total: 0.800s (Prepare: 0.422s, Compare: 0.051s, Erase: 0.005s, Program & Verify: 0.289s, Restore: 0.032s)
+T77CC 217:765.822    -- Program & Verify speed: 67 KB/s
+T77CC 217:770.146 - 807.535ms returns 20224 (0x4F00)
+T77CC 217:771.043 JLINK_ResetPullsRESET(ON)
+T77CC 217:771.055 - 0.014ms
+T77CC 217:771.063 JLINK_ResetNoHalt()
+T77CC 217:771.706   InitTarget() start
+T77CC 217:771.722    J-Link Script File: Executing InitTarget()
+T77CC 217:771.750   InitTarget()
+T77CC 217:778.651   InitTarget() end - Took 6.89ms
+T77CC 217:779.931   Found SW-DP with ID 0x0BC11477
+T77CC 217:784.172   DPIDR: 0x0BC11477
+T77CC 217:784.199   CoreSight SoC-400 or earlier
+T77CC 217:784.212   AP map detection skipped. Manually configured AP map found.
+T77CC 217:784.231   AP[0]: AHB-AP (IDR: Not set)
+T77CC 217:786.272   AP[0]: Core found
+T77CC 217:786.296   AP[0]: AHB-AP ROM base: 0x41003000
+T77CC 217:787.125   CPUID register: 0x410CC601. Implementer code: 0x41 (ARM)
+T77CC 217:787.141   Found Cortex-M0 r0p1, Little endian.
+T77CC 217:787.625   -- Max. mem block: 0x00002860
+T77CC 217:787.661   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T77CC 217:788.299   CPU_ReadMem(4 bytes @ 0xE0002000)
+T77CC 217:788.914   FPUnit: 4 code (BP) slots and 0 literal slots
+T77CC 217:788.921   CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T77CC 217:789.691   CPU_ReadMem(4 bytes @ 0xE0001000)
+T77CC 217:790.369   CoreSight components:
+T77CC 217:790.386   ROMTbl[0] @ 41003000
+T77CC 217:790.392   CPU_ReadMem(64 bytes @ 0x41003000)
+T77CC 217:791.437   CPU_ReadMem(32 bytes @ 0xE00FFFE0)
+T77CC 217:792.310   [0][0]: E00FF000 CID B105100D PID 000BB4C0 ROM Table
+T77CC 217:792.324   ROMTbl[1] @ E00FF000
+T77CC 217:792.332   CPU_ReadMem(64 bytes @ 0xE00FF000)
+T77CC 217:793.357   CPU_ReadMem(32 bytes @ 0xE000EFE0)
+T77CC 217:794.193   [1][0]: E000E000 CID B105E00D PID 000BB008 SCS
+T77CC 217:794.200   CPU_ReadMem(32 bytes @ 0xE0001FE0)
+T77CC 217:795.256   [1][1]: E0001000 CID B105E00D PID 000BB00A DWT
+T77CC 217:795.264   CPU_ReadMem(32 bytes @ 0xE0002FE0)
+T77CC 217:796.422   [1][2]: E0002000 CID B105E00D PID 000BB00B FPB
+T77CC 217:796.444   CPU_ReadMem(32 bytes @ 0x41006FE0)
+T77CC 217:797.354   [0][1]: 41006000 CID B105900D PID 001BB932 MTB-M0+
+T77CC 217:797.373   JLINK_Reset()
+T77CC 217:797.382     CPU_ReadMem(4 bytes @ 0x20000000)
+T77CC 217:798.052     CPU_WriteMem(4 bytes @ 0x20000000)
+T77CC 217:798.682     ResetTarget() start
+T77CC 217:798.688      J-Link Script File: Executing ResetTarget()
+T77CC 217:799.866     CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T77CC 217:801.095     CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T77CC 217:802.784     CPU_WriteMem(4 bytes @ 0xE000ED0C)
+T77CC 217:805.966     CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T77CC 217:807.422     CPU_ReadMem(4 bytes @ 0x41002100)
+T77CC 217:808.667     CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T77CC 217:810.450     ResetTarget() end - Took 11.5ms
+T77CC 217:815.139     CPU_WriteMem(4 bytes @ 0xE0002000)
+T77CC 217:815.858     CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T77CC 217:816.733     CPU_ReadMem(4 bytes @ 0xE0001000)
+T77CC 217:817.330     CPU_WriteMem(4 bytes @ 0xE0001000)
+T77CC 217:818.173   - 20.812ms
+T77CC 217:818.192   JLINK_Go()
+T77CC 217:818.218     CPU_ReadMem(4 bytes @ 0xE0001000)
+T77CC 217:818.787     CPU_WriteMem(4 bytes @ 0xE0001000)
+T77CC 217:819.409     CPU_WriteMem(4 bytes @ 0xE0001004)
+T77CC 217:821.106   - 2.921ms
+T77CC 217:821.116 - 50.055ms
+T2EEC 217:821.292 JLINK_EMU_GetList(InterfaceMask = 0x00000001, MaxInfos = 0x00000032) 
+T2EEC 217:822.347   [0]: USB, S/N: 801041483
+T2EEC 217:822.365 - 1.075ms returns 1
+T2EEC 217:822.434 JLINK_EMU_GetList(InterfaceMask = 0x00000002, MaxInfos = 0x00000032) 
+T2EEC 217:846.093 - 23.677ms returns 0
+T77CC 217:846.177 JLINK_Close()
+T77CC 217:874.117 - 27.962ms
+T77CC 217:874.143   
+T77CC 217:874.149   Closed
