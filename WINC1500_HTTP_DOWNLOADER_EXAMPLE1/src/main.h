@@ -37,7 +37,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
+extern volatile uint32_t servo_sub_flag;
 #ifdef __cplusplus
 }
 #endif

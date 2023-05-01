@@ -32,7 +32,7 @@ Thread for ESE516 Spring (Online) Edition
 /******************************************************************************
  * Variables
  ******************************************************************************/
-
+extern volatile uint32_t servo_sub_flag;
 /******************************************************************************
  * Forward Declarations
  ******************************************************************************/
@@ -92,7 +92,12 @@ void vUiHandlerTask(void *pvParameters)
 		//nau_i_total = ADC_Array[0] + nau_i_total;
 		//nau_f_total = ADC_Array[1] + nau_f_total;
 		
-		int error = WifiAddNauDataToQueue(&nauvar);
+		//int error = WifiAddNauDataToQueue(&nauvar);
+		if(servo_sub_flag == 1)
+		{
+			WifiAddNauDataToQueue(&nauvar);
+			servo_sub_flag = 0;
+		}
 		//if(count_nau!=3)
 		//{
 			//count_nau = count_nau + 1;
