@@ -103,16 +103,16 @@ int main(void)
 	//See function inside to see how to open a file
 	SerialConsoleWriteString("\x0C\n\r-- SD/MMC Card Example on FatFs --\n\r");
 
-	//if(StartFilesystemAndTest() == false)
-	//{
-		//SerialConsoleWriteString("SD CARD failed! Check your connections. System will restart in 5 seconds...");
-		//delay_cycles_ms(5000);
-		//system_reset();
-	//}
-	//else
-	//{
-		//SerialConsoleWriteString("SD CARD mount success! Filesystem also mounted. \r\n");
-	//}
+	if(StartFilesystemAndTest() == false)
+	{
+		SerialConsoleWriteString("SD CARD failed! Check your connections. System will restart in 5 seconds...");
+		delay_cycles_ms(5000);
+		system_reset();
+	}
+	else
+	{
+		SerialConsoleWriteString("SD CARD mount success! Filesystem also mounted. \r\n");
+	}
 
 	/*END SIMPLE SD CARD MOUNTING AND TEST!*/
 

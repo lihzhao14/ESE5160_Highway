@@ -849,7 +849,7 @@ static void HTTP_DownloadFileTransaction(void)
     } else {
         SerialConsoleWriteString("FlagA.txt added!\r\n");
     }
-    delay_ms(100);
+    vTaskDelay(100);
     system_reset();
     wifiStateMachine = WIFI_MQTT_INIT;
 }
@@ -916,6 +916,7 @@ static void MQTT_HandleNauMessages(void)
 	if (pdPASS == xQueueReceive(xQueueNauBuffer, &NauDataVar, 0)) {
 		snprintf(mqtt_msg, 63, "{\"nau_i\":%d,  \"nau_f\": %d}", NauDataVar.nau_i, NauDataVar.nau_f);
 		mqtt_publish(&mqtt_inst, NAU_TOPIC, mqtt_msg, strlen(mqtt_msg), 1, 0);
+		SerialConsoleWriteString("NAU DATA POSTED");
 	}
 }
 /**
@@ -951,7 +952,7 @@ void vWifiTask(void *pvParameters)
     configure_mqtt();
 
     /* Initialize SD/MMC storage. */
-    //init_storage();
+    init_storage();
 
     /*Initialize BUTTON 0 as an external interrupt*/
     configure_extint_channel();
