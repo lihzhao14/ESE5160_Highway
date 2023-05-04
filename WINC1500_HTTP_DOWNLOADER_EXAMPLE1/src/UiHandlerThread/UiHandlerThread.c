@@ -137,7 +137,7 @@ void vUiHandlerTask(void *pvParameters)
 				gfx_mono_draw_string("Undefined!", 0, 28, &sysfont);
 			}
 			else{
-				sprintf(oled_display, "$ %d", result);
+				sprintf(oled_display, "$ %d       ", result);
 				gfx_mono_draw_string(oled_display, 0, 28, &sysfont);
 			}
 		//}

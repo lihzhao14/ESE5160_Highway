@@ -109,6 +109,7 @@ struct NauPacket {
 #define NAU_TOPIC "NAU_TOPIC_516_T9"          // used to test whether MQTT can properly work
 #define SERVO_TOPIC "SERVO_TOPIC_516_T9"          // used to test whether MQTT can properly work
 
+
 #else
 /* Chat MQTT topic. */
 #define LED_TOPIC "P2_LED_ESE516_T9"            // Students to change to an unique identifier for each device! LED Data
