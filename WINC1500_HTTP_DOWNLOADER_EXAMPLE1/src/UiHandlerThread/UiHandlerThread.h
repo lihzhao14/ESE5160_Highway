@@ -28,7 +28,7 @@ extern "C" {
  * Global Function Declaration
  ******************************************************************************/
 void vUiHandlerTask(void *pvParameters);
-
+int getValue(int ret);
 
 #ifdef __cplusplus
 }

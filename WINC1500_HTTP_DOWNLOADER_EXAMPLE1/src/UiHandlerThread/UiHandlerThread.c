@@ -123,21 +123,39 @@ void vUiHandlerTask(void *pvParameters)
 		//
 		
 		
-		if(count!=100)
-		{
-			count = count + 1;
-		}
-		else
-		{
+		//if(count!=100)
+		//{
+			//count = count + 1;
+		//}
+		//else
+		//{
 			count = 0;
 			//gfx_mono_init();
-			sprintf(oled_display, "%d.%d", ADC_Array[0], ADC_Array[1]);
-			gfx_mono_draw_string(oled_display, 0, 8, &sysfont);
-		}
+			int result = ADC_Array[0] + ADC_Array[1] / 10000 - 112;
+			result = getValue(result);
+			if(result == -1){
+				gfx_mono_draw_string("Undefined!", 0, 28, &sysfont);
+			}
+			else{
+				sprintf(oled_display, "$ %d", result);
+				gfx_mono_draw_string(oled_display, 0, 28, &sysfont);
+			}
+		//}
 		
 		
 		
         // After execution, you can put a thread to sleep for some time.
         vTaskDelay(4000);
     }
+}
+int getValue(int ret){
+	if (ret >= 3 && ret < 20) {
+		return 3;
+		} else if (ret >= 25 && ret < 55) {
+			return 7;
+		} else if (ret <= 3) {
+			return 0;
+		} else {
+			return -1;
+	}
 }

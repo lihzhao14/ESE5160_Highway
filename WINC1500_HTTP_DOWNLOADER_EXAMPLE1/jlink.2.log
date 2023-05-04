@@ -1,837 +1,1157 @@
-T1DA4 440:460.828   SEGGER J-Link V7.86h Log File
-T1DA4 440:460.899   DLL Compiled: Apr 12 2023 16:04:37
-T1DA4 440:460.919   Logging started @ 2023-05-04 19:25
-T1DA4 440:460.936 - 84912.005ms
-T1DA4 440:470.551 JLINK_ExecCommand("Device = ATSAMD21G18A", ...). 
-T1DA4 440:470.808   Device "ATSAMD21G18A" selected.
-T1DA4 440:471.122 - 0.560ms returns 0x00
-T1DA4 440:508.005 JLINK_TIF_Select(JLINKARM_TIF_SWD)
-T1DA4 440:509.369 - 1.386ms returns 0x00
-T1DA4 440:509.412 JLINK_SetSpeed(4000)
-T1DA4 440:509.565 - 0.162ms
-T1DA4 440:509.590 JLINK_ResetPullsRESET(OFF)
-T1DA4 440:509.608 - 0.026ms
-T1DA4 440:509.632 JLINK_Connect()
-T1DA4 440:510.044   InitTarget() start
-T1DA4 440:510.096    J-Link Script File: Executing InitTarget()
-T1DA4 440:510.302   InitTarget()
-T1DA4 440:513.800   InitTarget() end - Took 3.67ms
-T1DA4 440:514.637   Found SW-DP with ID 0x0BC11477
-T1DA4 440:517.282   DPIDR: 0x0BC11477
-T1DA4 440:517.312   CoreSight SoC-400 or earlier
-T1DA4 440:517.331   Scanning AP map to find all available APs
-T1DA4 440:518.452   AP[1]: Stopped AP scan as end of AP map has been reached
-T1DA4 440:518.482   AP[0]: AHB-AP (IDR: 0x04770031)
-T1DA4 440:518.499   Iterating through AP map to find AHB-AP to use
-T1DA4 440:519.699   AP[0]: Core found
-T1DA4 440:519.732   AP[0]: AHB-AP ROM base: 0x41003000
-T1DA4 440:520.290   CPUID register: 0x410CC601. Implementer code: 0x41 (ARM)
-T1DA4 440:520.323   Found Cortex-M0 r0p1, Little endian.
-T1DA4 440:520.742   -- Max. mem block: 0x00002BA8
-T1DA4 440:521.243   CPU_ReadMem(4 bytes @ 0xE000EDF0)
-T1DA4 440:521.628   CPU_WriteMem(4 bytes @ 0xE000EDF0)
-T1DA4 440:522.134   CPU_ReadMem(4 bytes @ 0xE0002000)
-T1DA4 440:522.765   FPUnit: 4 code (BP) slots and 0 literal slots
-T1DA4 440:522.786   CPU_ReadMem(4 bytes @ 0xE000EDFC)
-T1DA4 440:523.163   CPU_WriteMem(4 bytes @ 0xE000EDFC)
-T1DA4 440:523.789   CPU_ReadMem(4 bytes @ 0xE0001000)
-T1DA4 440:524.364   CPU_WriteMem(4 bytes @ 0xE0001000)
-T1DA4 440:524.948   CoreSight components:
-T1DA4 440:524.976   ROMTbl[0] @ 41003000
-T1DA4 440:524.989   CPU_ReadMem(64 bytes @ 0x41003000)
-T1DA4 440:525.708   CPU_ReadMem(32 bytes @ 0xE00FFFE0)
-T1DA4 440:526.348   [0][0]: E00FF000 CID B105100D PID 000BB4C0 ROM Table
-T1DA4 440:526.393   ROMTbl[1] @ E00FF000
-T1DA4 440:526.412   CPU_ReadMem(64 bytes @ 0xE00FF000)
-T1DA4 440:527.243   CPU_ReadMem(32 bytes @ 0xE000EFE0)
-T1DA4 440:528.135   [1][0]: E000E000 CID B105E00D PID 000BB008 SCS
-T1DA4 440:528.156   CPU_ReadMem(32 bytes @ 0xE0001FE0)
-T1DA4 440:528.728   [1][1]: E0001000 CID B105E00D PID 000BB00A DWT
-T1DA4 440:528.751   CPU_ReadMem(32 bytes @ 0xE0002FE0)
-T1DA4 440:529.314   [1][2]: E0002000 CID B105E00D PID 000BB00B FPB
-T1DA4 440:529.339   CPU_ReadMem(32 bytes @ 0x41006FE0)
-T1DA4 440:529.956   [0][1]: 41006000 CID B105900D PID 001BB932 MTB-M0+
-T1DA4 440:530.017 - 20.389ms returns 0x00
-T1DA4 440:530.085 JLINK_ExecCommand("ExcludeFlashCacheRange 0x0 - 0x40000", ...). 
-T1DA4 440:530.097 - 0.004ms returns 0x00
-T1DA4 440:530.116 JLINK_Halt()
-T1DA4 440:532.944 - 2.844ms returns 0x00
-T1DA4 440:534.149 JLINK_JTAG_GetDeviceID(DeviceIndex = 0)
-T1DA4 440:534.169 - 0.024ms returns 0
-T1DA4 440:534.181 JLINK_ReadMemU32(0x41002018, 0x1 Items)
-T1DA4 440:534.204   CPU_ReadMem(4 bytes @ 0x41002018)
-T1DA4 440:534.575   Data:  05 03 01 10
-T1DA4 440:534.598 - 0.420ms returns 1 (0x1)
-T77CC 440:543.022 JLINK_IsHalted()
-T77CC 440:543.451 - 0.448ms returns TRUE
-T77CC 440:543.483 JLINK_GetMOEs(...)
-T77CC 440:543.498   CPU_ReadMem(4 bytes @ 0xE000ED30)
-T77CC 440:543.892 - 0.418ms returns 0x01
-T77CC 440:543.912 JLINK_ReadReg(R15 (PC))
-T77CC 440:543.926 - 0.017ms returns 0x000173A4
-T1DA4 440:651.448 JLINK_BeginDownload(Flags = 0x00000000)
-T1DA4 440:651.481 - 0.035ms
-T1DA4 440:651.502 JLINK_WriteMem(0x00012000, 0x27CEC Bytes, ...)
-T1DA4 440:651.509   Data:  58 7C 00 20 99 A0 02 00 91 A1 02 00 91 A1 02 00 ...
-T1DA4 440:652.035   completely In flash
-T1DA4 440:652.072 - 0.573ms returns 0x27CEC
-T1DA4 440:652.343 JLINK_WriteMem(0x00039CEC, 0x2F0 Bytes, ...)
-T1DA4 440:652.355   Data:  00 00 00 00 40 59 03 00 06 07 20 7D 00 00 00 00 ...
-T1DA4 440:652.433   completely In flash
-T1DA4 440:652.443 - 0.104ms returns 0x2F0
-T77CC 440:745.291 JLINK_IsHalted()
-T77CC 440:745.318 - 0.029ms returns TRUE
-T1DA4 440:746.100 JLINK_EndDownload()
-T1DA4 440:746.351   CPU_ReadMem(4 bytes @ 0x41006004)
-T1DA4 440:746.744   CPU_ReadMem(4 bytes @ 0xE000ED90)
-T1DA4 440:747.235    -- --------------------------------------
-T1DA4 440:747.250   Flash bank @ 0x00000000: Default: L2 verify disabled because algorithm performs L1 verify
-T1DA4 440:747.255    -- Start of determining dirty areas in flash cache
-T1DA4 440:747.272    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012000 if necessary
-T1DA4 440:747.278    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012100 if necessary
-T1DA4 440:747.284    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012200 if necessary
-T1DA4 440:747.290    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012300 if necessary
-T1DA4 440:747.295    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012400 if necessary
-T1DA4 440:747.301    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012500 if necessary
-T1DA4 440:747.307    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012600 if necessary
-T1DA4 440:747.312    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012700 if necessary
-T1DA4 440:747.318    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012800 if necessary
-T1DA4 440:747.324    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012900 if necessary
-T1DA4 440:747.329    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012A00 if necessary
-T1DA4 440:747.335    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012B00 if necessary
-T1DA4 440:747.341    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012C00 if necessary
-T1DA4 440:747.346    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012D00 if necessary
-T1DA4 440:747.352    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012E00 if necessary
-T1DA4 440:747.357    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012F00 if necessary
-T1DA4 440:747.363    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013000 if necessary
-T1DA4 440:747.369    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013100 if necessary
-T1DA4 440:747.374    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013200 if necessary
-T1DA4 440:747.380    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013300 if necessary
-T1DA4 440:747.385    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013400 if necessary
-T1DA4 440:747.391    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013500 if necessary
-T1DA4 440:747.397    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013600 if necessary
-T1DA4 440:747.402    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013700 if necessary
-T1DA4 440:747.408    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013800 if necessary
-T1DA4 440:747.414    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013900 if necessary
-T1DA4 440:747.419    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013A00 if necessary
-T1DA4 440:747.425    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013B00 if necessary
-T1DA4 440:747.432    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013C00 if necessary
-T1DA4 440:747.437    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013D00 if necessary
-T1DA4 440:747.443    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013E00 if necessary
-T1DA4 440:747.488    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013F00 if necessary
-T1DA4 440:747.494    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014000 if necessary
-T1DA4 440:747.499    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014100 if necessary
-T1DA4 440:747.505    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014200 if necessary
-T1DA4 440:747.510    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014300 if necessary
-T1DA4 440:747.516    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014400 if necessary
-T1DA4 440:747.521    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014500 if necessary
-T1DA4 440:747.527    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014600 if necessary
-T1DA4 440:747.532    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014700 if necessary
-T1DA4 440:747.538    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014800 if necessary
-T1DA4 440:747.544    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014900 if necessary
-T1DA4 440:747.549    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014A00 if necessary
-T1DA4 440:747.555    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014B00 if necessary
-T1DA4 440:747.560    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014C00 if necessary
-T1DA4 440:747.566    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014D00 if necessary
-T1DA4 440:747.571    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014E00 if necessary
-T1DA4 440:747.577    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014F00 if necessary
-T1DA4 440:747.582    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015000 if necessary
-T1DA4 440:747.588    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015100 if necessary
-T1DA4 440:747.593    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015200 if necessary
-T1DA4 440:747.599    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015300 if necessary
-T1DA4 440:747.604    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015400 if necessary
-T1DA4 440:747.616    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015500 if necessary
-T1DA4 440:747.622    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015600 if necessary
-T1DA4 440:747.627    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015700 if necessary
-T1DA4 440:747.633    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015800 if necessary
-T1DA4 440:747.638    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015900 if necessary
-T1DA4 440:747.644    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015A00 if necessary
-T1DA4 440:747.649    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015B00 if necessary
-T1DA4 440:747.655    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015C00 if necessary
-T1DA4 440:747.660    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015D00 if necessary
-T1DA4 440:747.666    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015E00 if necessary
-T1DA4 440:747.671    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015F00 if necessary
-T1DA4 440:747.677    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016000 if necessary
-T1DA4 440:747.682    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016100 if necessary
-T1DA4 440:747.690    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016200 if necessary
-T1DA4 440:747.696    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016300 if necessary
-T1DA4 440:747.701    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016400 if necessary
-T1DA4 440:747.707    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016500 if necessary
-T1DA4 440:747.712    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016600 if necessary
-T1DA4 440:747.718    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016700 if necessary
-T1DA4 440:747.723    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016800 if necessary
-T1DA4 440:747.729    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016900 if necessary
-T1DA4 440:747.734    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016A00 if necessary
-T1DA4 440:747.740    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016B00 if necessary
-T1DA4 440:747.745    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016C00 if necessary
-T1DA4 440:747.751    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016D00 if necessary
-T1DA4 440:747.756    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016E00 if necessary
-T1DA4 440:747.761    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016F00 if necessary
-T1DA4 440:747.767    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017000 if necessary
-T1DA4 440:747.772    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017100 if necessary
-T1DA4 440:747.778    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017200 if necessary
-T1DA4 440:747.783    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017300 if necessary
-T1DA4 440:747.789    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017400 if necessary
-T1DA4 440:747.794    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017500 if necessary
-T1DA4 440:747.800    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017600 if necessary
-T1DA4 440:747.805    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017700 if necessary
-T1DA4 440:747.811    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017800 if necessary
-T1DA4 440:747.816    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017900 if necessary
-T1DA4 440:747.822    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017A00 if necessary
-T1DA4 440:747.827    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017B00 if necessary
-T1DA4 440:747.833    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017C00 if necessary
-T1DA4 440:747.838    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017D00 if necessary
-T1DA4 440:747.844    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017E00 if necessary
-T1DA4 440:747.849    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017F00 if necessary
-T1DA4 440:747.855    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018000 if necessary
-T1DA4 440:747.860    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018100 if necessary
-T1DA4 440:747.866    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018200 if necessary
-T1DA4 440:747.871    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018300 if necessary
-T1DA4 440:747.877    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018400 if necessary
-T1DA4 440:747.894    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018500 if necessary
-T1DA4 440:747.899    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018600 if necessary
-T1DA4 440:747.905    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018700 if necessary
-T1DA4 440:747.910    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018800 if necessary
-T1DA4 440:747.915    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018900 if necessary
-T1DA4 440:747.921    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018A00 if necessary
-T1DA4 440:747.927    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018B00 if necessary
-T1DA4 440:747.932    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018C00 if necessary
-T1DA4 440:747.938    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018D00 if necessary
-T1DA4 440:747.943    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018E00 if necessary
-T1DA4 440:747.949    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018F00 if necessary
-T1DA4 440:747.954    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019000 if necessary
-T1DA4 440:747.960    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019100 if necessary
-T1DA4 440:747.965    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019200 if necessary
-T1DA4 440:747.971    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019300 if necessary
-T1DA4 440:747.976    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019400 if necessary
-T1DA4 440:747.982    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019500 if necessary
-T1DA4 440:747.987    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019600 if necessary
-T1DA4 440:747.993    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019700 if necessary
-T1DA4 440:747.998    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019800 if necessary
-T1DA4 440:748.004    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019900 if necessary
-T1DA4 440:748.009    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019A00 if necessary
-T1DA4 440:748.014    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019B00 if necessary
-T1DA4 440:748.020    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019C00 if necessary
-T1DA4 440:748.026    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019D00 if necessary
-T1DA4 440:748.031    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019E00 if necessary
-T1DA4 440:748.037    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019F00 if necessary
-T1DA4 440:748.042    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A000 if necessary
-T1DA4 440:748.048    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A100 if necessary
-T1DA4 440:748.053    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A200 if necessary
-T1DA4 440:748.059    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A300 if necessary
-T1DA4 440:748.064    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A400 if necessary
-T1DA4 440:748.070    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A500 if necessary
-T1DA4 440:748.080    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A600 if necessary
-T1DA4 440:748.086    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A700 if necessary
-T1DA4 440:748.091    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A800 if necessary
-T1DA4 440:748.098    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A900 if necessary
-T1DA4 440:748.103    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001AA00 if necessary
-T1DA4 440:748.109    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001AB00 if necessary
-T1DA4 440:748.114    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001AC00 if necessary
-T1DA4 440:748.120    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001AD00 if necessary
-T1DA4 440:748.125    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001AE00 if necessary
-T1DA4 440:748.130    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001AF00 if necessary
-T1DA4 440:748.136    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B000 if necessary
-T1DA4 440:748.141    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B100 if necessary
-T1DA4 440:748.147    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B200 if necessary
-T1DA4 440:748.152    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B300 if necessary
-T1DA4 440:748.158    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B400 if necessary
-T1DA4 440:748.163    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B500 if necessary
-T1DA4 440:748.169    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B600 if necessary
-T1DA4 440:748.174    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B700 if necessary
-T1DA4 440:748.180    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B800 if necessary
-T1DA4 440:748.185    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B900 if necessary
-T1DA4 440:748.191    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001BA00 if necessary
-T1DA4 440:748.196    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001BB00 if necessary
-T1DA4 440:748.202    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001BC00 if necessary
-T1DA4 440:748.207    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001BD00 if necessary
-T1DA4 440:748.213    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001BE00 if necessary
-T1DA4 440:748.218    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001BF00 if necessary
-T1DA4 440:748.223    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C000 if necessary
-T1DA4 440:748.229    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C100 if necessary
-T1DA4 440:748.235    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C200 if necessary
-T1DA4 440:748.241    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C300 if necessary
-T1DA4 440:748.247    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C400 if necessary
-T1DA4 440:748.252    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C500 if necessary
-T1DA4 440:748.258    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C600 if necessary
-T1DA4 440:748.264    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C700 if necessary
-T1DA4 440:748.270    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C800 if necessary
-T1DA4 440:748.275    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C900 if necessary
-T1DA4 440:748.281    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001CA00 if necessary
-T1DA4 440:748.288    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001CB00 if necessary
-T1DA4 440:748.294    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001CC00 if necessary
-T1DA4 440:748.300    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001CD00 if necessary
-T1DA4 440:748.305    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001CE00 if necessary
-T1DA4 440:748.311    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001CF00 if necessary
-T1DA4 440:748.316    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D000 if necessary
-T1DA4 440:748.322    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D100 if necessary
-T1DA4 440:748.327    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D200 if necessary
-T1DA4 440:748.333    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D300 if necessary
-T1DA4 440:748.338    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D400 if necessary
-T1DA4 440:748.344    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D500 if necessary
-T1DA4 440:748.349    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D600 if necessary
-T1DA4 440:748.354    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D700 if necessary
-T1DA4 440:748.360    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D800 if necessary
-T1DA4 440:748.365    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D900 if necessary
-T1DA4 440:748.371    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001DA00 if necessary
-T1DA4 440:748.376    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001DB00 if necessary
-T1DA4 440:748.382    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001DC00 if necessary
-T1DA4 440:748.387    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001DD00 if necessary
-T1DA4 440:748.392    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001DE00 if necessary
-T1DA4 440:748.398    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001DF00 if necessary
-T1DA4 440:748.403    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E000 if necessary
-T1DA4 440:748.409    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E100 if necessary
-T1DA4 440:748.414    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E200 if necessary
-T1DA4 440:748.420    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E300 if necessary
-T1DA4 440:748.425    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E400 if necessary
-T1DA4 440:748.431    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E500 if necessary
-T1DA4 440:748.436    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E600 if necessary
-T1DA4 440:748.442    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E700 if necessary
-T1DA4 440:748.447    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E800 if necessary
-T1DA4 440:748.452    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E900 if necessary
-T1DA4 440:748.458    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001EA00 if necessary
-T1DA4 440:748.463    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001EB00 if necessary
-T1DA4 440:748.469    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001EC00 if necessary
-T1DA4 440:748.474    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001ED00 if necessary
-T1DA4 440:748.480    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001EE00 if necessary
-T1DA4 440:748.488    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001EF00 if necessary
-T1DA4 440:748.493    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F000 if necessary
-T1DA4 440:748.499    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F100 if necessary
-T1DA4 440:748.504    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F200 if necessary
-T1DA4 440:748.510    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F300 if necessary
-T1DA4 440:748.515    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F400 if necessary
-T1DA4 440:748.520    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F500 if necessary
-T1DA4 440:748.526    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F600 if necessary
-T1DA4 440:748.536    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F700 if necessary
-T1DA4 440:748.542    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F800 if necessary
-T1DA4 440:748.547    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F900 if necessary
-T1DA4 440:748.553    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001FA00 if necessary
-T1DA4 440:748.558    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001FB00 if necessary
-T1DA4 440:748.563    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001FC00 if necessary
-T1DA4 440:748.569    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001FD00 if necessary
-T1DA4 440:748.574    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001FE00 if necessary
-T1DA4 440:748.580    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001FF00 if necessary
-T1DA4 440:748.585    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020000 if necessary
-T1DA4 440:748.591    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020100 if necessary
-T1DA4 440:748.596    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020200 if necessary
-T1DA4 440:748.602    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020300 if necessary
-T1DA4 440:748.607    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020400 if necessary
-T1DA4 440:748.613    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020500 if necessary
-T1DA4 440:748.618    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020600 if necessary
-T1DA4 440:748.624    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020700 if necessary
-T1DA4 440:748.629    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020800 if necessary
-T1DA4 440:748.635    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020900 if necessary
-T1DA4 440:748.640    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020A00 if necessary
-T1DA4 440:748.646    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020B00 if necessary
-T1DA4 440:748.651    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020C00 if necessary
-T1DA4 440:748.657    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020D00 if necessary
-T1DA4 440:748.662    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020E00 if necessary
-T1DA4 440:748.668    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020F00 if necessary
-T1DA4 440:748.673    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021000 if necessary
-T1DA4 440:748.679    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021100 if necessary
-T1DA4 440:748.692    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021200 if necessary
-T1DA4 440:748.698    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021300 if necessary
-T1DA4 440:748.704    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021400 if necessary
-T1DA4 440:748.709    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021500 if necessary
-T1DA4 440:748.714    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021600 if necessary
-T1DA4 440:748.720    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021700 if necessary
-T1DA4 440:748.726    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021800 if necessary
-T1DA4 440:748.731    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021900 if necessary
-T1DA4 440:748.736    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021A00 if necessary
-T1DA4 440:748.742    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021B00 if necessary
-T1DA4 440:748.747    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021C00 if necessary
-T1DA4 440:748.753    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021D00 if necessary
-T1DA4 440:748.758    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021E00 if necessary
-T1DA4 440:748.764    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021F00 if necessary
-T1DA4 440:748.769    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022000 if necessary
-T1DA4 440:748.775    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022100 if necessary
-T1DA4 440:748.780    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022200 if necessary
-T1DA4 440:748.786    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022300 if necessary
-T1DA4 440:748.791    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022400 if necessary
-T1DA4 440:748.797    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022500 if necessary
-T1DA4 440:748.802    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022600 if necessary
-T1DA4 440:748.808    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022700 if necessary
-T1DA4 440:748.813    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022800 if necessary
-T1DA4 440:748.819    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022900 if necessary
-T1DA4 440:748.824    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022A00 if necessary
-T1DA4 440:748.830    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022B00 if necessary
-T1DA4 440:748.835    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022C00 if necessary
-T1DA4 440:748.841    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022D00 if necessary
-T1DA4 440:748.846    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022E00 if necessary
-T1DA4 440:748.852    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022F00 if necessary
-T1DA4 440:748.857    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023000 if necessary
-T1DA4 440:748.863    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023100 if necessary
-T1DA4 440:748.868    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023200 if necessary
-T1DA4 440:748.874    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023300 if necessary
-T1DA4 440:748.879    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023400 if necessary
-T1DA4 440:748.885    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023500 if necessary
-T1DA4 440:748.905    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023600 if necessary
-T1DA4 440:748.910    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023700 if necessary
-T1DA4 440:748.916    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023800 if necessary
-T1DA4 440:748.921    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023900 if necessary
-T1DA4 440:748.927    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023A00 if necessary
-T1DA4 440:748.932    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023B00 if necessary
-T1DA4 440:748.938    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023C00 if necessary
-T1DA4 440:748.943    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023D00 if necessary
-T1DA4 440:748.949    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023E00 if necessary
-T1DA4 440:748.954    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023F00 if necessary
-T1DA4 440:748.960    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024000 if necessary
-T1DA4 440:748.965    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024100 if necessary
-T1DA4 440:748.971    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024200 if necessary
-T1DA4 440:748.976    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024300 if necessary
-T1DA4 440:748.981    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024400 if necessary
-T1DA4 440:748.987    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024500 if necessary
-T1DA4 440:748.992    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024600 if necessary
-T1DA4 440:748.998    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024700 if necessary
-T1DA4 440:749.009    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024800 if necessary
-T1DA4 440:749.014    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024900 if necessary
-T1DA4 440:749.020    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024A00 if necessary
-T1DA4 440:749.025    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024B00 if necessary
-T1DA4 440:749.031    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024C00 if necessary
-T1DA4 440:749.036    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024D00 if necessary
-T1DA4 440:749.042    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024E00 if necessary
-T1DA4 440:749.047    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024F00 if necessary
-T1DA4 440:749.053    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025000 if necessary
-T1DA4 440:749.058    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025100 if necessary
-T1DA4 440:749.064    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025200 if necessary
-T1DA4 440:749.069    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025300 if necessary
-T1DA4 440:749.074    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025400 if necessary
-T1DA4 440:749.080    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025500 if necessary
-T1DA4 440:749.086    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025600 if necessary
-T1DA4 440:749.091    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025700 if necessary
-T1DA4 440:749.097    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025800 if necessary
-T1DA4 440:749.105    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025900 if necessary
-T1DA4 440:749.110    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025A00 if necessary
-T1DA4 440:749.116    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025B00 if necessary
-T1DA4 440:749.121    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025C00 if necessary
-T1DA4 440:749.127    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025D00 if necessary
-T1DA4 440:749.132    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025E00 if necessary
-T1DA4 440:749.138    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025F00 if necessary
-T1DA4 440:749.143    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026000 if necessary
-T1DA4 440:749.148    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026100 if necessary
-T1DA4 440:749.154    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026200 if necessary
-T1DA4 440:749.159    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026300 if necessary
-T1DA4 440:749.165    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026400 if necessary
-T1DA4 440:749.170    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026500 if necessary
-T1DA4 440:749.176    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026600 if necessary
-T1DA4 440:749.181    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026700 if necessary
-T1DA4 440:749.187    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026800 if necessary
-T1DA4 440:749.192    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026900 if necessary
-T1DA4 440:749.198    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026A00 if necessary
-T1DA4 440:749.203    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026B00 if necessary
-T1DA4 440:749.208    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026C00 if necessary
-T1DA4 440:749.214    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026D00 if necessary
-T1DA4 440:749.220    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026E00 if necessary
-T1DA4 440:749.226    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026F00 if necessary
-T1DA4 440:749.231    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027000 if necessary
-T1DA4 440:749.237    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027100 if necessary
-T1DA4 440:749.243    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027200 if necessary
-T1DA4 440:749.249    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027300 if necessary
-T1DA4 440:749.255    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027400 if necessary
-T1DA4 440:749.261    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027500 if necessary
-T1DA4 440:749.266    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027600 if necessary
-T1DA4 440:749.273    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027700 if necessary
-T1DA4 440:749.278    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027800 if necessary
-T1DA4 440:749.284    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027900 if necessary
-T1DA4 440:749.289    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027A00 if necessary
-T1DA4 440:749.295    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027B00 if necessary
-T1DA4 440:749.303    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027C00 if necessary
-T1DA4 440:749.308    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027D00 if necessary
-T1DA4 440:749.314    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027E00 if necessary
-T1DA4 440:749.319    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027F00 if necessary
-T1DA4 440:749.325    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028000 if necessary
-T1DA4 440:749.330    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028100 if necessary
-T1DA4 440:749.336    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028200 if necessary
-T1DA4 440:749.341    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028300 if necessary
-T1DA4 440:749.346    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028400 if necessary
-T1DA4 440:749.352    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028500 if necessary
-T1DA4 440:749.358    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028600 if necessary
-T1DA4 440:749.363    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028700 if necessary
-T1DA4 440:749.369    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028800 if necessary
-T1DA4 440:749.374    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028900 if necessary
-T1DA4 440:749.380    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028A00 if necessary
-T1DA4 440:749.385    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028B00 if necessary
-T1DA4 440:749.391    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028C00 if necessary
-T1DA4 440:749.396    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028D00 if necessary
-T1DA4 440:749.402    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028E00 if necessary
-T1DA4 440:749.407    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028F00 if necessary
-T1DA4 440:749.413    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029000 if necessary
-T1DA4 440:749.418    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029100 if necessary
-T1DA4 440:749.424    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029200 if necessary
-T1DA4 440:749.429    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029300 if necessary
-T1DA4 440:749.435    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029400 if necessary
-T1DA4 440:749.440    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029500 if necessary
-T1DA4 440:749.446    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029600 if necessary
-T1DA4 440:749.451    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029700 if necessary
-T1DA4 440:749.457    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029800 if necessary
-T1DA4 440:749.467    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029900 if necessary
-T1DA4 440:749.472    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029A00 if necessary
-T1DA4 440:749.478    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029B00 if necessary
-T1DA4 440:749.483    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029C00 if necessary
-T1DA4 440:749.489    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029D00 if necessary
-T1DA4 440:749.494    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029E00 if necessary
-T1DA4 440:749.500    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029F00 if necessary
-T1DA4 440:749.506    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A000 if necessary
-T1DA4 440:749.512    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A100 if necessary
-T1DA4 440:749.517    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A200 if necessary
-T1DA4 440:749.523    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A300 if necessary
-T1DA4 440:749.529    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A400 if necessary
-T1DA4 440:749.534    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A500 if necessary
-T1DA4 440:749.540    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A600 if necessary
-T1DA4 440:749.545    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A700 if necessary
-T1DA4 440:749.551    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A800 if necessary
-T1DA4 440:749.556    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A900 if necessary
-T1DA4 440:749.561    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002AA00 if necessary
-T1DA4 440:749.567    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002AB00 if necessary
-T1DA4 440:749.573    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002AC00 if necessary
-T1DA4 440:749.578    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002AD00 if necessary
-T1DA4 440:749.584    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002AE00 if necessary
-T1DA4 440:749.589    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002AF00 if necessary
-T1DA4 440:749.595    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B000 if necessary
-T1DA4 440:749.600    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B100 if necessary
-T1DA4 440:749.606    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B200 if necessary
-T1DA4 440:749.611    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B300 if necessary
-T1DA4 440:749.617    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B400 if necessary
-T1DA4 440:749.622    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B500 if necessary
-T1DA4 440:749.627    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B600 if necessary
-T1DA4 440:749.633    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B700 if necessary
-T1DA4 440:749.638    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B800 if necessary
-T1DA4 440:749.644    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B900 if necessary
-T1DA4 440:749.649    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002BA00 if necessary
-T1DA4 440:749.655    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002BB00 if necessary
-T1DA4 440:749.660    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002BC00 if necessary
-T1DA4 440:749.666    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002BD00 if necessary
-T1DA4 440:749.671    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002BE00 if necessary
-T1DA4 440:749.677    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002BF00 if necessary
-T1DA4 440:749.682    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C000 if necessary
-T1DA4 440:749.687    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C100 if necessary
-T1DA4 440:749.693    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C200 if necessary
-T1DA4 440:749.699    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C300 if necessary
-T1DA4 440:749.705    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C400 if necessary
-T1DA4 440:749.710    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C500 if necessary
-T1DA4 440:749.716    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C600 if necessary
-T1DA4 440:749.721    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C700 if necessary
-T1DA4 440:749.727    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C800 if necessary
-T1DA4 440:749.732    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C900 if necessary
-T1DA4 440:749.738    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002CA00 if necessary
-T1DA4 440:749.743    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002CB00 if necessary
-T1DA4 440:749.749    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002CC00 if necessary
-T1DA4 440:749.754    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002CD00 if necessary
-T1DA4 440:749.759    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002CE00 if necessary
-T1DA4 440:749.765    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002CF00 if necessary
-T1DA4 440:749.770    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D000 if necessary
-T1DA4 440:749.776    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D100 if necessary
-T1DA4 440:749.781    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D200 if necessary
-T1DA4 440:749.787    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D300 if necessary
-T1DA4 440:749.792    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D400 if necessary
-T1DA4 440:749.798    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D500 if necessary
-T1DA4 440:749.803    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D600 if necessary
-T1DA4 440:749.809    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D700 if necessary
-T1DA4 440:749.814    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D800 if necessary
-T1DA4 440:749.819    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D900 if necessary
-T1DA4 440:749.825    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002DA00 if necessary
-T1DA4 440:749.830    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002DB00 if necessary
-T1DA4 440:749.836    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002DC00 if necessary
-T1DA4 440:749.841    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002DD00 if necessary
-T1DA4 440:749.847    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002DE00 if necessary
-T1DA4 440:749.852    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002DF00 if necessary
-T1DA4 440:749.858    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E000 if necessary
-T1DA4 440:749.863    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E100 if necessary
-T1DA4 440:749.868    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E200 if necessary
-T1DA4 440:749.874    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E300 if necessary
-T1DA4 440:749.879    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E400 if necessary
-T1DA4 440:749.885    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E500 if necessary
-T1DA4 440:749.891    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E600 if necessary
-T1DA4 440:749.897    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E700 if necessary
-T1DA4 440:749.902    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E800 if necessary
-T1DA4 440:749.908    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E900 if necessary
-T1DA4 440:749.918    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002EA00 if necessary
-T1DA4 440:749.924    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002EB00 if necessary
-T1DA4 440:749.929    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002EC00 if necessary
-T1DA4 440:749.935    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002ED00 if necessary
-T1DA4 440:749.940    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002EE00 if necessary
-T1DA4 440:749.946    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002EF00 if necessary
-T1DA4 440:749.951    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F000 if necessary
-T1DA4 440:749.956    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F100 if necessary
-T1DA4 440:749.962    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F200 if necessary
-T1DA4 440:749.967    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F300 if necessary
-T1DA4 440:749.973    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F400 if necessary
-T1DA4 440:749.978    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F500 if necessary
-T1DA4 440:749.984    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F600 if necessary
-T1DA4 440:749.989    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F700 if necessary
-T1DA4 440:749.995    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F800 if necessary
-T1DA4 440:750.000    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F900 if necessary
-T1DA4 440:750.006    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002FA00 if necessary
-T1DA4 440:750.011    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002FB00 if necessary
-T1DA4 440:750.016    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002FC00 if necessary
-T1DA4 440:750.022    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002FD00 if necessary
-T1DA4 440:750.027    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002FE00 if necessary
-T1DA4 440:750.033    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002FF00 if necessary
-T1DA4 440:750.039    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030000 if necessary
-T1DA4 440:750.044    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030100 if necessary
-T1DA4 440:750.049    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030200 if necessary
-T1DA4 440:750.055    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030300 if necessary
-T1DA4 440:750.060    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030400 if necessary
-T1DA4 440:750.066    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030500 if necessary
-T1DA4 440:750.071    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030600 if necessary
-T1DA4 440:750.077    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030700 if necessary
-T1DA4 440:750.082    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030800 if necessary
-T1DA4 440:750.088    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030900 if necessary
-T1DA4 440:750.094    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030A00 if necessary
-T1DA4 440:750.099    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030B00 if necessary
-T1DA4 440:750.105    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030C00 if necessary
-T1DA4 440:750.110    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030D00 if necessary
-T1DA4 440:750.116    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030E00 if necessary
-T1DA4 440:750.121    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030F00 if necessary
-T1DA4 440:750.127    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031000 if necessary
-T1DA4 440:750.132    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031100 if necessary
-T1DA4 440:750.138    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031200 if necessary
-T1DA4 440:750.143    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031300 if necessary
-T1DA4 440:750.149    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031400 if necessary
-T1DA4 440:750.154    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031500 if necessary
-T1DA4 440:750.159    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031600 if necessary
-T1DA4 440:750.165    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031700 if necessary
-T1DA4 440:750.170    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031800 if necessary
-T1DA4 440:750.176    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031900 if necessary
-T1DA4 440:750.181    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031A00 if necessary
-T1DA4 440:750.187    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031B00 if necessary
-T1DA4 440:750.192    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031C00 if necessary
-T1DA4 440:750.198    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031D00 if necessary
-T1DA4 440:750.203    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031E00 if necessary
-T1DA4 440:750.209    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031F00 if necessary
-T1DA4 440:750.214    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032000 if necessary
-T1DA4 440:750.219    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032100 if necessary
-T1DA4 440:750.225    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032200 if necessary
-T1DA4 440:750.230    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032300 if necessary
-T1DA4 440:750.236    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032400 if necessary
-T1DA4 440:750.242    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032500 if necessary
-T1DA4 440:750.248    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032600 if necessary
-T1DA4 440:750.253    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032700 if necessary
-T1DA4 440:750.259    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032800 if necessary
-T1DA4 440:750.265    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032900 if necessary
-T1DA4 440:750.271    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032A00 if necessary
-T1DA4 440:750.277    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032B00 if necessary
-T1DA4 440:750.282    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032C00 if necessary
-T1DA4 440:750.290    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032D00 if necessary
-T1DA4 440:750.296    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032E00 if necessary
-T1DA4 440:750.303    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032F00 if necessary
-T1DA4 440:750.310    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033000 if necessary
-T1DA4 440:750.316    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033100 if necessary
-T1DA4 440:750.322    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033200 if necessary
-T1DA4 440:750.330    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033300 if necessary
-T1DA4 440:750.336    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033400 if necessary
-T1DA4 440:750.341    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033500 if necessary
-T1DA4 440:750.347    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033600 if necessary
-T1DA4 440:750.352    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033700 if necessary
-T1DA4 440:750.358    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033800 if necessary
-T1DA4 440:750.364    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033900 if necessary
-T1DA4 440:750.369    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033A00 if necessary
-T1DA4 440:750.380    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033B00 if necessary
-T1DA4 440:750.385    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033C00 if necessary
-T1DA4 440:750.391    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033D00 if necessary
-T1DA4 440:750.397    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033E00 if necessary
-T1DA4 440:750.402    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033F00 if necessary
-T1DA4 440:750.408    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034000 if necessary
-T1DA4 440:750.414    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034100 if necessary
-T1DA4 440:750.419    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034200 if necessary
-T1DA4 440:750.425    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034300 if necessary
-T1DA4 440:750.430    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034400 if necessary
-T1DA4 440:750.436    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034500 if necessary
-T1DA4 440:750.442    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034600 if necessary
-T1DA4 440:750.447    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034700 if necessary
-T1DA4 440:750.453    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034800 if necessary
-T1DA4 440:750.459    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034900 if necessary
-T1DA4 440:750.464    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034A00 if necessary
-T1DA4 440:750.470    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034B00 if necessary
-T1DA4 440:750.475    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034C00 if necessary
-T1DA4 440:750.481    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034D00 if necessary
-T1DA4 440:750.487    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034E00 if necessary
-T1DA4 440:750.492    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034F00 if necessary
-T1DA4 440:750.499    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035000 if necessary
-T1DA4 440:750.504    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035100 if necessary
-T1DA4 440:750.510    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035200 if necessary
-T1DA4 440:750.516    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035300 if necessary
-T1DA4 440:750.521    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035400 if necessary
-T1DA4 440:750.527    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035500 if necessary
-T1DA4 440:750.533    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035600 if necessary
-T1DA4 440:750.538    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035700 if necessary
-T1DA4 440:750.544    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035800 if necessary
-T1DA4 440:750.550    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035900 if necessary
-T1DA4 440:750.555    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035A00 if necessary
-T1DA4 440:750.561    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035B00 if necessary
-T1DA4 440:750.566    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035C00 if necessary
-T1DA4 440:750.572    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035D00 if necessary
-T1DA4 440:750.578    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035E00 if necessary
-T1DA4 440:750.583    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035F00 if necessary
-T1DA4 440:750.589    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036000 if necessary
-T1DA4 440:750.594    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036100 if necessary
-T1DA4 440:750.600    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036200 if necessary
-T1DA4 440:750.605    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036300 if necessary
-T1DA4 440:750.611    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036400 if necessary
-T1DA4 440:750.617    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036500 if necessary
-T1DA4 440:750.622    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036600 if necessary
-T1DA4 440:750.628    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036700 if necessary
-T1DA4 440:750.633    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036800 if necessary
-T1DA4 440:750.639    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036900 if necessary
-T1DA4 440:750.645    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036A00 if necessary
-T1DA4 440:750.665    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036B00 if necessary
-T1DA4 440:750.677    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036C00 if necessary
-T1DA4 440:750.684    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036D00 if necessary
-T1DA4 440:750.705    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036E00 if necessary
-T1DA4 440:750.715    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036F00 if necessary
-T1DA4 440:750.722    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037000 if necessary
-T1DA4 440:750.728    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037100 if necessary
-T1DA4 440:750.735    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037200 if necessary
-T1DA4 440:750.741    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037300 if necessary
-T1DA4 440:750.750    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037400 if necessary
-T1DA4 440:750.757    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037500 if necessary
-T1DA4 440:750.763    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037600 if necessary
-T1DA4 440:750.769    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037700 if necessary
-T1DA4 440:750.776    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037800 if necessary
-T1DA4 440:750.783    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037900 if necessary
-T1DA4 440:750.790    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037A00 if necessary
-T1DA4 440:750.797    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037B00 if necessary
-T1DA4 440:750.805    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037C00 if necessary
-T1DA4 440:750.812    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037D00 if necessary
-T1DA4 440:750.819    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037E00 if necessary
-T1DA4 440:750.827    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037F00 if necessary
-T1DA4 440:750.834    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038000 if necessary
-T1DA4 440:750.842    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038100 if necessary
-T1DA4 440:750.849    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038200 if necessary
-T1DA4 440:750.856    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038300 if necessary
-T1DA4 440:750.875    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038400 if necessary
-T1DA4 440:750.882    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038500 if necessary
-T1DA4 440:750.890    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038600 if necessary
-T1DA4 440:750.897    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038700 if necessary
-T1DA4 440:750.903    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038800 if necessary
-T1DA4 440:750.909    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038900 if necessary
-T1DA4 440:750.916    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038A00 if necessary
-T1DA4 440:750.923    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038B00 if necessary
-T1DA4 440:750.937    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038C00 if necessary
-T1DA4 440:750.945    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038D00 if necessary
-T1DA4 440:750.952    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038E00 if necessary
-T1DA4 440:750.959    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038F00 if necessary
-T1DA4 440:750.967    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039000 if necessary
-T1DA4 440:750.974    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039100 if necessary
-T1DA4 440:750.982    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039200 if necessary
-T1DA4 440:750.989    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039300 if necessary
-T1DA4 440:750.996    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039400 if necessary
-T1DA4 440:751.004    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039500 if necessary
-T1DA4 440:751.011    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039600 if necessary
-T1DA4 440:751.020    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039700 if necessary
-T1DA4 440:751.027    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039800 if necessary
-T1DA4 440:751.035    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039900 if necessary
-T1DA4 440:751.041    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039A00 if necessary
-T1DA4 440:751.047    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039B00 if necessary
-T1DA4 440:751.054    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039C00 if necessary
-T1DA4 440:751.060    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039D00 if necessary
-T1DA4 440:751.067    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039E00 if necessary
-T1DA4 440:751.073    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039F00 if necessary
-T1DA4 440:751.085    -- End of determining dirty areas
-T1DA4 440:751.091    -- Start of preparing flash programming
-T1DA4 440:751.098    -- Calculating RAM usage
-T1DA4 440:751.110    -- RAM usage = 10052 Bytes
-T1DA4 440:751.117    -- Preserving CPU registers
-T1DA4 440:751.133    -- Preparing target
-T1DA4 440:751.139    -- Preserving target RAM temporarily used for programming
-T1DA4 440:805.190    -- Downloading RAMCode
-T1DA4 440:821.887    -- Preparing RAMCode
-T1DA4 440:827.546    -- End of preparing flash programming
-T1DA4 440:827.798   Looking for J-Link GUI Server exe at: C:\Program Files (x86)\Atmel\Studio\7.0\atbackend\JLinkGUIServer.exe
-T1DA4 440:827.895   Looking for J-Link GUI Server exe at: C:\Program Files (x86)\SEGGER\JLink\JLinkGUIServer.exe
-T1DA4 441:132.918   Failed to connect to J-Link GUI Server.
-T1DA4 441:145.374    -- CPU speed could not be measured.
-T1DA4 441:145.419    -- Start of comparing flash
-T1DA4 441:145.429    -- CRC check was estimated as fastest method
-T1DA4 441:145.466    -- Comparing range 0x12000 - 0x31FFF (512 Sectors, 128 KB), using multi-block CRC calculation
-T1DA4 441:237.857    -- CRC does not match for sectors 45-46
-T1DA4 441:237.892    -- Comparing range 0x32000 - 0x39FFF (128 Sectors, 32 KB), using multi-block CRC calculation
-T1DA4 441:262.951    -- All CRCs match
-T1DA4 441:262.987    -- Comparing range 0x12000 - 0x14CFF (45 Sectors, 11 KB), using alternative multi-block CRC calculation
-T1DA4 441:273.186    -- All CRCs match
-T1DA4 441:273.231    -- Comparing range 0x14F00 - 0x34EFF (512 Sectors, 128 KB), using alternative multi-block CRC calculation
-T1DA4 441:365.334    -- All CRCs match
-T1DA4 441:365.353    -- Comparing range 0x34F00 - 0x39FFF (81 Sectors, 20 KB), using alternative multi-block CRC calculation
-T1DA4 441:381.840    -- All CRCs match
-T1DA4 441:381.860    -- End of comparing flash
-T1DA4 441:381.868    -- Start of erasing sectors
-T1DA4 441:381.878    -- Erasing range 0x00014D00 - 0x00014EFF (  2 Sectors, 512 Bytes)
-T1DA4 441:385.014    -- End of erasing sectors
-T1DA4 441:385.030    -- Start of flash programming
-T1DA4 441:385.038    -- Programming range 0x00014D00 - 0x00014EFF (  2 Sectors, 512 Bytes)
-T1DA4 441:385.056    -- End of flash programming
-T1DA4 441:385.062    -- 0x14D00 - 0x14EFF (  2 Sectors, 512 Bytes)
-T1DA4 441:385.068    -- Start of restoring
-T1DA4 441:385.073    -- Restoring RAMCode
-T1DA4 441:394.806    -- Restoring target memory
-T1DA4 441:444.273    -- Restore target
-T1DA4 441:444.305    -- Restoring CPU registers
-T1DA4 441:444.323    -- End of restoring
-T1DA4 441:444.383    -- Bank 0 @ 0x00000000: 1 range affected (512 bytes)
-T1DA4 441:444.399    -- Total: 0.693s (Prepare: 0.394s, Compare: 0.236s, Erase: 0.003s, Program & Verify: 0.006s, Restore: 0.052s)
-T1DA4 441:444.411    -- Program & Verify speed: 83 KB/s
-T1DA4 441:446.883 - 700.809ms returns 512 (0x200)
-T1DA4 441:447.030 JLINK_ResetPullsRESET(ON)
-T1DA4 441:447.080 - 0.267ms
-T1DA4 441:447.322 JLINK_ResetNoHalt()
-T1DA4 441:447.966   InitTarget() start
-T1DA4 441:447.985    J-Link Script File: Executing InitTarget()
-T1DA4 441:448.005   InitTarget()
-T1DA4 441:452.119   InitTarget() end - Took 4.10ms
-T1DA4 441:452.771   Found SW-DP with ID 0x0BC11477
-T1DA4 441:455.299   DPIDR: 0x0BC11477
-T1DA4 441:455.325   CoreSight SoC-400 or earlier
-T1DA4 441:455.340   AP map detection skipped. Manually configured AP map found.
-T1DA4 441:455.353   AP[0]: AHB-AP (IDR: Not set)
-T1DA4 441:456.273   AP[0]: Core found
-T1DA4 441:456.294   AP[0]: AHB-AP ROM base: 0x41003000
-T1DA4 441:456.873   CPUID register: 0x410CC601. Implementer code: 0x41 (ARM)
-T1DA4 441:456.900   Found Cortex-M0 r0p1, Little endian.
-T1DA4 441:457.070   -- Max. mem block: 0x00002860
-T1DA4 441:457.086   CPU_ReadMem(4 bytes @ 0xE000EDF0)
-T1DA4 441:457.445   CPU_ReadMem(4 bytes @ 0xE0002000)
-T1DA4 441:457.769   FPUnit: 4 code (BP) slots and 0 literal slots
-T1DA4 441:457.778   CPU_ReadMem(4 bytes @ 0xE000EDFC)
-T1DA4 441:458.140   CPU_ReadMem(4 bytes @ 0xE0001000)
-T1DA4 441:458.581   CoreSight components:
-T1DA4 441:458.595   ROMTbl[0] @ 41003000
-T1DA4 441:458.604   CPU_ReadMem(64 bytes @ 0x41003000)
-T1DA4 441:459.324   CPU_ReadMem(32 bytes @ 0xE00FFFE0)
-T1DA4 441:459.884   [0][0]: E00FF000 CID B105100D PID 000BB4C0 ROM Table
-T1DA4 441:459.901   ROMTbl[1] @ E00FF000
-T1DA4 441:459.909   CPU_ReadMem(64 bytes @ 0xE00FF000)
-T1DA4 441:460.621   CPU_ReadMem(32 bytes @ 0xE000EFE0)
-T1DA4 441:461.139   [1][0]: E000E000 CID B105E00D PID 000BB008 SCS
-T1DA4 441:461.150   CPU_ReadMem(32 bytes @ 0xE0001FE0)
-T1DA4 441:461.676   [1][1]: E0001000 CID B105E00D PID 000BB00A DWT
-T1DA4 441:461.696   CPU_ReadMem(32 bytes @ 0xE0002FE0)
-T1DA4 441:462.275   [1][2]: E0002000 CID B105E00D PID 000BB00B FPB
-T1DA4 441:462.291   CPU_ReadMem(32 bytes @ 0x41006FE0)
-T1DA4 441:462.789   [0][1]: 41006000 CID B105900D PID 001BB932 MTB-M0+
-T1DA4 441:462.810   JLINK_Reset()
-T1DA4 441:462.820     CPU_ReadMem(4 bytes @ 0x20000000)
-T1DA4 441:463.233     CPU_WriteMem(4 bytes @ 0x20000000)
-T1DA4 441:463.678     ResetTarget() start
-T1DA4 441:463.688      J-Link Script File: Executing ResetTarget()
-T1DA4 441:464.034     CPU_ReadMem(4 bytes @ 0xE000EDFC)
-T1DA4 441:464.352     CPU_WriteMem(4 bytes @ 0xE000EDFC)
-T1DA4 441:464.698     CPU_WriteMem(4 bytes @ 0xE000ED0C)
-T1DA4 441:466.365     CPU_ReadMem(4 bytes @ 0xE000EDF0)
-T1DA4 441:466.725     CPU_ReadMem(4 bytes @ 0x41002100)
-T1DA4 441:467.062     CPU_WriteMem(4 bytes @ 0xE000EDFC)
-T1DA4 441:467.534     ResetTarget() end - Took 3.82ms
-T1DA4 441:470.928     CPU_WriteMem(4 bytes @ 0xE0002000)
-T1DA4 441:471.406     CPU_ReadMem(4 bytes @ 0xE000EDFC)
-T1DA4 441:471.829     CPU_ReadMem(4 bytes @ 0xE0001000)
-T1DA4 441:472.300     CPU_WriteMem(4 bytes @ 0xE0001000)
-T1DA4 441:472.715   - 9.917ms
-T1DA4 441:472.734   JLINK_Go()
-T1DA4 441:472.747     CPU_ReadMem(4 bytes @ 0xE0001000)
-T1DA4 441:473.140     CPU_WriteMem(4 bytes @ 0xE0001000)
-T1DA4 441:473.511     CPU_WriteMem(4 bytes @ 0xE0001004)
-T1DA4 441:474.501   - 1.769ms
-T1DA4 441:474.507 - 27.186ms
-T1DA4 441:480.214 JLINK_Close()
-T1DA4 441:512.864 - 32.694ms
-T1DA4 441:512.915   
-T1DA4 441:512.920   Closed
+T1DA4 5166:855.278   SEGGER J-Link V7.86h Log File
+T1DA4 5166:855.341   DLL Compiled: Apr 12 2023 16:04:37
+T1DA4 5166:855.359   Logging started @ 2023-05-04 20:44
+T1DA4 5166:855.376 - 88935.588ms
+T1DA4 5166:864.800 JLINK_ExecCommand("Device = ATSAMD21G18A", ...). 
+T1DA4 5166:865.162   Device "ATSAMD21G18A" selected.
+T1DA4 5166:865.581 - 0.766ms returns 0x00
+T1DA4 5166:890.802 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T1DA4 5166:892.939 - 2.220ms returns 0x00
+T1DA4 5166:893.036 JLINK_SetSpeed(4000)
+T1DA4 5166:893.357 - 0.353ms
+T1DA4 5166:893.405 JLINK_ResetPullsRESET(OFF)
+T1DA4 5166:893.422 - 0.026ms
+T1DA4 5166:893.445 JLINK_Connect()
+T1DA4 5166:894.047   InitTarget() start
+T1DA4 5166:894.094    J-Link Script File: Executing InitTarget()
+T1DA4 5166:894.395   InitTarget()
+T1DA4 5166:898.233   InitTarget() end - Took 4.08ms
+T1DA4 5166:899.550   Found SW-DP with ID 0x0BC11477
+T1DA4 5166:903.986   DPIDR: 0x0BC11477
+T1DA4 5166:904.023   CoreSight SoC-400 or earlier
+T1DA4 5166:904.036   Scanning AP map to find all available APs
+T1DA4 5166:904.735   AP[1]: Stopped AP scan as end of AP map has been reached
+T1DA4 5166:904.758   AP[0]: AHB-AP (IDR: 0x04770031)
+T1DA4 5166:904.772   Iterating through AP map to find AHB-AP to use
+T1DA4 5166:905.741   AP[0]: Core found
+T1DA4 5166:905.766   AP[0]: AHB-AP ROM base: 0x41003000
+T1DA4 5166:906.234   CPUID register: 0x410CC601. Implementer code: 0x41 (ARM)
+T1DA4 5166:906.249   Found Cortex-M0 r0p1, Little endian.
+T1DA4 5166:906.848   -- Max. mem block: 0x00002BA8
+T1DA4 5166:907.324   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T1DA4 5166:907.657   CPU_WriteMem(4 bytes @ 0xE000EDF0)
+T1DA4 5166:908.008   CPU_ReadMem(4 bytes @ 0xE0002000)
+T1DA4 5166:908.395   FPUnit: 4 code (BP) slots and 0 literal slots
+T1DA4 5166:908.411   CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T1DA4 5166:908.846   CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T1DA4 5166:909.211   CPU_ReadMem(4 bytes @ 0xE0001000)
+T1DA4 5166:909.710   CPU_WriteMem(4 bytes @ 0xE0001000)
+T1DA4 5166:910.124   CoreSight components:
+T1DA4 5166:910.160   ROMTbl[0] @ 41003000
+T1DA4 5166:910.173   CPU_ReadMem(64 bytes @ 0x41003000)
+T1DA4 5166:911.039   CPU_ReadMem(32 bytes @ 0xE00FFFE0)
+T1DA4 5166:911.761   [0][0]: E00FF000 CID B105100D PID 000BB4C0 ROM Table
+T1DA4 5166:911.779   ROMTbl[1] @ E00FF000
+T1DA4 5166:911.789   CPU_ReadMem(64 bytes @ 0xE00FF000)
+T1DA4 5166:912.456   CPU_ReadMem(32 bytes @ 0xE000EFE0)
+T1DA4 5166:913.005   [1][0]: E000E000 CID B105E00D PID 000BB008 SCS
+T1DA4 5166:913.015   CPU_ReadMem(32 bytes @ 0xE0001FE0)
+T1DA4 5166:913.608   [1][1]: E0001000 CID B105E00D PID 000BB00A DWT
+T1DA4 5166:913.622   CPU_ReadMem(32 bytes @ 0xE0002FE0)
+T1DA4 5166:914.280   [1][2]: E0002000 CID B105E00D PID 000BB00B FPB
+T1DA4 5166:914.291   CPU_ReadMem(32 bytes @ 0x41006FE0)
+T1DA4 5166:915.052   [0][1]: 41006000 CID B105900D PID 001BB932 MTB-M0+
+T1DA4 5166:915.077 - 21.638ms returns 0x00
+T1DA4 5166:915.137 JLINK_ExecCommand("ExcludeFlashCacheRange 0x0 - 0x40000", ...). 
+T1DA4 5166:915.148 - 0.005ms returns 0x00
+T1DA4 5166:915.167 JLINK_Halt()
+T1DA4 5166:918.359 - 3.208ms returns 0x00
+T1DA4 5166:919.526 JLINK_JTAG_GetDeviceID(DeviceIndex = 0)
+T1DA4 5166:919.544 - 0.024ms returns 0
+T1DA4 5166:919.556 JLINK_ReadMemU32(0x41002018, 0x1 Items)
+T1DA4 5166:919.579   CPU_ReadMem(4 bytes @ 0x41002018)
+T1DA4 5166:919.922   Data:  05 03 01 10
+T1DA4 5166:919.937 - 0.383ms returns 1 (0x1)
+TBBE0 5166:929.948 JLINK_IsHalted()
+TBBE0 5166:930.460 - 0.540ms returns TRUE
+TBBE0 5166:930.501 JLINK_GetMOEs(...)
+TBBE0 5166:930.517   CPU_ReadMem(4 bytes @ 0xE000ED30)
+TBBE0 5166:930.846 - 0.348ms returns 0x01
+TBBE0 5166:930.863 JLINK_ReadReg(R15 (PC))
+TBBE0 5166:930.888 - 0.027ms returns 0x00018318
+T1DA4 5167:003.495 JLINK_BeginDownload(Flags = 0x00000000)
+T1DA4 5167:003.526 - 0.033ms
+T1DA4 5167:003.539 JLINK_WriteMem(0x00012000, 0x27D6C Bytes, ...)
+T1DA4 5167:003.544   Data:  58 7C 00 20 F9 A0 02 00 F1 A1 02 00 F1 A1 02 00 ...
+T1DA4 5167:003.898   completely In flash
+T1DA4 5167:003.927 - 0.392ms returns 0x27D6C
+T1DA4 5167:004.178 JLINK_WriteMem(0x00039D6C, 0x2F0 Bytes, ...)
+T1DA4 5167:004.246   Data:  00 00 00 00 A0 59 03 00 06 07 20 7D 00 00 00 00 ...
+T1DA4 5167:004.267   completely In flash
+T1DA4 5167:004.276 - 0.101ms returns 0x2F0
+TBBE0 5167:134.046 JLINK_IsHalted()
+TBBE0 5167:134.087 - 0.043ms returns TRUE
+T1DA4 5167:134.817 JLINK_EndDownload()
+T1DA4 5167:135.146   CPU_ReadMem(4 bytes @ 0x41006004)
+T1DA4 5167:135.515   CPU_ReadMem(4 bytes @ 0xE000ED90)
+T1DA4 5167:135.889    -- --------------------------------------
+T1DA4 5167:135.897   Flash bank @ 0x00000000: Default: L2 verify disabled because algorithm performs L1 verify
+T1DA4 5167:135.909    -- Start of determining dirty areas in flash cache
+T1DA4 5167:135.927    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012000 if necessary
+T1DA4 5167:135.935    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012100 if necessary
+T1DA4 5167:135.941    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012200 if necessary
+T1DA4 5167:135.948    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012300 if necessary
+T1DA4 5167:135.955    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012400 if necessary
+T1DA4 5167:135.961    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012500 if necessary
+T1DA4 5167:135.968    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012600 if necessary
+T1DA4 5167:135.974    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012700 if necessary
+T1DA4 5167:135.981    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012800 if necessary
+T1DA4 5167:135.994    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012900 if necessary
+T1DA4 5167:136.001    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012A00 if necessary
+T1DA4 5167:136.007    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012B00 if necessary
+T1DA4 5167:136.014    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012C00 if necessary
+T1DA4 5167:136.021    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012D00 if necessary
+T1DA4 5167:136.027    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012E00 if necessary
+T1DA4 5167:136.034    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00012F00 if necessary
+T1DA4 5167:136.040    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013000 if necessary
+T1DA4 5167:136.047    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013100 if necessary
+T1DA4 5167:136.053    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013200 if necessary
+T1DA4 5167:136.060    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013300 if necessary
+T1DA4 5167:136.067    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013400 if necessary
+T1DA4 5167:136.073    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013500 if necessary
+T1DA4 5167:136.080    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013600 if necessary
+T1DA4 5167:136.086    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013700 if necessary
+T1DA4 5167:136.093    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013800 if necessary
+T1DA4 5167:136.099    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013900 if necessary
+T1DA4 5167:136.106    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013A00 if necessary
+T1DA4 5167:136.112    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013B00 if necessary
+T1DA4 5167:136.119    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013C00 if necessary
+T1DA4 5167:136.126    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013D00 if necessary
+T1DA4 5167:136.178    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013E00 if necessary
+T1DA4 5167:136.185    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00013F00 if necessary
+T1DA4 5167:136.192    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014000 if necessary
+T1DA4 5167:136.198    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014100 if necessary
+T1DA4 5167:136.203    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014200 if necessary
+T1DA4 5167:136.212    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014300 if necessary
+T1DA4 5167:136.218    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014400 if necessary
+T1DA4 5167:136.223    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014500 if necessary
+T1DA4 5167:136.229    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014600 if necessary
+T1DA4 5167:136.234    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014700 if necessary
+T1DA4 5167:136.240    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014800 if necessary
+T1DA4 5167:136.245    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014900 if necessary
+T1DA4 5167:136.251    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014A00 if necessary
+T1DA4 5167:136.256    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014B00 if necessary
+T1DA4 5167:136.262    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014C00 if necessary
+T1DA4 5167:136.267    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014D00 if necessary
+T1DA4 5167:136.273    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014E00 if necessary
+T1DA4 5167:136.278    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00014F00 if necessary
+T1DA4 5167:136.284    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015000 if necessary
+T1DA4 5167:136.289    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015100 if necessary
+T1DA4 5167:136.295    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015200 if necessary
+T1DA4 5167:136.300    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015300 if necessary
+T1DA4 5167:136.306    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015400 if necessary
+T1DA4 5167:136.311    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015500 if necessary
+T1DA4 5167:136.317    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015600 if necessary
+T1DA4 5167:136.322    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015700 if necessary
+T1DA4 5167:136.328    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015800 if necessary
+T1DA4 5167:136.333    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015900 if necessary
+T1DA4 5167:136.339    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015A00 if necessary
+T1DA4 5167:136.344    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015B00 if necessary
+T1DA4 5167:136.350    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015C00 if necessary
+T1DA4 5167:136.355    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015D00 if necessary
+T1DA4 5167:136.361    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015E00 if necessary
+T1DA4 5167:136.366    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00015F00 if necessary
+T1DA4 5167:136.372    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016000 if necessary
+T1DA4 5167:136.378    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016100 if necessary
+T1DA4 5167:136.384    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016200 if necessary
+T1DA4 5167:136.390    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016300 if necessary
+T1DA4 5167:136.395    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016400 if necessary
+T1DA4 5167:136.401    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016500 if necessary
+T1DA4 5167:136.406    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016600 if necessary
+T1DA4 5167:136.412    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016700 if necessary
+T1DA4 5167:136.417    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016800 if necessary
+T1DA4 5167:136.423    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016900 if necessary
+T1DA4 5167:136.428    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016A00 if necessary
+T1DA4 5167:136.434    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016B00 if necessary
+T1DA4 5167:136.439    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016C00 if necessary
+T1DA4 5167:136.445    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016D00 if necessary
+T1DA4 5167:136.450    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016E00 if necessary
+T1DA4 5167:136.456    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00016F00 if necessary
+T1DA4 5167:136.461    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017000 if necessary
+T1DA4 5167:136.467    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017100 if necessary
+T1DA4 5167:136.472    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017200 if necessary
+T1DA4 5167:136.478    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017300 if necessary
+T1DA4 5167:136.483    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017400 if necessary
+T1DA4 5167:136.489    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017500 if necessary
+T1DA4 5167:136.494    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017600 if necessary
+T1DA4 5167:136.500    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017700 if necessary
+T1DA4 5167:136.505    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017800 if necessary
+T1DA4 5167:136.511    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017900 if necessary
+T1DA4 5167:136.522    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017A00 if necessary
+T1DA4 5167:136.527    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017B00 if necessary
+T1DA4 5167:136.533    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017C00 if necessary
+T1DA4 5167:136.538    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017D00 if necessary
+T1DA4 5167:136.544    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017E00 if necessary
+T1DA4 5167:136.549    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00017F00 if necessary
+T1DA4 5167:136.554    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018000 if necessary
+T1DA4 5167:136.560    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018100 if necessary
+T1DA4 5167:136.566    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018200 if necessary
+T1DA4 5167:136.571    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018300 if necessary
+T1DA4 5167:136.588    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018400 if necessary
+T1DA4 5167:136.594    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018500 if necessary
+T1DA4 5167:136.600    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018600 if necessary
+T1DA4 5167:136.605    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018700 if necessary
+T1DA4 5167:136.611    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018800 if necessary
+T1DA4 5167:136.616    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018900 if necessary
+T1DA4 5167:136.622    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018A00 if necessary
+T1DA4 5167:136.627    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018B00 if necessary
+T1DA4 5167:136.633    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018C00 if necessary
+T1DA4 5167:136.638    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018D00 if necessary
+T1DA4 5167:136.643    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018E00 if necessary
+T1DA4 5167:136.649    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00018F00 if necessary
+T1DA4 5167:136.654    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019000 if necessary
+T1DA4 5167:136.660    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019100 if necessary
+T1DA4 5167:136.665    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019200 if necessary
+T1DA4 5167:136.671    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019300 if necessary
+T1DA4 5167:136.676    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019400 if necessary
+T1DA4 5167:136.682    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019500 if necessary
+T1DA4 5167:136.687    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019600 if necessary
+T1DA4 5167:136.693    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019700 if necessary
+T1DA4 5167:136.698    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019800 if necessary
+T1DA4 5167:136.704    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019900 if necessary
+T1DA4 5167:136.709    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019A00 if necessary
+T1DA4 5167:136.715    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019B00 if necessary
+T1DA4 5167:136.720    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019C00 if necessary
+T1DA4 5167:136.726    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019D00 if necessary
+T1DA4 5167:136.731    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019E00 if necessary
+T1DA4 5167:136.737    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00019F00 if necessary
+T1DA4 5167:136.742    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A000 if necessary
+T1DA4 5167:136.748    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A100 if necessary
+T1DA4 5167:136.753    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A200 if necessary
+T1DA4 5167:136.759    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A300 if necessary
+T1DA4 5167:136.764    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A400 if necessary
+T1DA4 5167:136.770    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A500 if necessary
+T1DA4 5167:136.775    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A600 if necessary
+T1DA4 5167:136.782    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A700 if necessary
+T1DA4 5167:136.787    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A800 if necessary
+T1DA4 5167:136.793    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001A900 if necessary
+T1DA4 5167:136.798    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001AA00 if necessary
+T1DA4 5167:136.804    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001AB00 if necessary
+T1DA4 5167:136.809    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001AC00 if necessary
+T1DA4 5167:136.815    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001AD00 if necessary
+T1DA4 5167:136.820    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001AE00 if necessary
+T1DA4 5167:136.826    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001AF00 if necessary
+T1DA4 5167:136.831    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B000 if necessary
+T1DA4 5167:136.837    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B100 if necessary
+T1DA4 5167:136.842    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B200 if necessary
+T1DA4 5167:136.848    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B300 if necessary
+T1DA4 5167:136.853    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B400 if necessary
+T1DA4 5167:136.859    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B500 if necessary
+T1DA4 5167:136.864    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B600 if necessary
+T1DA4 5167:136.870    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B700 if necessary
+T1DA4 5167:136.875    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B800 if necessary
+T1DA4 5167:136.881    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001B900 if necessary
+T1DA4 5167:136.886    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001BA00 if necessary
+T1DA4 5167:136.892    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001BB00 if necessary
+T1DA4 5167:136.897    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001BC00 if necessary
+T1DA4 5167:136.903    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001BD00 if necessary
+T1DA4 5167:136.908    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001BE00 if necessary
+T1DA4 5167:136.914    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001BF00 if necessary
+T1DA4 5167:136.919    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C000 if necessary
+T1DA4 5167:136.925    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C100 if necessary
+T1DA4 5167:136.930    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C200 if necessary
+T1DA4 5167:136.936    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C300 if necessary
+T1DA4 5167:136.941    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C400 if necessary
+T1DA4 5167:136.947    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C500 if necessary
+T1DA4 5167:136.953    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C600 if necessary
+T1DA4 5167:136.959    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C700 if necessary
+T1DA4 5167:136.965    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C800 if necessary
+T1DA4 5167:136.970    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001C900 if necessary
+T1DA4 5167:136.977    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001CA00 if necessary
+T1DA4 5167:136.988    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001CB00 if necessary
+T1DA4 5167:136.994    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001CC00 if necessary
+T1DA4 5167:136.999    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001CD00 if necessary
+T1DA4 5167:137.005    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001CE00 if necessary
+T1DA4 5167:137.011    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001CF00 if necessary
+T1DA4 5167:137.016    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D000 if necessary
+T1DA4 5167:137.022    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D100 if necessary
+T1DA4 5167:137.028    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D200 if necessary
+T1DA4 5167:137.033    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D300 if necessary
+T1DA4 5167:137.040    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D400 if necessary
+T1DA4 5167:137.046    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D500 if necessary
+T1DA4 5167:137.053    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D600 if necessary
+T1DA4 5167:137.060    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D700 if necessary
+T1DA4 5167:137.066    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D800 if necessary
+T1DA4 5167:137.073    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001D900 if necessary
+T1DA4 5167:137.079    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001DA00 if necessary
+T1DA4 5167:137.086    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001DB00 if necessary
+T1DA4 5167:137.093    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001DC00 if necessary
+T1DA4 5167:137.099    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001DD00 if necessary
+T1DA4 5167:137.106    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001DE00 if necessary
+T1DA4 5167:137.112    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001DF00 if necessary
+T1DA4 5167:137.119    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E000 if necessary
+T1DA4 5167:137.125    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E100 if necessary
+T1DA4 5167:137.132    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E200 if necessary
+T1DA4 5167:137.138    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E300 if necessary
+T1DA4 5167:137.145    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E400 if necessary
+T1DA4 5167:137.152    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E500 if necessary
+T1DA4 5167:137.158    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E600 if necessary
+T1DA4 5167:137.165    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E700 if necessary
+T1DA4 5167:137.171    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E800 if necessary
+T1DA4 5167:137.178    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001E900 if necessary
+T1DA4 5167:137.185    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001EA00 if necessary
+T1DA4 5167:137.191    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001EB00 if necessary
+T1DA4 5167:137.198    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001EC00 if necessary
+T1DA4 5167:137.206    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001ED00 if necessary
+T1DA4 5167:137.212    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001EE00 if necessary
+T1DA4 5167:137.219    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001EF00 if necessary
+T1DA4 5167:137.225    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F000 if necessary
+T1DA4 5167:137.232    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F100 if necessary
+T1DA4 5167:137.238    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F200 if necessary
+T1DA4 5167:137.245    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F300 if necessary
+T1DA4 5167:137.252    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F400 if necessary
+T1DA4 5167:137.258    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F500 if necessary
+T1DA4 5167:137.264    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F600 if necessary
+T1DA4 5167:137.270    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F700 if necessary
+T1DA4 5167:137.275    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F800 if necessary
+T1DA4 5167:137.281    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001F900 if necessary
+T1DA4 5167:137.286    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001FA00 if necessary
+T1DA4 5167:137.292    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001FB00 if necessary
+T1DA4 5167:137.298    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001FC00 if necessary
+T1DA4 5167:137.303    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001FD00 if necessary
+T1DA4 5167:137.309    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001FE00 if necessary
+T1DA4 5167:137.315    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0001FF00 if necessary
+T1DA4 5167:137.320    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020000 if necessary
+T1DA4 5167:137.326    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020100 if necessary
+T1DA4 5167:137.331    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020200 if necessary
+T1DA4 5167:137.337    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020300 if necessary
+T1DA4 5167:137.343    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020400 if necessary
+T1DA4 5167:137.348    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020500 if necessary
+T1DA4 5167:137.354    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020600 if necessary
+T1DA4 5167:137.359    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020700 if necessary
+T1DA4 5167:137.365    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020800 if necessary
+T1DA4 5167:137.371    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020900 if necessary
+T1DA4 5167:137.376    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020A00 if necessary
+T1DA4 5167:137.382    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020B00 if necessary
+T1DA4 5167:137.388    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020C00 if necessary
+T1DA4 5167:137.393    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020D00 if necessary
+T1DA4 5167:137.399    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020E00 if necessary
+T1DA4 5167:137.405    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00020F00 if necessary
+T1DA4 5167:137.421    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021000 if necessary
+T1DA4 5167:137.427    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021100 if necessary
+T1DA4 5167:137.432    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021200 if necessary
+T1DA4 5167:137.438    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021300 if necessary
+T1DA4 5167:137.444    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021400 if necessary
+T1DA4 5167:137.449    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021500 if necessary
+T1DA4 5167:137.455    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021600 if necessary
+T1DA4 5167:137.460    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021700 if necessary
+T1DA4 5167:137.466    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021800 if necessary
+T1DA4 5167:137.472    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021900 if necessary
+T1DA4 5167:137.477    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021A00 if necessary
+T1DA4 5167:137.483    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021B00 if necessary
+T1DA4 5167:137.495    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021C00 if necessary
+T1DA4 5167:137.500    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021D00 if necessary
+T1DA4 5167:137.506    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021E00 if necessary
+T1DA4 5167:137.662    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00021F00 if necessary
+T1DA4 5167:137.672    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022000 if necessary
+T1DA4 5167:137.680    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022100 if necessary
+T1DA4 5167:137.689    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022200 if necessary
+T1DA4 5167:137.697    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022300 if necessary
+T1DA4 5167:137.707    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022400 if necessary
+T1DA4 5167:137.714    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022500 if necessary
+T1DA4 5167:137.722    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022600 if necessary
+T1DA4 5167:137.729    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022700 if necessary
+T1DA4 5167:137.736    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022800 if necessary
+T1DA4 5167:137.744    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022900 if necessary
+T1DA4 5167:137.751    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022A00 if necessary
+T1DA4 5167:137.758    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022B00 if necessary
+T1DA4 5167:137.766    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022C00 if necessary
+T1DA4 5167:137.773    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022D00 if necessary
+T1DA4 5167:137.781    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022E00 if necessary
+T1DA4 5167:137.788    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00022F00 if necessary
+T1DA4 5167:137.795    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023000 if necessary
+T1DA4 5167:137.803    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023100 if necessary
+T1DA4 5167:137.810    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023200 if necessary
+T1DA4 5167:137.823    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023300 if necessary
+T1DA4 5167:137.830    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023400 if necessary
+T1DA4 5167:137.837    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023500 if necessary
+T1DA4 5167:137.845    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023600 if necessary
+T1DA4 5167:137.852    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023700 if necessary
+T1DA4 5167:137.860    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023800 if necessary
+T1DA4 5167:137.867    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023900 if necessary
+T1DA4 5167:137.875    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023A00 if necessary
+T1DA4 5167:137.882    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023B00 if necessary
+T1DA4 5167:137.889    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023C00 if necessary
+T1DA4 5167:137.897    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023D00 if necessary
+T1DA4 5167:137.904    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023E00 if necessary
+T1DA4 5167:137.912    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00023F00 if necessary
+T1DA4 5167:137.919    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024000 if necessary
+T1DA4 5167:137.925    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024100 if necessary
+T1DA4 5167:137.932    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024200 if necessary
+T1DA4 5167:137.939    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024300 if necessary
+T1DA4 5167:137.945    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024400 if necessary
+T1DA4 5167:137.952    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024500 if necessary
+T1DA4 5167:137.960    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024600 if necessary
+T1DA4 5167:137.967    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024700 if necessary
+T1DA4 5167:137.974    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024800 if necessary
+T1DA4 5167:137.982    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024900 if necessary
+T1DA4 5167:137.989    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024A00 if necessary
+T1DA4 5167:137.996    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024B00 if necessary
+T1DA4 5167:138.004    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024C00 if necessary
+T1DA4 5167:138.011    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024D00 if necessary
+T1DA4 5167:138.019    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024E00 if necessary
+T1DA4 5167:138.026    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00024F00 if necessary
+T1DA4 5167:138.034    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025000 if necessary
+T1DA4 5167:138.040    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025100 if necessary
+T1DA4 5167:138.047    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025200 if necessary
+T1DA4 5167:138.053    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025300 if necessary
+T1DA4 5167:138.060    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025400 if necessary
+T1DA4 5167:138.067    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025500 if necessary
+T1DA4 5167:138.075    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025600 if necessary
+T1DA4 5167:138.081    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025700 if necessary
+T1DA4 5167:138.088    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025800 if necessary
+T1DA4 5167:138.094    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025900 if necessary
+T1DA4 5167:138.101    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025A00 if necessary
+T1DA4 5167:138.108    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025B00 if necessary
+T1DA4 5167:138.114    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025C00 if necessary
+T1DA4 5167:138.121    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025D00 if necessary
+T1DA4 5167:138.127    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025E00 if necessary
+T1DA4 5167:138.134    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00025F00 if necessary
+T1DA4 5167:138.141    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026000 if necessary
+T1DA4 5167:138.147    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026100 if necessary
+T1DA4 5167:138.154    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026200 if necessary
+T1DA4 5167:138.160    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026300 if necessary
+T1DA4 5167:138.168    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026400 if necessary
+T1DA4 5167:138.174    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026500 if necessary
+T1DA4 5167:138.180    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026600 if necessary
+T1DA4 5167:138.185    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026700 if necessary
+T1DA4 5167:138.191    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026800 if necessary
+T1DA4 5167:138.197    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026900 if necessary
+T1DA4 5167:138.203    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026A00 if necessary
+T1DA4 5167:138.209    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026B00 if necessary
+T1DA4 5167:138.215    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026C00 if necessary
+T1DA4 5167:138.227    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026D00 if necessary
+T1DA4 5167:138.234    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026E00 if necessary
+T1DA4 5167:138.240    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00026F00 if necessary
+T1DA4 5167:138.246    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027000 if necessary
+T1DA4 5167:138.252    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027100 if necessary
+T1DA4 5167:138.257    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027200 if necessary
+T1DA4 5167:138.264    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027300 if necessary
+T1DA4 5167:138.269    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027400 if necessary
+T1DA4 5167:138.275    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027500 if necessary
+T1DA4 5167:138.281    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027600 if necessary
+T1DA4 5167:138.287    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027700 if necessary
+T1DA4 5167:138.293    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027800 if necessary
+T1DA4 5167:138.301    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027900 if necessary
+T1DA4 5167:138.306    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027A00 if necessary
+T1DA4 5167:138.312    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027B00 if necessary
+T1DA4 5167:138.318    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027C00 if necessary
+T1DA4 5167:138.324    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027D00 if necessary
+T1DA4 5167:138.330    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027E00 if necessary
+T1DA4 5167:138.336    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00027F00 if necessary
+T1DA4 5167:138.342    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028000 if necessary
+T1DA4 5167:138.348    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028100 if necessary
+T1DA4 5167:138.354    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028200 if necessary
+T1DA4 5167:138.360    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028300 if necessary
+T1DA4 5167:138.366    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028400 if necessary
+T1DA4 5167:138.372    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028500 if necessary
+T1DA4 5167:138.378    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028600 if necessary
+T1DA4 5167:138.384    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028700 if necessary
+T1DA4 5167:138.389    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028800 if necessary
+T1DA4 5167:138.395    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028900 if necessary
+T1DA4 5167:138.401    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028A00 if necessary
+T1DA4 5167:138.407    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028B00 if necessary
+T1DA4 5167:138.413    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028C00 if necessary
+T1DA4 5167:138.419    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028D00 if necessary
+T1DA4 5167:138.425    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028E00 if necessary
+T1DA4 5167:138.431    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00028F00 if necessary
+T1DA4 5167:138.437    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029000 if necessary
+T1DA4 5167:138.443    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029100 if necessary
+T1DA4 5167:138.449    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029200 if necessary
+T1DA4 5167:138.455    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029300 if necessary
+T1DA4 5167:138.461    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029400 if necessary
+T1DA4 5167:138.467    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029500 if necessary
+T1DA4 5167:138.473    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029600 if necessary
+T1DA4 5167:138.479    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029700 if necessary
+T1DA4 5167:138.485    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029800 if necessary
+T1DA4 5167:138.491    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029900 if necessary
+T1DA4 5167:138.496    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029A00 if necessary
+T1DA4 5167:138.502    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029B00 if necessary
+T1DA4 5167:138.510    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029C00 if necessary
+T1DA4 5167:138.516    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029D00 if necessary
+T1DA4 5167:138.521    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029E00 if necessary
+T1DA4 5167:138.527    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00029F00 if necessary
+T1DA4 5167:138.533    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A000 if necessary
+T1DA4 5167:138.539    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A100 if necessary
+T1DA4 5167:138.545    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A200 if necessary
+T1DA4 5167:138.551    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A300 if necessary
+T1DA4 5167:138.557    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A400 if necessary
+T1DA4 5167:138.563    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A500 if necessary
+T1DA4 5167:138.569    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A600 if necessary
+T1DA4 5167:138.575    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A700 if necessary
+T1DA4 5167:138.581    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A800 if necessary
+T1DA4 5167:138.587    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002A900 if necessary
+T1DA4 5167:138.592    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002AA00 if necessary
+T1DA4 5167:138.598    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002AB00 if necessary
+T1DA4 5167:138.604    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002AC00 if necessary
+T1DA4 5167:138.610    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002AD00 if necessary
+T1DA4 5167:138.616    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002AE00 if necessary
+T1DA4 5167:138.622    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002AF00 if necessary
+T1DA4 5167:138.628    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B000 if necessary
+T1DA4 5167:138.634    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B100 if necessary
+T1DA4 5167:138.640    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B200 if necessary
+T1DA4 5167:138.646    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B300 if necessary
+T1DA4 5167:138.652    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B400 if necessary
+T1DA4 5167:138.657    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B500 if necessary
+T1DA4 5167:138.663    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B600 if necessary
+T1DA4 5167:138.669    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B700 if necessary
+T1DA4 5167:138.675    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B800 if necessary
+T1DA4 5167:138.681    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002B900 if necessary
+T1DA4 5167:138.687    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002BA00 if necessary
+T1DA4 5167:138.693    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002BB00 if necessary
+T1DA4 5167:138.699    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002BC00 if necessary
+T1DA4 5167:138.705    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002BD00 if necessary
+T1DA4 5167:138.716    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002BE00 if necessary
+T1DA4 5167:138.723    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002BF00 if necessary
+T1DA4 5167:138.729    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C000 if necessary
+T1DA4 5167:138.735    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C100 if necessary
+T1DA4 5167:138.741    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C200 if necessary
+T1DA4 5167:138.747    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C300 if necessary
+T1DA4 5167:138.753    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C400 if necessary
+T1DA4 5167:138.759    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C500 if necessary
+T1DA4 5167:138.765    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C600 if necessary
+T1DA4 5167:138.771    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C700 if necessary
+T1DA4 5167:138.777    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C800 if necessary
+T1DA4 5167:138.783    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002C900 if necessary
+T1DA4 5167:138.789    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002CA00 if necessary
+T1DA4 5167:138.795    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002CB00 if necessary
+T1DA4 5167:138.801    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002CC00 if necessary
+T1DA4 5167:138.807    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002CD00 if necessary
+T1DA4 5167:138.813    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002CE00 if necessary
+T1DA4 5167:138.819    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002CF00 if necessary
+T1DA4 5167:138.825    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D000 if necessary
+T1DA4 5167:138.831    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D100 if necessary
+T1DA4 5167:138.837    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D200 if necessary
+T1DA4 5167:138.843    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D300 if necessary
+T1DA4 5167:138.849    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D400 if necessary
+T1DA4 5167:138.855    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D500 if necessary
+T1DA4 5167:138.861    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D600 if necessary
+T1DA4 5167:138.866    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D700 if necessary
+T1DA4 5167:138.872    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D800 if necessary
+T1DA4 5167:138.878    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002D900 if necessary
+T1DA4 5167:138.884    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002DA00 if necessary
+T1DA4 5167:138.890    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002DB00 if necessary
+T1DA4 5167:138.896    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002DC00 if necessary
+T1DA4 5167:138.902    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002DD00 if necessary
+T1DA4 5167:138.908    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002DE00 if necessary
+T1DA4 5167:138.914    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002DF00 if necessary
+T1DA4 5167:138.920    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E000 if necessary
+T1DA4 5167:138.926    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E100 if necessary
+T1DA4 5167:138.933    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E200 if necessary
+T1DA4 5167:138.939    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E300 if necessary
+T1DA4 5167:138.945    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E400 if necessary
+T1DA4 5167:138.951    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E500 if necessary
+T1DA4 5167:138.957    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E600 if necessary
+T1DA4 5167:138.963    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E700 if necessary
+T1DA4 5167:138.969    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E800 if necessary
+T1DA4 5167:138.975    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002E900 if necessary
+T1DA4 5167:138.981    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002EA00 if necessary
+T1DA4 5167:138.987    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002EB00 if necessary
+T1DA4 5167:138.993    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002EC00 if necessary
+T1DA4 5167:138.999    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002ED00 if necessary
+T1DA4 5167:139.006    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002EE00 if necessary
+T1DA4 5167:139.014    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002EF00 if necessary
+T1DA4 5167:139.021    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F000 if necessary
+T1DA4 5167:139.029    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F100 if necessary
+T1DA4 5167:139.036    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F200 if necessary
+T1DA4 5167:139.043    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F300 if necessary
+T1DA4 5167:139.051    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F400 if necessary
+T1DA4 5167:139.058    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F500 if necessary
+T1DA4 5167:139.066    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F600 if necessary
+T1DA4 5167:139.073    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F700 if necessary
+T1DA4 5167:139.081    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F800 if necessary
+T1DA4 5167:139.088    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002F900 if necessary
+T1DA4 5167:139.096    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002FA00 if necessary
+T1DA4 5167:139.103    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002FB00 if necessary
+T1DA4 5167:139.111    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002FC00 if necessary
+T1DA4 5167:139.118    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002FD00 if necessary
+T1DA4 5167:139.126    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002FE00 if necessary
+T1DA4 5167:139.133    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0002FF00 if necessary
+T1DA4 5167:139.140    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030000 if necessary
+T1DA4 5167:139.148    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030100 if necessary
+T1DA4 5167:139.155    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030200 if necessary
+T1DA4 5167:139.163    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030300 if necessary
+T1DA4 5167:139.170    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030400 if necessary
+T1DA4 5167:139.179    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030500 if necessary
+T1DA4 5167:139.186    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030600 if necessary
+T1DA4 5167:139.194    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030700 if necessary
+T1DA4 5167:139.201    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030800 if necessary
+T1DA4 5167:139.208    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030900 if necessary
+T1DA4 5167:139.216    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030A00 if necessary
+T1DA4 5167:139.223    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030B00 if necessary
+T1DA4 5167:139.231    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030C00 if necessary
+T1DA4 5167:139.238    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030D00 if necessary
+T1DA4 5167:139.245    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030E00 if necessary
+T1DA4 5167:139.259    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00030F00 if necessary
+T1DA4 5167:139.267    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031000 if necessary
+T1DA4 5167:139.274    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031100 if necessary
+T1DA4 5167:139.282    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031200 if necessary
+T1DA4 5167:139.289    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031300 if necessary
+T1DA4 5167:139.296    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031400 if necessary
+T1DA4 5167:139.302    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031500 if necessary
+T1DA4 5167:139.310    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031600 if necessary
+T1DA4 5167:139.316    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031700 if necessary
+T1DA4 5167:139.322    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031800 if necessary
+T1DA4 5167:139.328    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031900 if necessary
+T1DA4 5167:139.333    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031A00 if necessary
+T1DA4 5167:139.339    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031B00 if necessary
+T1DA4 5167:139.345    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031C00 if necessary
+T1DA4 5167:139.351    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031D00 if necessary
+T1DA4 5167:139.357    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031E00 if necessary
+T1DA4 5167:139.364    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00031F00 if necessary
+T1DA4 5167:139.370    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032000 if necessary
+T1DA4 5167:139.376    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032100 if necessary
+T1DA4 5167:139.382    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032200 if necessary
+T1DA4 5167:139.388    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032300 if necessary
+T1DA4 5167:139.394    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032400 if necessary
+T1DA4 5167:139.400    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032500 if necessary
+T1DA4 5167:139.406    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032600 if necessary
+T1DA4 5167:139.412    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032700 if necessary
+T1DA4 5167:139.445    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032800 if necessary
+T1DA4 5167:139.451    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032900 if necessary
+T1DA4 5167:139.457    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032A00 if necessary
+T1DA4 5167:139.463    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032B00 if necessary
+T1DA4 5167:139.469    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032C00 if necessary
+T1DA4 5167:139.475    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032D00 if necessary
+T1DA4 5167:139.481    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032E00 if necessary
+T1DA4 5167:139.487    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00032F00 if necessary
+T1DA4 5167:139.493    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033000 if necessary
+T1DA4 5167:139.499    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033100 if necessary
+T1DA4 5167:139.505    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033200 if necessary
+T1DA4 5167:139.511    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033300 if necessary
+T1DA4 5167:139.517    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033400 if necessary
+T1DA4 5167:139.523    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033500 if necessary
+T1DA4 5167:139.529    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033600 if necessary
+T1DA4 5167:139.535    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033700 if necessary
+T1DA4 5167:139.541    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033800 if necessary
+T1DA4 5167:139.547    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033900 if necessary
+T1DA4 5167:139.553    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033A00 if necessary
+T1DA4 5167:139.558    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033B00 if necessary
+T1DA4 5167:139.564    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033C00 if necessary
+T1DA4 5167:139.570    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033D00 if necessary
+T1DA4 5167:139.576    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033E00 if necessary
+T1DA4 5167:139.582    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00033F00 if necessary
+T1DA4 5167:139.588    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034000 if necessary
+T1DA4 5167:139.594    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034100 if necessary
+T1DA4 5167:139.600    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034200 if necessary
+T1DA4 5167:139.606    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034300 if necessary
+T1DA4 5167:139.612    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034400 if necessary
+T1DA4 5167:139.618    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034500 if necessary
+T1DA4 5167:139.624    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034600 if necessary
+T1DA4 5167:139.630    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034700 if necessary
+T1DA4 5167:139.636    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034800 if necessary
+T1DA4 5167:139.642    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034900 if necessary
+T1DA4 5167:139.648    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034A00 if necessary
+T1DA4 5167:139.663    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034B00 if necessary
+T1DA4 5167:139.669    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034C00 if necessary
+T1DA4 5167:139.675    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034D00 if necessary
+T1DA4 5167:139.681    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034E00 if necessary
+T1DA4 5167:139.687    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00034F00 if necessary
+T1DA4 5167:139.693    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035000 if necessary
+T1DA4 5167:139.699    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035100 if necessary
+T1DA4 5167:139.705    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035200 if necessary
+T1DA4 5167:139.711    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035300 if necessary
+T1DA4 5167:139.717    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035400 if necessary
+T1DA4 5167:139.722    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035500 if necessary
+T1DA4 5167:139.728    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035600 if necessary
+T1DA4 5167:139.734    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035700 if necessary
+T1DA4 5167:139.740    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035800 if necessary
+T1DA4 5167:139.746    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035900 if necessary
+T1DA4 5167:139.752    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035A00 if necessary
+T1DA4 5167:139.758    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035B00 if necessary
+T1DA4 5167:139.764    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035C00 if necessary
+T1DA4 5167:139.770    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035D00 if necessary
+T1DA4 5167:139.775    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035E00 if necessary
+T1DA4 5167:139.781    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00035F00 if necessary
+T1DA4 5167:139.792    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036000 if necessary
+T1DA4 5167:139.799    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036100 if necessary
+T1DA4 5167:139.804    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036200 if necessary
+T1DA4 5167:139.810    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036300 if necessary
+T1DA4 5167:139.816    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036400 if necessary
+T1DA4 5167:139.822    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036500 if necessary
+T1DA4 5167:139.828    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036600 if necessary
+T1DA4 5167:139.834    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036700 if necessary
+T1DA4 5167:139.840    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036800 if necessary
+T1DA4 5167:139.846    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036900 if necessary
+T1DA4 5167:139.852    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036A00 if necessary
+T1DA4 5167:139.858    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036B00 if necessary
+T1DA4 5167:139.864    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036C00 if necessary
+T1DA4 5167:139.870    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036D00 if necessary
+T1DA4 5167:139.891    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036E00 if necessary
+T1DA4 5167:139.897    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00036F00 if necessary
+T1DA4 5167:139.904    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037000 if necessary
+T1DA4 5167:139.911    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037100 if necessary
+T1DA4 5167:139.917    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037200 if necessary
+T1DA4 5167:139.924    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037300 if necessary
+T1DA4 5167:139.931    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037400 if necessary
+T1DA4 5167:139.938    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037500 if necessary
+T1DA4 5167:139.944    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037600 if necessary
+T1DA4 5167:139.951    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037700 if necessary
+T1DA4 5167:139.958    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037800 if necessary
+T1DA4 5167:139.965    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037900 if necessary
+T1DA4 5167:139.972    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037A00 if necessary
+T1DA4 5167:139.980    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037B00 if necessary
+T1DA4 5167:139.987    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037C00 if necessary
+T1DA4 5167:139.995    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037D00 if necessary
+T1DA4 5167:140.002    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037E00 if necessary
+T1DA4 5167:140.009    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00037F00 if necessary
+T1DA4 5167:140.017    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038000 if necessary
+T1DA4 5167:140.025    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038100 if necessary
+T1DA4 5167:140.032    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038200 if necessary
+T1DA4 5167:140.040    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038300 if necessary
+T1DA4 5167:140.047    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038400 if necessary
+T1DA4 5167:140.056    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038500 if necessary
+T1DA4 5167:140.064    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038600 if necessary
+T1DA4 5167:140.073    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038700 if necessary
+T1DA4 5167:140.081    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038800 if necessary
+T1DA4 5167:140.089    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038900 if necessary
+T1DA4 5167:140.098    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038A00 if necessary
+T1DA4 5167:140.106    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038B00 if necessary
+T1DA4 5167:140.115    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038C00 if necessary
+T1DA4 5167:140.124    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038D00 if necessary
+T1DA4 5167:140.134    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038E00 if necessary
+T1DA4 5167:140.142    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00038F00 if necessary
+T1DA4 5167:140.151    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039000 if necessary
+T1DA4 5167:140.165    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039100 if necessary
+T1DA4 5167:140.173    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039200 if necessary
+T1DA4 5167:140.182    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039300 if necessary
+T1DA4 5167:140.190    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039400 if necessary
+T1DA4 5167:140.198    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039500 if necessary
+T1DA4 5167:140.207    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039600 if necessary
+T1DA4 5167:140.215    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039700 if necessary
+T1DA4 5167:140.224    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039800 if necessary
+T1DA4 5167:140.232    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039900 if necessary
+T1DA4 5167:140.239    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039A00 if necessary
+T1DA4 5167:140.246    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039B00 if necessary
+T1DA4 5167:140.254    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039C00 if necessary
+T1DA4 5167:140.261    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039D00 if necessary
+T1DA4 5167:140.269    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039E00 if necessary
+T1DA4 5167:140.277    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00039F00 if necessary
+T1DA4 5167:140.283    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0003A000 if necessary
+T1DA4 5167:140.316    -- End of determining dirty areas
+T1DA4 5167:140.322    -- Start of preparing flash programming
+T1DA4 5167:140.329    -- Calculating RAM usage
+T1DA4 5167:140.341    -- RAM usage = 10052 Bytes
+T1DA4 5167:140.348    -- Preserving CPU registers
+T1DA4 5167:140.364    -- Preparing target
+T1DA4 5167:140.371    -- Preserving target RAM temporarily used for programming
+T1DA4 5167:193.685    -- Downloading RAMCode
+T1DA4 5167:210.761    -- Preparing RAMCode
+T1DA4 5167:218.105    -- End of preparing flash programming
+T1DA4 5167:218.302   Looking for J-Link GUI Server exe at: C:\Program Files (x86)\Atmel\Studio\7.0\atbackend\JLinkGUIServer.exe
+T1DA4 5167:218.376   Looking for J-Link GUI Server exe at: C:\Program Files (x86)\SEGGER\JLink\JLinkGUIServer.exe
+T1DA4 5167:518.098   Failed to connect to J-Link GUI Server.
+T1DA4 5167:529.067    -- CPU speed could not be measured.
+T1DA4 5167:529.151    -- Start of comparing flash
+T1DA4 5167:529.159    -- CRC check was estimated as fastest method
+T1DA4 5167:529.169    -- Comparing range 0x12000 - 0x31FFF (512 Sectors, 128 KB), using multi-block CRC calculation
+T1DA4 5167:621.364    -- CRC does not match for sectors 0-1, 51-52, 54-66, 68, 80, 84, 87-88, 90, 92-99, 101-104, 106, 108, 110, 148, 164, 168, 182-183, 220, 226, 230-234, 237-238, 240, 244-245, 249, 251-252, 258-260, 264-266, 270, 274-275, 277-278, 280-284, 288, 296, 301, 305-306, 326-327, 358, 360-361, 371, 374-378, 381-385, 406-407, 417, 438, 445, 447, 459, 463, 477-478, 484, 488-489, 492, 496, 500, 503, 505-507
+T1DA4 5167:621.391    -- Comparing range 0x32000 - 0x3A0FF (129 Sectors, 32 KB), using multi-block CRC calculation
+T1DA4 5167:641.603    -- CRC does not match for sectors 4, 6, 18, 25, 37, 39, 44-48, 52, 55, 63-128
+T1DA4 5167:641.635    -- Comparing range 0x12200 - 0x152FF (49 Sectors, 12 KB), using alternative multi-block CRC calculation
+T1DA4 5167:652.302    -- All CRCs match
+T1DA4 5167:652.320    -- Comparing range 0x15500 - 0x155FF (1 Sector, 256 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:654.044    -- All CRCs match
+T1DA4 5167:654.058    -- Comparing range 0x16300 - 0x163FF (1 Sector, 256 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:655.713    -- All CRCs match
+T1DA4 5167:655.724    -- Comparing range 0x16500 - 0x16FFF (11 Sectors, 2 KB), using alternative multi-block CRC calculation
+T1DA4 5167:659.858    -- All CRCs match
+T1DA4 5167:659.874    -- Comparing range 0x17100 - 0x173FF (3 Sectors, 768 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:662.335    -- All CRCs match
+T1DA4 5167:662.346    -- Comparing range 0x17500 - 0x176FF (2 Sectors, 512 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:665.075    -- All CRCs match
+T1DA4 5167:665.092    -- Comparing range 0x17900 - 0x179FF (1 Sector, 256 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:666.739    -- All CRCs match
+T1DA4 5167:666.758    -- Comparing range 0x17B00 - 0x17BFF (1 Sector, 256 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:668.341    -- All CRCs match
+T1DA4 5167:668.359    -- Comparing range 0x18400 - 0x184FF (1 Sector, 256 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:669.943    -- All CRCs match
+T1DA4 5167:669.952    -- Comparing range 0x18900 - 0x189FF (1 Sector, 256 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:671.573    -- All CRCs match
+T1DA4 5167:671.589    -- Comparing range 0x18B00 - 0x18BFF (1 Sector, 256 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:673.445    -- All CRCs match
+T1DA4 5167:673.459    -- Comparing range 0x18D00 - 0x18DFF (1 Sector, 256 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:675.036    -- All CRCs match
+T1DA4 5167:675.046    -- Comparing range 0x18F00 - 0x1B3FF (37 Sectors, 9 KB), using alternative multi-block CRC calculation
+T1DA4 5167:683.812    -- All CRCs match
+T1DA4 5167:683.829    -- Comparing range 0x1B500 - 0x1C3FF (15 Sectors, 3 KB), using alternative multi-block CRC calculation
+T1DA4 5167:687.980    -- All CRCs match
+T1DA4 5167:687.994    -- Comparing range 0x1C500 - 0x1C7FF (3 Sectors, 768 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:690.122    -- All CRCs match
+T1DA4 5167:690.138    -- Comparing range 0x1C900 - 0x1D5FF (13 Sectors, 3 KB), using alternative multi-block CRC calculation
+T1DA4 5167:694.410    -- All CRCs match
+T1DA4 5167:694.424    -- Comparing range 0x1D800 - 0x1FBFF (36 Sectors, 9 KB), using alternative multi-block CRC calculation
+T1DA4 5167:702.895    -- All CRCs match
+T1DA4 5167:702.911    -- Comparing range 0x1FD00 - 0x201FF (5 Sectors, 1 KB), using alternative multi-block CRC calculation
+T1DA4 5167:705.467    -- All CRCs match
+T1DA4 5167:705.483    -- Comparing range 0x20300 - 0x205FF (3 Sectors, 768 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:707.975    -- All CRCs match
+T1DA4 5167:707.990    -- Comparing range 0x20B00 - 0x20CFF (2 Sectors, 512 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:710.258    -- All CRCs match
+T1DA4 5167:710.271    -- Comparing range 0x20F00 - 0x20FFF (1 Sector, 256 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:711.827    -- All CRCs match
+T1DA4 5167:711.837    -- Comparing range 0x21100 - 0x213FF (3 Sectors, 768 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:714.628    -- All CRCs match
+T1DA4 5167:714.637    -- Comparing range 0x21600 - 0x218FF (3 Sectors, 768 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:716.963    -- All CRCs match
+T1DA4 5167:716.979    -- Comparing range 0x21A00 - 0x21AFF (1 Sector, 256 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:718.630    -- All CRCs match
+T1DA4 5167:718.640    -- Comparing range 0x21D00 - 0x221FF (5 Sectors, 1 KB), using alternative multi-block CRC calculation
+T1DA4 5167:721.141    -- All CRCs match
+T1DA4 5167:721.155    -- Comparing range 0x22500 - 0x227FF (3 Sectors, 768 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:723.413    -- All CRCs match
+T1DA4 5167:723.422    -- Comparing range 0x22B00 - 0x22DFF (3 Sectors, 768 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:726.305    -- All CRCs match
+T1DA4 5167:726.320    -- Comparing range 0x22F00 - 0x231FF (3 Sectors, 768 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:728.814    -- All CRCs match
+T1DA4 5167:728.824    -- Comparing range 0x23400 - 0x234FF (1 Sector, 256 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:730.463    -- All CRCs match
+T1DA4 5167:730.470    -- Comparing range 0x23700 - 0x237FF (1 Sector, 256 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:732.616    -- All CRCs match
+T1DA4 5167:732.632    -- Comparing range 0x23D00 - 0x23FFF (3 Sectors, 768 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:735.031    -- All CRCs match
+T1DA4 5167:735.040    -- Comparing range 0x24100 - 0x247FF (7 Sectors, 1 KB), using alternative multi-block CRC calculation
+T1DA4 5167:737.763    -- All CRCs match
+T1DA4 5167:737.778    -- Comparing range 0x24900 - 0x24CFF (4 Sectors, 1024 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:740.308    -- All CRCs match
+T1DA4 5167:740.323    -- Comparing range 0x24E00 - 0x250FF (3 Sectors, 768 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:742.657    -- All CRCs match
+T1DA4 5167:742.667    -- Comparing range 0x25300 - 0x265FF (19 Sectors, 4 KB), using alternative multi-block CRC calculation
+T1DA4 5167:747.999    -- All CRCs match
+T1DA4 5167:748.015    -- Comparing range 0x26800 - 0x285FF (30 Sectors, 7 KB), using alternative multi-block CRC calculation
+T1DA4 5167:755.121    -- All CRCs match
+T1DA4 5167:755.138    -- Comparing range 0x28700 - 0x287FF (1 Sector, 256 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:756.649    -- All CRCs match
+T1DA4 5167:756.663    -- Comparing range 0x28A00 - 0x292FF (9 Sectors, 2 KB), using alternative multi-block CRC calculation
+T1DA4 5167:759.963    -- All CRCs match
+T1DA4 5167:759.974    -- Comparing range 0x29400 - 0x295FF (2 Sectors, 512 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:763.047    -- All CRCs match
+T1DA4 5167:763.064    -- Comparing range 0x29B00 - 0x29CFF (2 Sectors, 512 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:765.074    -- All CRCs match
+T1DA4 5167:765.104    -- Comparing range 0x2A200 - 0x2B5FF (20 Sectors, 5 KB), using alternative multi-block CRC calculation
+T1DA4 5167:770.258    -- All CRCs match
+T1DA4 5167:770.271    -- Comparing range 0x2B800 - 0x2C0FF (9 Sectors, 2 KB), using alternative multi-block CRC calculation
+T1DA4 5167:773.392    -- All CRCs match
+T1DA4 5167:773.399    -- Comparing range 0x2C200 - 0x2D5FF (20 Sectors, 5 KB), using alternative multi-block CRC calculation
+T1DA4 5167:779.092    -- All CRCs match
+T1DA4 5167:779.108    -- Comparing range 0x2D700 - 0x2DCFF (6 Sectors, 1 KB), using alternative multi-block CRC calculation
+T1DA4 5167:781.897    -- All CRCs match
+T1DA4 5167:781.917    -- Comparing range 0x2DE00 - 0x2DEFF (1 Sector, 256 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:783.526    -- All CRCs match
+T1DA4 5167:783.540    -- Comparing range 0x2E000 - 0x2EAFF (11 Sectors, 2 KB), using alternative multi-block CRC calculation
+T1DA4 5167:787.873    -- All CRCs match
+T1DA4 5167:787.889    -- Comparing range 0x2EC00 - 0x2EEFF (3 Sectors, 768 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:790.150    -- All CRCs match
+T1DA4 5167:790.160    -- Comparing range 0x2F000 - 0x2FCFF (13 Sectors, 3 KB), using alternative multi-block CRC calculation
+T1DA4 5167:794.523    -- All CRCs match
+T1DA4 5167:794.540    -- Comparing range 0x2FF00 - 0x303FF (5 Sectors, 1 KB), using alternative multi-block CRC calculation
+T1DA4 5167:796.859    -- All CRCs match
+T1DA4 5167:796.869    -- Comparing range 0x30500 - 0x307FF (3 Sectors, 768 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:799.446    -- All CRCs match
+T1DA4 5167:799.460    -- Comparing range 0x30A00 - 0x30BFF (2 Sectors, 512 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:803.177    -- All CRCs match
+T1DA4 5167:803.189    -- Comparing range 0x30D00 - 0x30FFF (3 Sectors, 768 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:805.666    -- All CRCs match
+T1DA4 5167:805.681    -- Comparing range 0x31100 - 0x313FF (3 Sectors, 768 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:807.833    -- All CRCs match
+T1DA4 5167:807.840    -- Comparing range 0x31500 - 0x316FF (2 Sectors, 512 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:809.898    -- All CRCs match
+T1DA4 5167:809.913    -- Comparing range 0x31800 - 0x318FF (1 Sector, 256 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:811.541    -- All CRCs match
+T1DA4 5167:811.556    -- Comparing range 0x31C00 - 0x323FF (8 Sectors, 2 KB), using alternative multi-block CRC calculation
+T1DA4 5167:814.702    -- All CRCs match
+T1DA4 5167:814.711    -- Comparing range 0x32500 - 0x325FF (1 Sector, 256 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:816.240    -- All CRCs match
+T1DA4 5167:816.255    -- Comparing range 0x32700 - 0x331FF (11 Sectors, 2 KB), using alternative multi-block CRC calculation
+T1DA4 5167:819.723    -- All CRCs match
+T1DA4 5167:819.748    -- Comparing range 0x33300 - 0x338FF (6 Sectors, 1 KB), using alternative multi-block CRC calculation
+T1DA4 5167:822.324    -- All CRCs match
+T1DA4 5167:822.333    -- Comparing range 0x33A00 - 0x344FF (11 Sectors, 2 KB), using alternative multi-block CRC calculation
+T1DA4 5167:826.324    -- All CRCs match
+T1DA4 5167:826.338    -- Comparing range 0x34600 - 0x346FF (1 Sector, 256 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:827.991    -- All CRCs match
+T1DA4 5167:828.008    -- Comparing range 0x34800 - 0x34BFF (4 Sectors, 1024 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:830.407    -- All CRCs match
+T1DA4 5167:830.421    -- Comparing range 0x35100 - 0x353FF (3 Sectors, 768 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:832.640    -- All CRCs match
+T1DA4 5167:832.649    -- Comparing range 0x35500 - 0x356FF (2 Sectors, 512 Bytes), using alternative multi-block CRC calculation
+T1DA4 5167:834.793    -- All CRCs match
+T1DA4 5167:834.804    -- Comparing range 0x35800 - 0x35EFF (7 Sectors, 1 KB), using alternative multi-block CRC calculation
+T1DA4 5167:837.586    -- All CRCs match
+T1DA4 5167:837.600    -- End of comparing flash
+T1DA4 5167:837.606    -- Start of erasing sectors
+T1DA4 5167:837.613    -- Erasing range 0x00012000 - 0x000121FF (  2 Sectors, 512 Bytes)
+T1DA4 5167:840.112    -- Erasing range 0x00015300 - 0x000154FF (  2 Sectors, 512 Bytes)
+T1DA4 5167:842.715    -- Erasing range 0x00015600 - 0x000162FF ( 13 Sectors, 3 KB)
+T1DA4 5167:855.218    -- Erasing range 0x00016400 - 0x000164FF (  1 Sector, 256 Bytes)
+T1DA4 5167:856.938    -- Erasing range 0x00017000 - 0x000170FF (  1 Sector, 256 Bytes)
+T1DA4 5167:858.786    -- Erasing range 0x00017400 - 0x000174FF (  1 Sector, 256 Bytes)
+T1DA4 5167:860.530    -- Erasing range 0x00017700 - 0x000178FF (  2 Sectors, 512 Bytes)
+T1DA4 5167:863.312    -- Erasing range 0x00017A00 - 0x00017AFF (  1 Sector, 256 Bytes)
+T1DA4 5167:865.075    -- Erasing range 0x00017C00 - 0x000183FF (  8 Sectors, 2 KB)
+T1DA4 5167:872.851    -- Erasing range 0x00018500 - 0x000188FF (  4 Sectors, 1024 Bytes)
+T1DA4 5167:877.217    -- Erasing range 0x00018A00 - 0x00018AFF (  1 Sector, 256 Bytes)
+T1DA4 5167:879.110    -- Erasing range 0x00018C00 - 0x00018CFF (  1 Sector, 256 Bytes)
+T1DA4 5167:880.885    -- Erasing range 0x00018E00 - 0x00018EFF (  1 Sector, 256 Bytes)
+T1DA4 5167:882.579    -- Erasing range 0x0001B400 - 0x0001B4FF (  1 Sector, 256 Bytes)
+T1DA4 5167:884.312    -- Erasing range 0x0001C400 - 0x0001C4FF (  1 Sector, 256 Bytes)
+T1DA4 5167:886.119    -- Erasing range 0x0001C800 - 0x0001C8FF (  1 Sector, 256 Bytes)
+T1DA4 5167:887.829    -- Erasing range 0x0001D600 - 0x0001D7FF (  2 Sectors, 512 Bytes)
+T1DA4 5167:890.356    -- Erasing range 0x0001FC00 - 0x0001FCFF (  1 Sector, 256 Bytes)
+T1DA4 5167:892.239    -- Erasing range 0x00020200 - 0x000202FF (  1 Sector, 256 Bytes)
+T1DA4 5167:894.073    -- Erasing range 0x00020600 - 0x00020AFF (  5 Sectors, 1 KB)
+T1DA4 5167:899.364    -- Erasing range 0x00020D00 - 0x00020EFF (  2 Sectors, 512 Bytes)
+T1DA4 5167:901.898    -- Erasing range 0x00021000 - 0x000210FF (  1 Sector, 256 Bytes)
+T1DA4 5167:903.764    -- Erasing range 0x00021400 - 0x000215FF (  2 Sectors, 512 Bytes)
+T1DA4 5167:906.489    -- Erasing range 0x00021900 - 0x000219FF (  1 Sector, 256 Bytes)
+T1DA4 5167:908.232    -- Erasing range 0x00021B00 - 0x00021CFF (  2 Sectors, 512 Bytes)
+T1DA4 5167:910.883    -- Erasing range 0x00022200 - 0x000224FF (  3 Sectors, 768 Bytes)
+T1DA4 5167:914.660    -- Erasing range 0x00022800 - 0x00022AFF (  3 Sectors, 768 Bytes)
+T1DA4 5167:918.259    -- Erasing range 0x00022E00 - 0x00022EFF (  1 Sector, 256 Bytes)
+T1DA4 5167:919.958    -- Erasing range 0x00023200 - 0x000233FF (  2 Sectors, 512 Bytes)
+T1DA4 5167:922.575    -- Erasing range 0x00023500 - 0x000236FF (  2 Sectors, 512 Bytes)
+T1DA4 5167:925.471    -- Erasing range 0x00023800 - 0x00023CFF (  5 Sectors, 1 KB)
+T1DA4 5167:930.699    -- Erasing range 0x00024000 - 0x000240FF (  1 Sector, 256 Bytes)
+T1DA4 5167:932.617    -- Erasing range 0x00024800 - 0x000248FF (  1 Sector, 256 Bytes)
+T1DA4 5167:934.377    -- Erasing range 0x00024D00 - 0x00024DFF (  1 Sector, 256 Bytes)
+T1DA4 5167:936.136    -- Erasing range 0x00025100 - 0x000252FF (  2 Sectors, 512 Bytes)
+T1DA4 5167:938.674    -- Erasing range 0x00026600 - 0x000267FF (  2 Sectors, 512 Bytes)
+T1DA4 5167:941.295    -- Erasing range 0x00028600 - 0x000286FF (  1 Sector, 256 Bytes)
+T1DA4 5167:943.138    -- Erasing range 0x00028800 - 0x000289FF (  2 Sectors, 512 Bytes)
+T1DA4 5167:945.678    -- Erasing range 0x00029300 - 0x000293FF (  1 Sector, 256 Bytes)
+T1DA4 5167:947.658    -- Erasing range 0x00029600 - 0x00029AFF (  5 Sectors, 1 KB)
+T1DA4 5167:952.995    -- Erasing range 0x00029D00 - 0x0002A1FF (  5 Sectors, 1 KB)
+T1DA4 5167:958.737    -- Erasing range 0x0002B600 - 0x0002B7FF (  2 Sectors, 512 Bytes)
+T1DA4 5167:962.210    -- Erasing range 0x0002C100 - 0x0002C1FF (  1 Sector, 256 Bytes)
+T1DA4 5167:964.044    -- Erasing range 0x0002D600 - 0x0002D6FF (  1 Sector, 256 Bytes)
+T1DA4 5167:965.809    -- Erasing range 0x0002DD00 - 0x0002DDFF (  1 Sector, 256 Bytes)
+T1DA4 5167:967.768    -- Erasing range 0x0002DF00 - 0x0002DFFF (  1 Sector, 256 Bytes)
+T1DA4 5167:969.555    -- Erasing range 0x0002EB00 - 0x0002EBFF (  1 Sector, 256 Bytes)
+T1DA4 5167:971.407    -- Erasing range 0x0002EF00 - 0x0002EFFF (  1 Sector, 256 Bytes)
+T1DA4 5167:973.405    -- Erasing range 0x0002FD00 - 0x0002FEFF (  2 Sectors, 512 Bytes)
+T1DA4 5167:976.049    -- Erasing range 0x00030400 - 0x000304FF (  1 Sector, 256 Bytes)
+T1DA4 5167:977.842    -- Erasing range 0x00030800 - 0x000309FF (  2 Sectors, 512 Bytes)
+T1DA4 5167:980.483    -- Erasing range 0x00030C00 - 0x00030CFF (  1 Sector, 256 Bytes)
+T1DA4 5167:982.217    -- Erasing range 0x00031000 - 0x000310FF (  1 Sector, 256 Bytes)
+T1DA4 5167:984.117    -- Erasing range 0x00031400 - 0x000314FF (  1 Sector, 256 Bytes)
+T1DA4 5167:985.966    -- Erasing range 0x00031700 - 0x000317FF (  1 Sector, 256 Bytes)
+T1DA4 5167:987.658    -- Erasing range 0x00031900 - 0x00031BFF (  3 Sectors, 768 Bytes)
+T1DA4 5167:991.456    -- Erasing range 0x00032400 - 0x000324FF (  1 Sector, 256 Bytes)
+T1DA4 5167:993.228    -- Erasing range 0x00032600 - 0x000326FF (  1 Sector, 256 Bytes)
+T1DA4 5167:995.033    -- Erasing range 0x00033200 - 0x000332FF (  1 Sector, 256 Bytes)
+T1DA4 5167:996.730    -- Erasing range 0x00033900 - 0x000339FF (  1 Sector, 256 Bytes)
+T1DA4 5167:998.470    -- Erasing range 0x00034500 - 0x000345FF (  1 Sector, 256 Bytes)
+T1DA4 5168:000.217    -- Erasing range 0x00034700 - 0x000347FF (  1 Sector, 256 Bytes)
+T1DA4 5168:002.091    -- Erasing range 0x00034C00 - 0x000350FF (  5 Sectors, 1 KB)
+T1DA4 5168:007.220    -- Erasing range 0x00035400 - 0x000354FF (  1 Sector, 256 Bytes)
+T1DA4 5168:008.918    -- Erasing range 0x00035700 - 0x000357FF (  1 Sector, 256 Bytes)
+T1DA4 5168:010.617    -- Erasing range 0x00035F00 - 0x0003A0FF ( 66 Sectors, 16 KB)
+T1DA4 5168:067.220    -- End of erasing sectors
+T1DA4 5168:067.273    -- Start of flash programming
+T1DA4 5168:067.281    -- Programming range 0x00012000 - 0x000121FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:067.299    -- Programming range 0x00015300 - 0x000154FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:067.310    -- Programming range 0x00015600 - 0x000162FF ( 13 Sectors, 3 KB)
+T1DA4 5168:075.127    -- Programming range 0x00016400 - 0x000164FF (  1 Sector, 256 Bytes)
+T1DA4 5168:093.194    -- Programming range 0x00017000 - 0x000170FF (  1 Sector, 256 Bytes)
+T1DA4 5168:106.635    -- Programming range 0x00017400 - 0x000174FF (  1 Sector, 256 Bytes)
+T1DA4 5168:109.543    -- Programming range 0x00017700 - 0x000178FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:112.469    -- Programming range 0x00017A00 - 0x00017AFF (  1 Sector, 256 Bytes)
+T1DA4 5168:116.502    -- Programming range 0x00017C00 - 0x000183FF (  8 Sectors, 2 KB)
+T1DA4 5168:119.258    -- Programming range 0x00018500 - 0x000188FF (  4 Sectors, 1024 Bytes)
+T1DA4 5168:130.966    -- Programming range 0x00018A00 - 0x00018AFF (  1 Sector, 256 Bytes)
+T1DA4 5168:139.556    -- Programming range 0x00018C00 - 0x00018CFF (  1 Sector, 256 Bytes)
+T1DA4 5168:143.485    -- Programming range 0x00018E00 - 0x00018EFF (  1 Sector, 256 Bytes)
+T1DA4 5168:146.190    -- Programming range 0x0001B400 - 0x0001B4FF (  1 Sector, 256 Bytes)
+T1DA4 5168:148.765    -- Programming range 0x0001C400 - 0x0001C4FF (  1 Sector, 256 Bytes)
+T1DA4 5168:151.572    -- Programming range 0x0001C800 - 0x0001C8FF (  1 Sector, 256 Bytes)
+T1DA4 5168:154.418    -- Programming range 0x0001D600 - 0x0001D7FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:156.999    -- Programming range 0x0001FC00 - 0x0001FCFF (  1 Sector, 256 Bytes)
+T1DA4 5168:160.919    -- Programming range 0x00020200 - 0x000202FF (  1 Sector, 256 Bytes)
+T1DA4 5168:163.577    -- Programming range 0x00020600 - 0x00020AFF (  5 Sectors, 1 KB)
+T1DA4 5168:166.210    -- Programming range 0x00020D00 - 0x00020EFF (  2 Sectors, 512 Bytes)
+T1DA4 5168:173.989    -- Programming range 0x00021000 - 0x000210FF (  1 Sector, 256 Bytes)
+T1DA4 5168:179.307    -- Programming range 0x00021400 - 0x000215FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:182.203    -- Programming range 0x00021900 - 0x000219FF (  1 Sector, 256 Bytes)
+T1DA4 5168:186.156    -- Programming range 0x00021B00 - 0x00021CFF (  2 Sectors, 512 Bytes)
+T1DA4 5168:188.781    -- Programming range 0x00022200 - 0x000224FF (  3 Sectors, 768 Bytes)
+T1DA4 5168:192.801    -- Programming range 0x00022800 - 0x00022AFF (  3 Sectors, 768 Bytes)
+T1DA4 5168:198.006    -- Programming range 0x00022E00 - 0x00022EFF (  1 Sector, 256 Bytes)
+T1DA4 5168:203.293    -- Programming range 0x00023200 - 0x000233FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:206.454    -- Programming range 0x00023500 - 0x000236FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:210.494    -- Programming range 0x00023800 - 0x00023CFF (  5 Sectors, 1 KB)
+T1DA4 5168:214.488    -- Programming range 0x00024000 - 0x000240FF (  1 Sector, 256 Bytes)
+T1DA4 5168:222.232    -- Programming range 0x00024800 - 0x000248FF (  1 Sector, 256 Bytes)
+T1DA4 5168:227.893    -- Programming range 0x00024D00 - 0x00024DFF (  1 Sector, 256 Bytes)
+T1DA4 5168:230.690    -- Programming range 0x00025100 - 0x000252FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:233.451    -- Programming range 0x00026600 - 0x000267FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:237.516    -- Programming range 0x00028600 - 0x000286FF (  1 Sector, 256 Bytes)
+T1DA4 5168:241.466    -- Programming range 0x00028800 - 0x000289FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:244.246    -- Programming range 0x00029300 - 0x000293FF (  1 Sector, 256 Bytes)
+T1DA4 5168:248.150    -- Programming range 0x00029600 - 0x00029AFF (  5 Sectors, 1 KB)
+T1DA4 5168:250.811    -- Programming range 0x00029D00 - 0x0002A1FF (  5 Sectors, 1 KB)
+T1DA4 5168:258.707    -- Programming range 0x0002B600 - 0x0002B7FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:266.694    -- Programming range 0x0002C100 - 0x0002C1FF (  1 Sector, 256 Bytes)
+T1DA4 5168:271.962    -- Programming range 0x0002D600 - 0x0002D6FF (  1 Sector, 256 Bytes)
+T1DA4 5168:274.938    -- Programming range 0x0002DD00 - 0x0002DDFF (  1 Sector, 256 Bytes)
+T1DA4 5168:277.708    -- Programming range 0x0002DF00 - 0x0002DFFF (  1 Sector, 256 Bytes)
+T1DA4 5168:280.425    -- Programming range 0x0002EB00 - 0x0002EBFF (  1 Sector, 256 Bytes)
+T1DA4 5168:283.290    -- Programming range 0x0002EF00 - 0x0002EFFF (  1 Sector, 256 Bytes)
+T1DA4 5168:286.056    -- Programming range 0x0002FD00 - 0x0002FEFF (  2 Sectors, 512 Bytes)
+T1DA4 5168:288.721    -- Programming range 0x00030400 - 0x000304FF (  1 Sector, 256 Bytes)
+T1DA4 5168:292.728    -- Programming range 0x00030800 - 0x000309FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:295.403    -- Programming range 0x00030C00 - 0x00030CFF (  1 Sector, 256 Bytes)
+T1DA4 5168:299.281    -- Programming range 0x00031000 - 0x000310FF (  1 Sector, 256 Bytes)
+T1DA4 5168:301.904    -- Programming range 0x00031400 - 0x000314FF (  1 Sector, 256 Bytes)
+T1DA4 5168:304.571    -- Programming range 0x00031700 - 0x000317FF (  1 Sector, 256 Bytes)
+T1DA4 5168:307.429    -- Programming range 0x00031900 - 0x00031BFF (  3 Sectors, 768 Bytes)
+T1DA4 5168:310.034    -- Programming range 0x00032400 - 0x000324FF (  1 Sector, 256 Bytes)
+T1DA4 5168:315.288    -- Programming range 0x00032600 - 0x000326FF (  1 Sector, 256 Bytes)
+T1DA4 5168:318.511    -- Programming range 0x00033200 - 0x000332FF (  1 Sector, 256 Bytes)
+T1DA4 5168:321.325    -- Programming range 0x00033900 - 0x000339FF (  1 Sector, 256 Bytes)
+T1DA4 5168:324.213    -- Programming range 0x00034500 - 0x000345FF (  1 Sector, 256 Bytes)
+T1DA4 5168:327.059    -- Programming range 0x00034700 - 0x000347FF (  1 Sector, 256 Bytes)
+T1DA4 5168:329.959    -- Programming range 0x00034C00 - 0x000350FF (  5 Sectors, 1 KB)
+T1DA4 5168:332.610    -- Programming range 0x00035400 - 0x000354FF (  1 Sector, 256 Bytes)
+T1DA4 5168:340.935    -- Programming range 0x00035700 - 0x000357FF (  1 Sector, 256 Bytes)
+T1DA4 5168:345.629    -- Programming range 0x00035F00 - 0x0003A0FF ( 66 Sectors, 16 KB)
+T1DA4 5168:434.164    -- End of flash programming
+T1DA4 5168:434.185    -- 0x12000 - 0x121FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:434.190    -- 0x15300 - 0x154FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:434.196    -- 0x15600 - 0x162FF ( 13 Sectors, 3 KiB)
+T1DA4 5168:434.201    -- 0x16400 - 0x164FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.206    -- 0x17000 - 0x170FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.211    -- 0x17400 - 0x174FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.216    -- 0x17700 - 0x178FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:434.221    -- 0x17A00 - 0x17AFF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.226    -- 0x17C00 - 0x183FF (  8 Sectors, 2 KiB)
+T1DA4 5168:434.231    -- 0x18500 - 0x188FF (  4 Sectors, 1024 Bytes)
+T1DA4 5168:434.236    -- 0x18A00 - 0x18AFF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.241    -- 0x18C00 - 0x18CFF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.246    -- 0x18E00 - 0x18EFF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.251    -- 0x1B400 - 0x1B4FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.256    -- 0x1C400 - 0x1C4FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.261    -- 0x1C800 - 0x1C8FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.266    -- 0x1D600 - 0x1D7FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:434.271    -- 0x1FC00 - 0x1FCFF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.276    -- 0x20200 - 0x202FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.281    -- 0x20600 - 0x20AFF (  5 Sectors, 1 KiB)
+T1DA4 5168:434.286    -- 0x20D00 - 0x20EFF (  2 Sectors, 512 Bytes)
+T1DA4 5168:434.291    -- 0x21000 - 0x210FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.296    -- 0x21400 - 0x215FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:434.301    -- 0x21900 - 0x219FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.306    -- 0x21B00 - 0x21CFF (  2 Sectors, 512 Bytes)
+T1DA4 5168:434.311    -- 0x22200 - 0x224FF (  3 Sectors, 768 Bytes)
+T1DA4 5168:434.316    -- 0x22800 - 0x22AFF (  3 Sectors, 768 Bytes)
+T1DA4 5168:434.326    -- 0x22E00 - 0x22EFF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.331    -- 0x23200 - 0x233FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:434.336    -- 0x23500 - 0x236FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:434.341    -- 0x23800 - 0x23CFF (  5 Sectors, 1 KiB)
+T1DA4 5168:434.345    -- 0x24000 - 0x240FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.351    -- 0x24800 - 0x248FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.356    -- 0x24D00 - 0x24DFF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.360    -- 0x25100 - 0x252FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:434.365    -- 0x26600 - 0x267FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:434.370    -- 0x28600 - 0x286FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.375    -- 0x28800 - 0x289FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:434.380    -- 0x29300 - 0x293FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.385    -- 0x29600 - 0x29AFF (  5 Sectors, 1 KiB)
+T1DA4 5168:434.390    -- 0x29D00 - 0x2A1FF (  5 Sectors, 1 KiB)
+T1DA4 5168:434.395    -- 0x2B600 - 0x2B7FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:434.400    -- 0x2C100 - 0x2C1FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.405    -- 0x2D600 - 0x2D6FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.410    -- 0x2DD00 - 0x2DDFF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.415    -- 0x2DF00 - 0x2DFFF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.420    -- 0x2EB00 - 0x2EBFF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.425    -- 0x2EF00 - 0x2EFFF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.430    -- 0x2FD00 - 0x2FEFF (  2 Sectors, 512 Bytes)
+T1DA4 5168:434.435    -- 0x30400 - 0x304FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.440    -- 0x30800 - 0x309FF (  2 Sectors, 512 Bytes)
+T1DA4 5168:434.445    -- 0x30C00 - 0x30CFF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.450    -- 0x31000 - 0x310FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.455    -- 0x31400 - 0x314FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.460    -- 0x31700 - 0x317FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.465    -- 0x31900 - 0x31BFF (  3 Sectors, 768 Bytes)
+T1DA4 5168:434.470    -- 0x32400 - 0x324FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.475    -- 0x32600 - 0x326FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.480    -- 0x33200 - 0x332FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.485    -- 0x33900 - 0x339FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.490    -- 0x34500 - 0x345FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.495    -- 0x34700 - 0x347FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.500    -- 0x34C00 - 0x350FF (  5 Sectors, 1 KiB)
+T1DA4 5168:434.505    -- 0x35400 - 0x354FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.510    -- 0x35700 - 0x357FF (  1 Sector, 256 Bytes)
+T1DA4 5168:434.515    -- 0x35F00 - 0x3A0FF ( 66 Sectors, 16 KiB)
+T1DA4 5168:434.520    -- Start of restoring
+T1DA4 5168:434.526    -- Restoring RAMCode
+T1DA4 5168:456.266    -- Restoring target memory
+T1DA4 5168:505.675    -- Restore target
+T1DA4 5168:505.694    -- Restoring CPU registers
+T1DA4 5168:505.707    -- End of restoring
+T1DA4 5168:505.869    -- Bank 0 @ 0x00000000: 66 ranges affected (49664 bytes)
+T1DA4 5168:505.888    -- Total: 1.365s (Prepare: 0.388s, Compare: 0.308s, Erase: 0.229s, Program & Verify: 0.385s, Restore: 0.053s)
+T1DA4 5168:505.898    -- Program & Verify speed: 125 KB/s
+T1DA4 5168:509.902 - 1375.091ms returns 49664 (0xC200)
+T1DA4 5168:509.947 JLINK_ResetPullsRESET(ON)
+T1DA4 5168:509.951 - 0.006ms
+T1DA4 5168:509.955 JLINK_ResetNoHalt()
+T1DA4 5168:510.242   InitTarget() start
+T1DA4 5168:510.251    J-Link Script File: Executing InitTarget()
+T1DA4 5168:510.262   InitTarget()
+T1DA4 5168:516.702   InitTarget() end - Took 6.43ms
+T1DA4 5168:517.533   Found SW-DP with ID 0x0BC11477
+T1DA4 5168:520.537   DPIDR: 0x0BC11477
+T1DA4 5168:520.557   CoreSight SoC-400 or earlier
+T1DA4 5168:520.575   AP map detection skipped. Manually configured AP map found.
+T1DA4 5168:520.587   AP[0]: AHB-AP (IDR: Not set)
+T1DA4 5168:522.612   AP[0]: Core found
+T1DA4 5168:522.632   AP[0]: AHB-AP ROM base: 0x41003000
+T1DA4 5168:523.371   CPUID register: 0x410CC601. Implementer code: 0x41 (ARM)
+T1DA4 5168:523.399   Found Cortex-M0 r0p1, Little endian.
+T1DA4 5168:523.612   -- Max. mem block: 0x00002860
+T1DA4 5168:523.641   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T1DA4 5168:523.978   CPU_ReadMem(4 bytes @ 0xE0002000)
+T1DA4 5168:524.380   FPUnit: 4 code (BP) slots and 0 literal slots
+T1DA4 5168:524.395   CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T1DA4 5168:524.827   CPU_ReadMem(4 bytes @ 0xE0001000)
+T1DA4 5168:525.348   CoreSight components:
+T1DA4 5168:525.366   ROMTbl[0] @ 41003000
+T1DA4 5168:525.373   CPU_ReadMem(64 bytes @ 0x41003000)
+T1DA4 5168:526.117   CPU_ReadMem(32 bytes @ 0xE00FFFE0)
+T1DA4 5168:526.691   [0][0]: E00FF000 CID B105100D PID 000BB4C0 ROM Table
+T1DA4 5168:526.704   ROMTbl[1] @ E00FF000
+T1DA4 5168:526.711   CPU_ReadMem(64 bytes @ 0xE00FF000)
+T1DA4 5168:527.604   CPU_ReadMem(32 bytes @ 0xE000EFE0)
+T1DA4 5168:528.484   [1][0]: E000E000 CID B105E00D PID 000BB008 SCS
+T1DA4 5168:528.501   CPU_ReadMem(32 bytes @ 0xE0001FE0)
+T1DA4 5168:529.206   [1][1]: E0001000 CID B105E00D PID 000BB00A DWT
+T1DA4 5168:529.222   CPU_ReadMem(32 bytes @ 0xE0002FE0)
+T1DA4 5168:529.868   [1][2]: E0002000 CID B105E00D PID 000BB00B FPB
+T1DA4 5168:529.883   CPU_ReadMem(32 bytes @ 0x41006FE0)
+T1DA4 5168:530.506   [0][1]: 41006000 CID B105900D PID 001BB932 MTB-M0+
+T1DA4 5168:530.527   JLINK_Reset()
+T1DA4 5168:530.535     CPU_ReadMem(4 bytes @ 0x20000000)
+T1DA4 5168:531.038     CPU_WriteMem(4 bytes @ 0x20000000)
+T1DA4 5168:531.538     ResetTarget() start
+T1DA4 5168:531.552      J-Link Script File: Executing ResetTarget()
+T1DA4 5168:531.899     CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T1DA4 5168:532.206     CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T1DA4 5168:532.539     CPU_WriteMem(4 bytes @ 0xE000ED0C)
+T1DA4 5168:534.758     CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T1DA4 5168:535.190     CPU_ReadMem(4 bytes @ 0x41002100)
+T1DA4 5168:535.589     CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T1DA4 5168:535.971     ResetTarget() end - Took 4.39ms
+T1DA4 5168:539.705     CPU_WriteMem(4 bytes @ 0xE0002000)
+T1DA4 5168:540.311     CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T1DA4 5168:540.717     CPU_ReadMem(4 bytes @ 0xE0001000)
+T1DA4 5168:541.088     CPU_WriteMem(4 bytes @ 0xE0001000)
+T1DA4 5168:541.464   - 10.940ms
+T1DA4 5168:541.473   JLINK_Go()
+T1DA4 5168:541.485     CPU_ReadMem(4 bytes @ 0xE0001000)
+T1DA4 5168:541.837     CPU_WriteMem(4 bytes @ 0xE0001000)
+T1DA4 5168:542.228     CPU_WriteMem(4 bytes @ 0xE0001004)
+T1DA4 5168:543.328   - 1.865ms
+T1DA4 5168:543.343 - 33.390ms
+T1DA4 5168:544.350 JLINK_Close()
+T1DA4 5168:561.809 - 17.480ms
+T1DA4 5168:561.833   
+T1DA4 5168:561.839   Closed

@@ -42,9 +42,9 @@ extern "C" {
 //#define MAIN_WLAN_SSID "a"             /**< Destination SSID. Change to your WIFI SSID */
 //#define MAIN_WLAN_AUTH M2M_WIFI_SEC_WPA_PSK /**< Security manner */
 //#define MAIN_WLAN_PSK "aWt1234567"            /**< Password for Destination SSID. Change to your password. Please dont hack my WiFi router */
-#define MAIN_WLAN_SSID "z"             /**< Destination SSID. Change to your WIFI SSID */
+#define MAIN_WLAN_SSID "AirPennNet-Device"             /**< Destination SSID. Change to your WIFI SSID */
 #define MAIN_WLAN_AUTH M2M_WIFI_SEC_WPA_PSK /**< Security manner */
-#define MAIN_WLAN_PSK "z12345678"            /**< Password for Destination SSID. Change to your password. Please dont hack my WiFi router
+#define MAIN_WLAN_PSK "penn1740wifi"            /**< Password for Destination SSID. Change to your password. Please dont hack my WiFi router
 
 /** IP address parsing. */
 #define IPV4_BYTE(val, index) ((val >> (index * 8)) & 0xFF)
