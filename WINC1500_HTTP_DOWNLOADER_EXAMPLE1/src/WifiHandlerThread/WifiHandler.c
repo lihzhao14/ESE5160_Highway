@@ -28,7 +28,7 @@ volatile char mqtt_msg[64] = "{\"d\":{\"temp\":17}}\"";
 volatile char mqtt_msg_temp[64] = "{\"d\":{\"temp\":17}}\"";
 
 volatile uint32_t temperature = 1;
-extern volatile uint32_t servo_sub_flag;
+//extern volatile uint32_t servo_sub_flag;
 
 int8_t wifiStateMachine = WIFI_MQTT_INIT;   ///< Global variable that determines the state of the WIFI handler.
 QueueHandle_t xQueueWifiState = NULL;       ///< Queue to determine the Wifi state from other threads.
@@ -665,7 +665,7 @@ void SubscribeHandlerServo(MessageData *msgData)
 			servo_setDuty(2);
 			} else if (strncmp((char *)msgData->message->payload, LED_TOPIC_LED_ON, msgData->message->payloadlen) == 0) {
 			servo_setDuty(3);
-			servo_sub_flag = 1;
+			//servo_sub_flag = 1;
 		}
 	}
 }
@@ -920,7 +920,7 @@ static void MQTT_HandleNauMessages(void)
 	if (pdPASS == xQueueReceive(xQueueNauBuffer, &NauDataVar, 0)) {
 		snprintf(mqtt_msg, 63, "{\"nau_i\":%d,  \"nau_f\": %d}", NauDataVar.nau_i, NauDataVar.nau_f);
 		mqtt_publish(&mqtt_inst, NAU_TOPIC, mqtt_msg, strlen(mqtt_msg), 1, 0);
-		SerialConsoleWriteString("NAU DATA POSTED");
+		SerialConsoleWriteString("NAU DATA POSTED\r\n");
 	}
 }
 /**

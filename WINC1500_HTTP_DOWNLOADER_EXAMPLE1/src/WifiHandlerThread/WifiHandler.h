@@ -122,10 +122,10 @@ struct NauPacket {
 #define LED_TOPIC_LED_ON "true"
 
 // Cloud MQTT User
-#define CLOUDMQTT_USER_ID "rttyobej"
+#define CLOUDMQTT_USER_ID "Highway"
 
 // Cloud MQTT pASSWORD
-#define CLOUDMQTT_USER_PASSWORD "BrsJBNVoQBl7"
+#define CLOUDMQTT_USER_PASSWORD "highway15"
 
 #define CLOUDMQTT_PORT 1883
 

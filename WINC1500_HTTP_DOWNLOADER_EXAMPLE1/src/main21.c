@@ -58,7 +58,7 @@ static TaskHandle_t uiTaskHandle = NULL;       //!< UI task handle
 static TaskHandle_t controlTaskHandle = NULL;  //!< Control task handle
 
 char bufferPrint[64];  ///< Buffer for daemon task
-volatile uint32_t servo_sub_flag = 0;
+//volatile uint32_t servo_sub_flag = 0;
 /**
  * @brief Main application function.
  * Application entry point.
