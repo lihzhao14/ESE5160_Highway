@@ -72,7 +72,9 @@ void vUiHandlerTask(void *pvParameters)
 	uint16_t nau_f_total = 0;
 	char oled_display[24];
 	bool servo_flag = false;
+	uint16_t first_result = 0;
 	ADCchip_Init();
+	
 	
 
     // Here we start the loop for the UI State Machine
@@ -93,45 +95,18 @@ void vUiHandlerTask(void *pvParameters)
 		//nau_f_total = ADC_Array[1] + nau_f_total;
 		
 		int error = WifiAddNauDataToQueue(&nauvar);
-		//if(error==pdTRUE)
-			//SerialConsoleWriteString("weight post\r\n");
 		
-		
-		
-		//if(servo_sub_flag == 1)
-		//{
-			//WifiAddNauDataToQueue(&nauvar);
-			//servo_sub_flag = 0;
-		//}
-		
-		
-		
-		
-		//if(count_nau!=3)
-		//{
-			//count_nau = count_nau + 1;
-		//}
-		//else
-		//{
-			//count_nau = 0;
-			//nauvar.nau_i = nau_i_total/3;
-			//nauvar.nau_f = nau_f_total/3;
-			//nau_i_total = 0;
-			//nau_i_total = 0;
-			//int error = WifiAddNauDataToQueue(&nauvar);
-		//}
-		//
-		
-		
-		//if(count!=100)
-		//{
-			//count = count + 1;
-		//}
-		//else
-		//{
-			count = 0;
+			
 			//gfx_mono_init();
-			int result = ADC_Array[0] + ADC_Array[1] / 10000 - 112;
+			int result = ADC_Array[0] + ADC_Array[1] / 10000;
+			
+			if(count == 0)
+			{
+				count = count + 1;
+				first_result = result;
+			}
+			result = result - first_result;
+			
 			result = getValue(result);
 			if(result == -1){
 				gfx_mono_draw_string("Undefined!", 0, 28, &sysfont);
@@ -140,20 +115,22 @@ void vUiHandlerTask(void *pvParameters)
 				sprintf(oled_display, "$ %d       ", result);
 				gfx_mono_draw_string(oled_display, 0, 28, &sysfont);
 			}
+			
 		//}
 		
 		
 		
         // After execution, you can put a thread to sleep for some time.
         vTaskDelay(4000);
+		//SerialConsoleWriteString("UI Task ++++++++++++++++!");
     }
 }
 int getValue(int ret){
-	if (ret >= 3 && ret < 20) {
+	if (ret >= 6 && ret < 20) {
 		return 3;
-		} else if (ret >= 25 && ret < 55) {
+		} else if (ret >= 20 && ret < 55) {
 			return 7;
-		} else if (ret <= 3) {
+		} else if (ret <= 6) {
 			return 0;
 		} else {
 			return -1;

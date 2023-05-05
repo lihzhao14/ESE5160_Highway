@@ -42,15 +42,15 @@ extern "C" {
 //#define MAIN_WLAN_SSID "a"             /**< Destination SSID. Change to your WIFI SSID */
 //#define MAIN_WLAN_AUTH M2M_WIFI_SEC_WPA_PSK /**< Security manner */
 //#define MAIN_WLAN_PSK "aWt1234567"            /**< Password for Destination SSID. Change to your password. Please dont hack my WiFi router */
-#define MAIN_WLAN_SSID "AirPennNet-Device"             /**< Destination SSID. Change to your WIFI SSID */
+#define MAIN_WLAN_SSID "z"             /**< Destination SSID. Change to your WIFI SSID */
 #define MAIN_WLAN_AUTH M2M_WIFI_SEC_WPA_PSK /**< Security manner */
-#define MAIN_WLAN_PSK "penn1740wifi"            /**< Password for Destination SSID. Change to your password. Please dont hack my WiFi router
+#define MAIN_WLAN_PSK "z12345678"            /**< Password for Destination SSID. Change to your password. Please dont hack my WiFi router
 
 /** IP address parsing. */
 #define IPV4_BYTE(val, index) ((val >> (index * 8)) & 0xFF)
 
 /** Content URI for download. */
-#define MAIN_HTTP_FILE_URL "https://74.235.175.41/TestB.bin"  ///< Change me to the URL to download your OTAU binary file from!
+#define MAIN_HTTP_FILE_URL "https://74.235.175.41/TestA.bin"  ///< Change me to the URL to download your OTAU binary file from!
 
 /** Maximum size for packet buffer. */
 #define MAIN_BUFFER_MAX_SIZE (512)
@@ -108,7 +108,7 @@ struct NauPacket {
 #define TEST_TOPIC "TEST_TOPIC_516_T9"          // used to test whether MQTT can properly work
 #define NAU_TOPIC "NAU_TOPIC_516_T9"          // used to test whether MQTT can properly work
 #define SERVO_TOPIC "SERVO_TOPIC_516_T9"          // used to test whether MQTT can properly work
-
+#define TOTALCHARGE_TOPIC "TOTALCHARGE_TOPIC_516_T9" 
 
 #else
 /* Chat MQTT topic. */

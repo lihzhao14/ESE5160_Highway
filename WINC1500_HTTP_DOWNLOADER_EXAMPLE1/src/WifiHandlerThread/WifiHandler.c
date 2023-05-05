@@ -594,6 +594,7 @@ static void configure_http_client(void)
 /** Prototype for MQTT subscribe Callback */
 void SubscribeHandler(MessageData *msgData);
 void SubscribeHandlerServo(MessageData *msgData);
+void SubscribeHandlerTotalCharge(MessageData *msgData);
 /**
  * \brief Callback to get the Socket event.
  *
@@ -669,6 +670,13 @@ void SubscribeHandlerServo(MessageData *msgData)
 		}
 	}
 }
+
+//void SubscribeHandlerTotalCharge(MessageData *msgData)
+//{	
+	//if (strncmp((char *)msgData->topicName->lenstring.data, TOTALCHARGE_TOPIC, msgData->message->payloadlen) == 0) {
+		//char TotalCharge[] = (char *)msgData->message->payload;
+	//}
+//}
 /**
  * \brief Callback to get the MQTT status update.
  *

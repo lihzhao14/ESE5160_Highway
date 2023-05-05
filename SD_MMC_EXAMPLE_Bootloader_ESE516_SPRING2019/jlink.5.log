@@ -1,380 +1,377 @@
-T272C 185:045.738   SEGGER J-Link V7.86h Log File
-T272C 185:045.819   DLL Compiled: Apr 12 2023 16:04:37
-T272C 185:045.844   Logging started @ 2023-05-01 00:04
-T272C 185:045.861 - 93162.318ms
-T272C 185:055.704 JLINK_ExecCommand("Device = ATSAMD21G18A", ...). 
-T272C 185:056.002   Device "ATSAMD21G18A" selected.
-T272C 185:056.394 - 0.656ms returns 0x00
-T272C 185:081.399 JLINK_TIF_Select(JLINKARM_TIF_SWD)
-T272C 185:082.456 - 1.119ms returns 0x00
-T272C 185:082.531 JLINK_SetSpeed(4000)
-T272C 185:082.724 - 0.218ms
-T272C 185:082.762 JLINK_ResetPullsRESET(OFF)
-T272C 185:082.778 - 0.023ms
-T272C 185:082.794 JLINK_Connect()
-T272C 185:083.215   InitTarget() start
-T272C 185:083.277    J-Link Script File: Executing InitTarget()
-T272C 185:083.466   InitTarget()
-T272C 185:087.488   InitTarget() end - Took 4.18ms
-T272C 185:088.462   Found SW-DP with ID 0x0BC11477
-T272C 185:091.085   DPIDR: 0x0BC11477
-T272C 185:091.098   CoreSight SoC-400 or earlier
-T272C 185:091.108   Scanning AP map to find all available APs
-T272C 185:092.427   AP[1]: Stopped AP scan as end of AP map has been reached
-T272C 185:092.455   AP[0]: AHB-AP (IDR: 0x04770031)
-T272C 185:092.471   Iterating through AP map to find AHB-AP to use
-T272C 185:093.788   AP[0]: Core found
-T272C 185:093.804   AP[0]: AHB-AP ROM base: 0x41003000
-T272C 185:094.448   CPUID register: 0x410CC601. Implementer code: 0x41 (ARM)
-T272C 185:094.461   Found Cortex-M0 r0p1, Little endian.
-T272C 185:094.975   -- Max. mem block: 0x00002BA8
-T272C 185:095.489   CPU_ReadMem(4 bytes @ 0xE000EDF0)
-T272C 185:096.406   CPU_WriteMem(4 bytes @ 0xE000EDF0)
-T272C 185:097.046   CPU_ReadMem(4 bytes @ 0xE0002000)
-T272C 185:097.678   FPUnit: 4 code (BP) slots and 0 literal slots
-T272C 185:097.691   CPU_ReadMem(4 bytes @ 0xE000EDFC)
-T272C 185:098.263   CPU_WriteMem(4 bytes @ 0xE000EDFC)
-T272C 185:098.629   CPU_ReadMem(4 bytes @ 0xE0001000)
-T272C 185:099.087   CPU_WriteMem(4 bytes @ 0xE0001000)
-T272C 185:099.421   CoreSight components:
-T272C 185:099.435   ROMTbl[0] @ 41003000
-T272C 185:099.442   CPU_ReadMem(64 bytes @ 0x41003000)
-T272C 185:100.234   CPU_ReadMem(32 bytes @ 0xE00FFFE0)
-T272C 185:100.968   [0][0]: E00FF000 CID B105100D PID 000BB4C0 ROM Table
-T272C 185:100.981   ROMTbl[1] @ E00FF000
-T272C 185:100.988   CPU_ReadMem(64 bytes @ 0xE00FF000)
-T272C 185:101.818   CPU_ReadMem(32 bytes @ 0xE000EFE0)
-T272C 185:102.423   [1][0]: E000E000 CID B105E00D PID 000BB008 SCS
-T272C 185:102.433   CPU_ReadMem(32 bytes @ 0xE0001FE0)
-T272C 185:102.937   [1][1]: E0001000 CID B105E00D PID 000BB00A DWT
-T272C 185:103.000   CPU_ReadMem(32 bytes @ 0xE0002FE0)
-T272C 185:103.525   [1][2]: E0002000 CID B105E00D PID 000BB00B FPB
-T272C 185:103.540   CPU_ReadMem(32 bytes @ 0x41006FE0)
-T272C 185:104.138   [0][1]: 41006000 CID B105900D PID 001BB932 MTB-M0+
-T272C 185:104.161 - 21.370ms returns 0x00
-T272C 185:104.222 JLINK_ExecCommand("ExcludeFlashCacheRange 0x0 - 0x40000", ...). 
-T272C 185:104.232 - 0.004ms returns 0x00
-T272C 185:104.247 JLINK_Halt()
-T272C 185:107.113 - 2.879ms returns 0x00
-T272C 185:108.423 JLINK_JTAG_GetDeviceID(DeviceIndex = 0)
-T272C 185:108.444 - 0.024ms returns 0
-T272C 185:108.452 JLINK_ReadMemU32(0x41002018, 0x1 Items)
-T272C 185:108.469   CPU_ReadMem(4 bytes @ 0x41002018)
-T272C 185:108.864   Data:  05 03 01 10
-T272C 185:108.880 - 0.430ms returns 1 (0x1)
-T6CD4 185:117.936 JLINK_IsHalted()
-T6CD4 185:118.387 - 0.464ms returns TRUE
-T6CD4 185:118.408 JLINK_GetMOEs(...)
-T6CD4 185:118.418   CPU_ReadMem(4 bytes @ 0xE000ED30)
-T6CD4 185:118.980 - 0.587ms returns 0x01
-T6CD4 185:119.006 JLINK_ReadReg(R15 (PC))
-T6CD4 185:119.018 - 0.015ms returns 0x00003EBC
-T272C 185:141.510 JLINK_BeginDownload(Flags = 0x00000000)
-T272C 185:141.535 - 0.026ms
-T272C 185:141.549 JLINK_WriteMem(0x00000000, 0xB830 Bytes, ...)
-T272C 185:141.556   Data:  98 2C 00 20 BD 68 00 00 B5 69 00 00 B5 69 00 00 ...
-T272C 185:141.916   completely In flash
-T272C 185:141.932 - 0.386ms returns 0xB830
-T272C 185:142.131 JLINK_WriteMem(0x0000B830, 0x94 Bytes, ...)
-T272C 185:142.140   Data:  40 1F 00 00 08 00 00 00 07 01 00 00 30 3A 73 64 ...
-T272C 185:142.215   completely In flash
-T272C 185:142.223 - 0.095ms returns 0x94
-T6CD4 185:319.755 JLINK_IsHalted()
-T6CD4 185:319.778 - 0.025ms returns TRUE
-T272C 185:320.348 JLINK_EndDownload()
-T272C 185:320.575   CPU_ReadMem(4 bytes @ 0x41006004)
-T272C 185:320.967   CPU_ReadMem(4 bytes @ 0xE000ED90)
-T272C 185:321.372    -- --------------------------------------
-T272C 185:321.385   Flash bank @ 0x00000000: Default: L2 verify disabled because algorithm performs L1 verify
-T272C 185:321.391    -- Start of determining dirty areas in flash cache
-T272C 185:321.397    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000000 if necessary
-T272C 185:321.403    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000100 if necessary
-T272C 185:321.408    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000200 if necessary
-T272C 185:321.414    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000300 if necessary
-T272C 185:321.419    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000400 if necessary
-T272C 185:321.424    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000500 if necessary
-T272C 185:321.429    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000600 if necessary
-T272C 185:321.435    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000700 if necessary
-T272C 185:321.440    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000800 if necessary
-T272C 185:321.445    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000900 if necessary
-T272C 185:321.450    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000A00 if necessary
-T272C 185:321.455    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000B00 if necessary
-T272C 185:321.460    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000C00 if necessary
-T272C 185:321.465    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000D00 if necessary
-T272C 185:321.471    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000E00 if necessary
-T272C 185:321.476    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000F00 if necessary
-T272C 185:321.481    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001000 if necessary
-T272C 185:321.486    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001100 if necessary
-T272C 185:321.491    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001200 if necessary
-T272C 185:321.497    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001300 if necessary
-T272C 185:321.502    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001400 if necessary
-T272C 185:321.507    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001500 if necessary
-T272C 185:321.512    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001600 if necessary
-T272C 185:321.517    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001700 if necessary
-T272C 185:321.523    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001800 if necessary
-T272C 185:321.528    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001900 if necessary
-T272C 185:321.533    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001A00 if necessary
-T272C 185:321.538    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001B00 if necessary
-T272C 185:321.544    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001C00 if necessary
-T272C 185:321.549    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001D00 if necessary
-T272C 185:321.554    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001E00 if necessary
-T272C 185:321.597    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001F00 if necessary
-T272C 185:321.602    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002000 if necessary
-T272C 185:321.608    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002100 if necessary
-T272C 185:321.613    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002200 if necessary
-T272C 185:321.618    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002300 if necessary
-T272C 185:321.623    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002400 if necessary
-T272C 185:321.628    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002500 if necessary
-T272C 185:321.633    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002600 if necessary
-T272C 185:321.639    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002700 if necessary
-T272C 185:321.644    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002800 if necessary
-T272C 185:321.649    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002900 if necessary
-T272C 185:321.660    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002A00 if necessary
-T272C 185:321.666    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002B00 if necessary
-T272C 185:321.671    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002C00 if necessary
-T272C 185:321.676    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002D00 if necessary
-T272C 185:321.681    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002E00 if necessary
-T272C 185:321.686    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002F00 if necessary
-T272C 185:321.691    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003000 if necessary
-T272C 185:321.697    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003100 if necessary
-T272C 185:321.702    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003200 if necessary
-T272C 185:321.707    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003300 if necessary
-T272C 185:321.712    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003400 if necessary
-T272C 185:321.717    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003500 if necessary
-T272C 185:321.722    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003600 if necessary
-T272C 185:321.727    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003700 if necessary
-T272C 185:321.733    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003800 if necessary
-T272C 185:321.738    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003900 if necessary
-T272C 185:321.743    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003A00 if necessary
-T272C 185:321.748    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003B00 if necessary
-T272C 185:321.753    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003C00 if necessary
-T272C 185:321.758    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003D00 if necessary
-T272C 185:321.763    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003E00 if necessary
-T272C 185:321.768    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003F00 if necessary
-T272C 185:321.773    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004000 if necessary
-T272C 185:321.778    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004100 if necessary
-T272C 185:321.785    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004200 if necessary
-T272C 185:321.790    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004300 if necessary
-T272C 185:321.795    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004400 if necessary
-T272C 185:321.800    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004500 if necessary
-T272C 185:321.805    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004600 if necessary
-T272C 185:321.810    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004700 if necessary
-T272C 185:321.815    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004800 if necessary
-T272C 185:321.821    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004900 if necessary
-T272C 185:321.826    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004A00 if necessary
-T272C 185:321.831    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004B00 if necessary
-T272C 185:321.836    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004C00 if necessary
-T272C 185:321.841    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004D00 if necessary
-T272C 185:321.846    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004E00 if necessary
-T272C 185:321.851    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004F00 if necessary
-T272C 185:321.856    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005000 if necessary
-T272C 185:321.861    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005100 if necessary
-T272C 185:321.866    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005200 if necessary
-T272C 185:321.872    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005300 if necessary
-T272C 185:321.877    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005400 if necessary
-T272C 185:321.882    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005500 if necessary
-T272C 185:321.887    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005600 if necessary
-T272C 185:321.892    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005700 if necessary
-T272C 185:321.897    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005800 if necessary
-T272C 185:321.902    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005900 if necessary
-T272C 185:321.907    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005A00 if necessary
-T272C 185:321.912    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005B00 if necessary
-T272C 185:321.917    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005C00 if necessary
-T272C 185:321.923    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005D00 if necessary
-T272C 185:321.928    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005E00 if necessary
-T272C 185:321.933    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005F00 if necessary
-T272C 185:321.938    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006000 if necessary
-T272C 185:321.943    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006100 if necessary
-T272C 185:321.948    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006200 if necessary
-T272C 185:321.953    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006300 if necessary
-T272C 185:321.959    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006400 if necessary
-T272C 185:321.973    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006500 if necessary
-T272C 185:321.978    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006600 if necessary
-T272C 185:321.983    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006700 if necessary
-T272C 185:321.989    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006800 if necessary
-T272C 185:321.994    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006900 if necessary
-T272C 185:321.999    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006A00 if necessary
-T272C 185:322.004    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006B00 if necessary
-T272C 185:322.009    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006C00 if necessary
-T272C 185:322.014    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006D00 if necessary
-T272C 185:322.020    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006E00 if necessary
-T272C 185:322.025    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006F00 if necessary
-T272C 185:322.030    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007000 if necessary
-T272C 185:322.035    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007100 if necessary
-T272C 185:322.040    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007200 if necessary
-T272C 185:322.045    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007300 if necessary
-T272C 185:322.050    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007400 if necessary
-T272C 185:322.055    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007500 if necessary
-T272C 185:322.060    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007600 if necessary
-T272C 185:322.066    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007700 if necessary
-T272C 185:322.071    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007800 if necessary
-T272C 185:322.076    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007900 if necessary
-T272C 185:322.081    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007A00 if necessary
-T272C 185:322.086    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007B00 if necessary
-T272C 185:322.096    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007C00 if necessary
-T272C 185:322.101    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007D00 if necessary
-T272C 185:322.106    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007E00 if necessary
-T272C 185:322.111    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007F00 if necessary
-T272C 185:322.116    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008000 if necessary
-T272C 185:322.122    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008100 if necessary
-T272C 185:322.127    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008200 if necessary
-T272C 185:322.132    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008300 if necessary
-T272C 185:322.137    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008400 if necessary
-T272C 185:322.142    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008500 if necessary
-T272C 185:322.147    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008600 if necessary
-T272C 185:322.152    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008700 if necessary
-T272C 185:322.158    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008800 if necessary
-T272C 185:322.170    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008900 if necessary
-T272C 185:322.175    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008A00 if necessary
-T272C 185:322.180    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008B00 if necessary
-T272C 185:322.185    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008C00 if necessary
-T272C 185:322.190    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008D00 if necessary
-T272C 185:322.195    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008E00 if necessary
-T272C 185:322.200    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008F00 if necessary
-T272C 185:322.205    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009000 if necessary
-T272C 185:322.210    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009100 if necessary
-T272C 185:322.216    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009200 if necessary
-T272C 185:322.221    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009300 if necessary
-T272C 185:322.226    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009400 if necessary
-T272C 185:322.231    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009500 if necessary
-T272C 185:322.236    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009600 if necessary
-T272C 185:322.241    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009700 if necessary
-T272C 185:322.246    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009800 if necessary
-T272C 185:322.251    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009900 if necessary
-T272C 185:322.256    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009A00 if necessary
-T272C 185:322.261    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009B00 if necessary
-T272C 185:322.266    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009C00 if necessary
-T272C 185:322.271    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009D00 if necessary
-T272C 185:322.277    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009E00 if necessary
-T272C 185:322.282    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009F00 if necessary
-T272C 185:322.287    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A000 if necessary
-T272C 185:322.292    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A100 if necessary
-T272C 185:322.297    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A200 if necessary
-T272C 185:322.302    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A300 if necessary
-T272C 185:322.307    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A400 if necessary
-T272C 185:322.312    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A500 if necessary
-T272C 185:322.317    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A600 if necessary
-T272C 185:322.322    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A700 if necessary
-T272C 185:322.328    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A800 if necessary
-T272C 185:322.333    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A900 if necessary
-T272C 185:322.338    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000AA00 if necessary
-T272C 185:322.343    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000AB00 if necessary
-T272C 185:322.363    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000AC00 if necessary
-T272C 185:322.368    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000AD00 if necessary
-T272C 185:322.373    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000AE00 if necessary
-T272C 185:322.378    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000AF00 if necessary
-T272C 185:322.383    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000B000 if necessary
-T272C 185:322.388    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000B100 if necessary
-T272C 185:322.393    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000B200 if necessary
-T272C 185:322.398    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000B300 if necessary
-T272C 185:322.403    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000B400 if necessary
-T272C 185:322.408    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000B500 if necessary
-T272C 185:322.414    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000B600 if necessary
-T272C 185:322.419    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000B700 if necessary
-T272C 185:322.424    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000B800 if necessary
-T272C 185:322.458    -- End of determining dirty areas
-T272C 185:322.464    -- Start of preparing flash programming
-T272C 185:322.469    -- Calculating RAM usage
-T272C 185:322.479    -- RAM usage = 3908 Bytes
-T272C 185:322.484    -- Preserving CPU registers
-T272C 185:322.497    -- Preparing target
-T272C 185:322.502    -- Preserving target RAM temporarily used for programming
-T272C 185:343.270    -- Downloading RAMCode
-T272C 185:360.851    -- Preparing RAMCode
-T272C 185:367.315    -- End of preparing flash programming
-T272C 185:367.554   Looking for J-Link GUI Server exe at: C:\Program Files (x86)\Atmel\Studio\7.0\atbackend\JLinkGUIServer.exe
-T272C 185:367.641   Looking for J-Link GUI Server exe at: C:\Program Files (x86)\SEGGER\JLink\JLinkGUIServer.exe
-T272C 185:669.071   Failed to connect to J-Link GUI Server.
-T272C 185:681.517    -- CPU speed could not be measured.
-T272C 185:681.540    -- Start of comparing flash
-T272C 185:681.991    -- CRC check was estimated as fastest method
-T272C 185:682.017    -- Comparing range 0x0000 - 0x7FFF (128 Sectors, 32 KB), using multi-block CRC calculation
-T272C 185:706.625    -- All CRCs match
-T272C 185:706.649    -- Comparing range 0x8000 - 0xB8FF (57 Sectors, 14 KB), using multi-block CRC calculation
-T272C 185:718.802    -- CRC does not match for sector 56
-T272C 185:718.826    -- Comparing range 0x0000 - 0x7FFF (128 Sectors, 32 KB), using alternative multi-block CRC calculation
-T272C 185:743.118    -- All CRCs match
-T272C 185:743.139    -- Comparing range 0x8000 - 0xB7FF (56 Sectors, 14 KB), using alternative multi-block CRC calculation
-T272C 185:755.285    -- All CRCs match
-T272C 185:755.305    -- End of comparing flash
-T272C 185:755.312    -- Start of erasing sectors
-T272C 185:755.319    -- Erasing range 0x0000B800 - 0x0000B8FF (  1 Sector, 256 Bytes)
-T272C 185:757.011    -- End of erasing sectors
-T272C 185:757.033    -- Start of flash programming
-T272C 185:757.043    -- Programming range 0x0000B800 - 0x0000B8FF (  1 Sector, 256 Bytes)
-T272C 185:757.064    -- End of flash programming
-T272C 185:757.072    -- 0xB800 - 0xB8FF (  1 Sector, 256 Bytes)
-T272C 185:757.081    -- Start of restoring
-T272C 185:757.087    -- Restoring RAMCode
-T272C 185:763.685    -- Restoring target memory
-T272C 185:783.330    -- Restore target
-T272C 185:783.346    -- Restoring CPU registers
-T272C 185:783.360    -- End of restoring
-T272C 185:783.407    -- Bank 0 @ 0x00000000: 1 range affected (256 bytes)
-T272C 185:783.421    -- Total: 0.460s (Prepare: 0.359s, Compare: 0.073s, Erase: 0.001s, Program & Verify: 0.003s, Restore: 0.022s)
-T272C 185:783.438    -- Program & Verify speed: 83 KB/s
-T272C 185:785.901 - 465.638ms returns 256 (0x100)
-T272C 185:786.145 JLINK_ResetPullsRESET(ON)
-T272C 185:786.151 - 0.007ms
-T272C 185:786.156 JLINK_ResetNoHalt()
-T272C 185:786.394   InitTarget() start
-T272C 185:786.402    J-Link Script File: Executing InitTarget()
-T272C 185:786.412   InitTarget()
-T272C 185:789.806   InitTarget() end - Took 3.37ms
-T272C 185:790.416   Found SW-DP with ID 0x0BC11477
-T272C 185:792.818   DPIDR: 0x0BC11477
-T272C 185:792.836   CoreSight SoC-400 or earlier
-T272C 185:792.847   AP map detection skipped. Manually configured AP map found.
-T272C 185:792.875   AP[0]: AHB-AP (IDR: Not set)
-T272C 185:793.822   AP[0]: Core found
-T272C 185:793.858   AP[0]: AHB-AP ROM base: 0x41003000
-T272C 185:794.415   CPUID register: 0x410CC601. Implementer code: 0x41 (ARM)
-T272C 185:794.429   Found Cortex-M0 r0p1, Little endian.
-T272C 185:794.647   -- Max. mem block: 0x00002860
-T272C 185:794.931   CPU_ReadMem(4 bytes @ 0xE000EDF0)
-T272C 185:795.468   CPU_ReadMem(4 bytes @ 0xE0002000)
-T272C 185:796.155   FPUnit: 4 code (BP) slots and 0 literal slots
-T272C 185:796.173   CPU_ReadMem(4 bytes @ 0xE000EDFC)
-T272C 185:796.545   CPU_ReadMem(4 bytes @ 0xE0001000)
-T272C 185:796.972   CoreSight components:
-T272C 185:796.992   ROMTbl[0] @ 41003000
-T272C 185:796.999   CPU_ReadMem(64 bytes @ 0x41003000)
-T272C 185:797.813   CPU_ReadMem(32 bytes @ 0xE00FFFE0)
-T272C 185:799.639   [0][0]: E00FF000 CID B105100D PID 000BB4C0 ROM Table
-T272C 185:799.665   ROMTbl[1] @ E00FF000
-T272C 185:799.676   CPU_ReadMem(64 bytes @ 0xE00FF000)
-T272C 185:800.456   CPU_ReadMem(32 bytes @ 0xE000EFE0)
-T272C 185:801.090   [1][0]: E000E000 CID B105E00D PID 000BB008 SCS
-T272C 185:801.103   CPU_ReadMem(32 bytes @ 0xE0001FE0)
-T272C 185:801.646   [1][1]: E0001000 CID B105E00D PID 000BB00A DWT
-T272C 185:801.667   CPU_ReadMem(32 bytes @ 0xE0002FE0)
-T272C 185:802.203   [1][2]: E0002000 CID B105E00D PID 000BB00B FPB
-T272C 185:802.221   CPU_ReadMem(32 bytes @ 0x41006FE0)
-T272C 185:802.787   [0][1]: 41006000 CID B105900D PID 001BB932 MTB-M0+
-T272C 185:802.805   JLINK_Reset()
-T272C 185:802.814     CPU_ReadMem(4 bytes @ 0x20000000)
-T272C 185:803.154     CPU_WriteMem(4 bytes @ 0x20000000)
-T272C 185:803.597     ResetTarget() start
-T272C 185:803.604      J-Link Script File: Executing ResetTarget()
-T272C 185:803.947     CPU_ReadMem(4 bytes @ 0xE000EDFC)
-T272C 185:804.249     CPU_WriteMem(4 bytes @ 0xE000EDFC)
-T272C 185:804.637     CPU_WriteMem(4 bytes @ 0xE000ED0C)
-T272C 185:806.329     CPU_ReadMem(4 bytes @ 0xE000EDF0)
-T272C 185:806.815     CPU_ReadMem(4 bytes @ 0x41002100)
-T272C 185:807.183     CPU_WriteMem(4 bytes @ 0xE000EDFC)
-T272C 185:807.749     ResetTarget() end - Took 4.12ms
-T272C 185:811.221     CPU_WriteMem(4 bytes @ 0xE0002000)
-T272C 185:811.618     CPU_ReadMem(4 bytes @ 0xE000EDFC)
-T272C 185:811.993     CPU_ReadMem(4 bytes @ 0xE0001000)
-T272C 185:812.439     CPU_WriteMem(4 bytes @ 0xE0001000)
-T272C 185:812.801   - 10.000ms
-T272C 185:812.811   JLINK_Go()
-T272C 185:812.823     CPU_ReadMem(4 bytes @ 0xE0001000)
-T272C 185:813.185     CPU_WriteMem(4 bytes @ 0xE0001000)
-T272C 185:813.644     CPU_WriteMem(4 bytes @ 0xE0001004)
-T272C 185:814.586   - 1.780ms
-T272C 185:814.594 - 28.441ms
-T272C 185:816.864 JLINK_Close()
-T272C 185:848.268 - 31.428ms
-T272C 185:848.297   
-T272C 185:848.302   Closed
+T56D8 055:045.821   SEGGER J-Link V7.86h Log File
+T56D8 055:046.816   DLL Compiled: Apr 12 2023 16:04:37
+T56D8 055:046.837   Logging started @ 2023-05-05 01:36
+T56D8 055:046.856 - 13873.024ms
+T56D8 055:057.607 JLINK_ExecCommand("Device = ATSAMD21G18A", ...). 
+T56D8 055:057.872   Device "ATSAMD21G18A" selected.
+T56D8 055:058.187 - 0.562ms returns 0x00
+T56D8 055:101.555 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T56D8 055:102.319 - 0.794ms returns 0x00
+T56D8 055:102.364 JLINK_SetSpeed(4000)
+T56D8 055:102.489 - 1.156ms
+T56D8 055:103.537 JLINK_ResetPullsRESET(OFF)
+T56D8 055:103.551 - 0.020ms
+T56D8 055:103.571 JLINK_Connect()
+T56D8 055:103.876   InitTarget() start
+T56D8 055:103.924    J-Link Script File: Executing InitTarget()
+T56D8 055:104.246   InitTarget()
+T56D8 055:107.494   InitTarget() end - Took 3.54ms
+T56D8 055:108.310   Found SW-DP with ID 0x0BC11477
+T56D8 055:110.649   DPIDR: 0x0BC11477
+T56D8 055:110.664   CoreSight SoC-400 or earlier
+T56D8 055:110.677   Scanning AP map to find all available APs
+T56D8 055:111.264   AP[1]: Stopped AP scan as end of AP map has been reached
+T56D8 055:111.278   AP[0]: AHB-AP (IDR: 0x04770031)
+T56D8 055:111.293   Iterating through AP map to find AHB-AP to use
+T56D8 055:112.939   AP[0]: Core found
+T56D8 055:112.958   AP[0]: AHB-AP ROM base: 0x41003000
+T56D8 055:113.474   CPUID register: 0x410CC601. Implementer code: 0x41 (ARM)
+T56D8 055:113.492   Found Cortex-M0 r0p1, Little endian.
+T56D8 055:113.935   -- Max. mem block: 0x00002BA8
+T56D8 055:114.377   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T56D8 055:114.736   CPU_WriteMem(4 bytes @ 0xE000EDF0)
+T56D8 055:115.148   CPU_ReadMem(4 bytes @ 0xE0002000)
+T56D8 055:115.494   FPUnit: 4 code (BP) slots and 0 literal slots
+T56D8 055:115.503   CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T56D8 055:115.835   CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T56D8 055:116.192   CPU_ReadMem(4 bytes @ 0xE0001000)
+T56D8 055:116.582   CPU_WriteMem(4 bytes @ 0xE0001000)
+T56D8 055:116.917   CoreSight components:
+T56D8 055:116.932   ROMTbl[0] @ 41003000
+T56D8 055:116.941   CPU_ReadMem(64 bytes @ 0x41003000)
+T56D8 055:117.812   CPU_ReadMem(32 bytes @ 0xE00FFFE0)
+T56D8 055:118.365   [0][0]: E00FF000 CID B105100D PID 000BB4C0 ROM Table
+T56D8 055:118.380   ROMTbl[1] @ E00FF000
+T56D8 055:118.388   CPU_ReadMem(64 bytes @ 0xE00FF000)
+T56D8 055:119.188   CPU_ReadMem(32 bytes @ 0xE000EFE0)
+T56D8 055:119.805   [1][0]: E000E000 CID B105E00D PID 000BB008 SCS
+T56D8 055:119.821   CPU_ReadMem(32 bytes @ 0xE0001FE0)
+T56D8 055:120.441   [1][1]: E0001000 CID B105E00D PID 000BB00A DWT
+T56D8 055:120.449   CPU_ReadMem(32 bytes @ 0xE0002FE0)
+T56D8 055:121.077   [1][2]: E0002000 CID B105E00D PID 000BB00B FPB
+T56D8 055:121.085   CPU_ReadMem(32 bytes @ 0x41006FE0)
+T56D8 055:121.699   [0][1]: 41006000 CID B105900D PID 001BB932 MTB-M0+
+T56D8 055:121.710 - 18.141ms returns 0x00
+T56D8 055:121.741 JLINK_ExecCommand("ExcludeFlashCacheRange 0x0 - 0x40000", ...). 
+T56D8 055:121.748 - 0.003ms returns 0x00
+T56D8 055:121.760 JLINK_Halt()
+T56D8 055:124.740 - 2.982ms returns 0x00
+T56D8 055:125.677 JLINK_JTAG_GetDeviceID(DeviceIndex = 0)
+T56D8 055:125.692 - 0.018ms returns 0
+T56D8 055:125.701 JLINK_ReadMemU32(0x41002018, 0x1 Items)
+T56D8 055:125.719   CPU_ReadMem(4 bytes @ 0x41002018)
+T56D8 055:126.083   Data:  05 03 01 10
+T56D8 055:126.092 - 0.393ms returns 1 (0x1)
+TA764 055:136.623 JLINK_IsHalted()
+TA764 055:137.260 - 0.652ms returns TRUE
+TA764 055:137.284 JLINK_GetMOEs(...)
+TA764 055:137.296   CPU_ReadMem(4 bytes @ 0xE000ED30)
+TA764 055:137.646 - 0.370ms returns 0x01
+TA764 055:137.661 JLINK_ReadReg(R15 (PC))
+TA764 055:137.669 - 0.010ms returns 0x00015904
+T56D8 055:148.828 JLINK_BeginDownload(Flags = 0x00000000)
+T56D8 055:148.861 - 0.036ms
+T56D8 055:148.877 JLINK_WriteMem(0x00000000, 0xB830 Bytes, ...)
+T56D8 055:148.884   Data:  98 2C 00 20 BD 68 00 00 B5 69 00 00 B5 69 00 00 ...
+T56D8 055:149.228   completely In flash
+T56D8 055:149.247 - 0.372ms returns 0xB830
+T56D8 055:149.441 JLINK_WriteMem(0x0000B830, 0x94 Bytes, ...)
+T56D8 055:149.449   Data:  40 1F 00 00 08 00 00 00 07 01 00 00 30 3A 73 64 ...
+T56D8 055:149.535   completely In flash
+T56D8 055:149.544 - 0.106ms returns 0x94
+TA764 055:338.279 JLINK_IsHalted()
+TA764 055:338.348 - 0.072ms returns TRUE
+T56D8 055:339.480 JLINK_EndDownload()
+T56D8 055:339.865   CPU_ReadMem(4 bytes @ 0x41006004)
+T56D8 055:340.278   CPU_ReadMem(4 bytes @ 0xE000ED90)
+T56D8 055:340.761    -- --------------------------------------
+T56D8 055:340.796   Flash bank @ 0x00000000: Default: L2 verify disabled because algorithm performs L1 verify
+T56D8 055:340.811    -- Start of determining dirty areas in flash cache
+T56D8 055:340.828    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000000 if necessary
+T56D8 055:340.845    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000100 if necessary
+T56D8 055:340.860    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000200 if necessary
+T56D8 055:340.875    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000300 if necessary
+T56D8 055:340.890    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000400 if necessary
+T56D8 055:340.905    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000500 if necessary
+T56D8 055:340.920    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000600 if necessary
+T56D8 055:340.935    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000700 if necessary
+T56D8 055:340.950    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000800 if necessary
+T56D8 055:340.965    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000900 if necessary
+T56D8 055:340.981    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000A00 if necessary
+T56D8 055:340.995    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000B00 if necessary
+T56D8 055:341.011    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000C00 if necessary
+T56D8 055:341.025    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000D00 if necessary
+T56D8 055:341.040    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000E00 if necessary
+T56D8 055:341.054    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00000F00 if necessary
+T56D8 055:341.069    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001000 if necessary
+T56D8 055:341.083    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001100 if necessary
+T56D8 055:341.098    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001200 if necessary
+T56D8 055:341.113    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001300 if necessary
+T56D8 055:341.195    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001400 if necessary
+T56D8 055:341.217    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001500 if necessary
+T56D8 055:341.228    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001600 if necessary
+T56D8 055:341.239    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001700 if necessary
+T56D8 055:341.250    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001800 if necessary
+T56D8 055:341.260    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001900 if necessary
+T56D8 055:341.271    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001A00 if necessary
+T56D8 055:341.281    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001B00 if necessary
+T56D8 055:341.292    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001C00 if necessary
+T56D8 055:341.302    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001D00 if necessary
+T56D8 055:341.313    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001E00 if necessary
+T56D8 055:341.442    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00001F00 if necessary
+T56D8 055:341.458    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002000 if necessary
+T56D8 055:341.502    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002100 if necessary
+T56D8 055:341.514    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002200 if necessary
+T56D8 055:341.525    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002300 if necessary
+T56D8 055:341.535    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002400 if necessary
+T56D8 055:341.561    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002500 if necessary
+T56D8 055:341.572    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002600 if necessary
+T56D8 055:341.584    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002700 if necessary
+T56D8 055:341.594    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002800 if necessary
+T56D8 055:341.605    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002900 if necessary
+T56D8 055:341.615    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002A00 if necessary
+T56D8 055:341.626    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002B00 if necessary
+T56D8 055:341.636    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002C00 if necessary
+T56D8 055:341.645    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002D00 if necessary
+T56D8 055:341.655    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002E00 if necessary
+T56D8 055:341.664    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00002F00 if necessary
+T56D8 055:341.699    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003000 if necessary
+T56D8 055:341.760    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003100 if necessary
+T56D8 055:341.771    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003200 if necessary
+T56D8 055:341.790    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003300 if necessary
+T56D8 055:341.800    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003400 if necessary
+T56D8 055:341.810    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003500 if necessary
+T56D8 055:341.850    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003600 if necessary
+T56D8 055:341.874    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003700 if necessary
+T56D8 055:341.885    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003800 if necessary
+T56D8 055:341.905    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003900 if necessary
+T56D8 055:342.555    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003A00 if necessary
+T56D8 055:342.600    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003B00 if necessary
+T56D8 055:342.616    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003C00 if necessary
+T56D8 055:342.655    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003D00 if necessary
+T56D8 055:342.665    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003E00 if necessary
+T56D8 055:342.675    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00003F00 if necessary
+T56D8 055:342.685    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004000 if necessary
+T56D8 055:342.694    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004100 if necessary
+T56D8 055:342.710    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004200 if necessary
+T56D8 055:342.749    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004300 if necessary
+T56D8 055:342.759    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004400 if necessary
+T56D8 055:342.769    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004500 if necessary
+T56D8 055:342.779    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004600 if necessary
+T56D8 055:342.789    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004700 if necessary
+T56D8 055:342.799    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004800 if necessary
+T56D8 055:342.809    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004900 if necessary
+T56D8 055:342.818    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004A00 if necessary
+T56D8 055:342.828    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004B00 if necessary
+T56D8 055:342.838    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004C00 if necessary
+T56D8 055:342.848    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004D00 if necessary
+T56D8 055:342.858    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004E00 if necessary
+T56D8 055:342.868    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00004F00 if necessary
+T56D8 055:342.879    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005000 if necessary
+T56D8 055:342.889    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005100 if necessary
+T56D8 055:342.899    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005200 if necessary
+T56D8 055:342.909    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005300 if necessary
+T56D8 055:342.919    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005400 if necessary
+T56D8 055:342.929    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005500 if necessary
+T56D8 055:342.939    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005600 if necessary
+T56D8 055:342.949    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005700 if necessary
+T56D8 055:342.959    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005800 if necessary
+T56D8 055:342.983    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005900 if necessary
+T56D8 055:342.994    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005A00 if necessary
+T56D8 055:343.004    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005B00 if necessary
+T56D8 055:343.015    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005C00 if necessary
+T56D8 055:343.025    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005D00 if necessary
+T56D8 055:343.035    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005E00 if necessary
+T56D8 055:343.045    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00005F00 if necessary
+T56D8 055:343.055    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006000 if necessary
+T56D8 055:343.064    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006100 if necessary
+T56D8 055:343.091    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006200 if necessary
+T56D8 055:343.102    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006300 if necessary
+T56D8 055:343.112    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006400 if necessary
+T56D8 055:343.186    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006500 if necessary
+T56D8 055:343.196    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006600 if necessary
+T56D8 055:343.205    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006700 if necessary
+T56D8 055:343.215    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006800 if necessary
+T56D8 055:343.225    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006900 if necessary
+T56D8 055:343.234    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006A00 if necessary
+T56D8 055:343.244    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006B00 if necessary
+T56D8 055:343.254    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006C00 if necessary
+T56D8 055:343.264    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006D00 if necessary
+T56D8 055:343.273    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006E00 if necessary
+T56D8 055:343.295    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00006F00 if necessary
+T56D8 055:343.305    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007000 if necessary
+T56D8 055:343.314    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007100 if necessary
+T56D8 055:343.324    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007200 if necessary
+T56D8 055:343.334    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007300 if necessary
+T56D8 055:343.344    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007400 if necessary
+T56D8 055:343.354    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007500 if necessary
+T56D8 055:343.363    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007600 if necessary
+T56D8 055:343.373    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007700 if necessary
+T56D8 055:343.383    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007800 if necessary
+T56D8 055:343.393    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007900 if necessary
+T56D8 055:343.403    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007A00 if necessary
+T56D8 055:343.413    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007B00 if necessary
+T56D8 055:343.423    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007C00 if necessary
+T56D8 055:343.434    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007D00 if necessary
+T56D8 055:343.444    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007E00 if necessary
+T56D8 055:343.454    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00007F00 if necessary
+T56D8 055:343.464    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008000 if necessary
+T56D8 055:343.474    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008100 if necessary
+T56D8 055:343.485    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008200 if necessary
+T56D8 055:343.495    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008300 if necessary
+T56D8 055:343.515    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008400 if necessary
+T56D8 055:343.526    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008500 if necessary
+T56D8 055:343.537    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008600 if necessary
+T56D8 055:343.546    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008700 if necessary
+T56D8 055:343.556    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008800 if necessary
+T56D8 055:343.567    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008900 if necessary
+T56D8 055:343.577    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008A00 if necessary
+T56D8 055:343.587    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008B00 if necessary
+T56D8 055:343.597    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008C00 if necessary
+T56D8 055:343.607    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008D00 if necessary
+T56D8 055:343.617    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008E00 if necessary
+T56D8 055:343.627    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00008F00 if necessary
+T56D8 055:343.637    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009000 if necessary
+T56D8 055:343.647    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009100 if necessary
+T56D8 055:343.657    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009200 if necessary
+T56D8 055:343.667    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009300 if necessary
+T56D8 055:343.677    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009400 if necessary
+T56D8 055:343.686    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009500 if necessary
+T56D8 055:343.696    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009600 if necessary
+T56D8 055:343.706    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009700 if necessary
+T56D8 055:343.716    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009800 if necessary
+T56D8 055:343.726    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009900 if necessary
+T56D8 055:343.736    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009A00 if necessary
+T56D8 055:343.746    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009B00 if necessary
+T56D8 055:343.757    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009C00 if necessary
+T56D8 055:343.767    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009D00 if necessary
+T56D8 055:343.776    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009E00 if necessary
+T56D8 055:343.786    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x00009F00 if necessary
+T56D8 055:343.796    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A000 if necessary
+T56D8 055:343.805    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A100 if necessary
+T56D8 055:343.815    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A200 if necessary
+T56D8 055:343.825    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A300 if necessary
+T56D8 055:343.835    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A400 if necessary
+T56D8 055:343.845    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A500 if necessary
+T56D8 055:343.855    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A600 if necessary
+T56D8 055:343.865    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A700 if necessary
+T56D8 055:343.875    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A800 if necessary
+T56D8 055:343.885    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000A900 if necessary
+T56D8 055:343.895    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000AA00 if necessary
+T56D8 055:343.906    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000AB00 if necessary
+T56D8 055:343.917    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000AC00 if necessary
+T56D8 055:343.927    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000AD00 if necessary
+T56D8 055:343.937    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000AE00 if necessary
+T56D8 055:343.947    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000AF00 if necessary
+T56D8 055:343.957    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000B000 if necessary
+T56D8 055:343.967    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000B100 if necessary
+T56D8 055:343.977    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000B200 if necessary
+T56D8 055:343.986    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000B300 if necessary
+T56D8 055:343.996    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000B400 if necessary
+T56D8 055:344.006    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000B500 if necessary
+T56D8 055:344.016    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000B600 if necessary
+T56D8 055:344.026    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000B700 if necessary
+T56D8 055:344.036    -- Filling invalid ranges in sector buffer (flash cache) for sector @ 0x0000B800 if necessary
+T56D8 055:344.109    -- End of determining dirty areas
+T56D8 055:344.119    -- Start of preparing flash programming
+T56D8 055:344.130    -- Calculating RAM usage
+T56D8 055:344.148    -- RAM usage = 3908 Bytes
+T56D8 055:344.202    -- Preserving CPU registers
+T56D8 055:344.235    -- Preparing target
+T56D8 055:344.245    -- Preserving target RAM temporarily used for programming
+T56D8 055:364.928    -- Downloading RAMCode
+T56D8 055:381.988    -- Preparing RAMCode
+T56D8 055:388.011    -- End of preparing flash programming
+T56D8 055:388.312   Looking for J-Link GUI Server exe at: C:\Program Files (x86)\Atmel\Studio\7.0\atbackend\JLinkGUIServer.exe
+T56D8 055:389.050   Looking for J-Link GUI Server exe at: C:\Program Files (x86)\SEGGER\JLink\JLinkGUIServer.exe
+T56D8 055:689.303   Failed to connect to J-Link GUI Server.
+T56D8 055:697.638    -- CPU speed could not be measured.
+T56D8 055:697.666    -- Start of comparing flash
+T56D8 055:697.672    -- CRC check was estimated as fastest method
+T56D8 055:697.680    -- Comparing range 0x0000 - 0x7FFF (128 Sectors, 32 KB), using multi-block CRC calculation
+T56D8 055:711.595    -- CRC does not match for sectors 0-127
+T56D8 055:711.628    -- Comparing range 0x8000 - 0xB8FF (57 Sectors, 14 KB), using multi-block CRC calculation
+T56D8 055:719.683    -- CRC does not match for sectors 0-56
+T56D8 055:719.723    -- End of comparing flash
+T56D8 055:719.747    -- Start of erasing sectors
+T56D8 055:719.756    -- Erasing range 0x00000000 - 0x00007BFF (124 Sectors, 31 KB)
+T56D8 055:825.373    -- End of erasing sectors
+T56D8 055:825.410    -- Start of flash programming
+T56D8 055:825.419    -- Programming range 0x00000000 - 0x00007FFF (128 Sectors, 32 KB)
+T56D8 056:027.463    -- Programming range 0x00008000 - 0x0000B8FF ( 57 Sectors, 14 KB)
+T56D8 056:123.632    -- End of flash programming
+T56D8 056:123.656    -- 0x0000 - 0xB8FF (185 Sectors, 46 KiB)
+T56D8 056:123.667    -- Start of restoring
+T56D8 056:123.676    -- Restoring RAMCode
+T56D8 056:132.620    -- Restoring target memory
+T56D8 056:152.265    -- Restore target
+T56D8 056:152.294    -- Restoring CPU registers
+T56D8 056:152.320    -- End of restoring
+T56D8 056:152.389    -- Bank 0 @ 0x00000000: 1 range affected (47360 bytes)
+T56D8 056:152.409    -- Total: 0.808s (Prepare: 0.353s, Compare: 0.022s, Erase: 0.105s, Program & Verify: 0.303s, Restore: 0.023s)
+T56D8 056:152.424    -- Program & Verify speed: 152 KB/s
+T56D8 056:156.512 - 817.069ms returns 47360 (0xB900)
+T56D8 056:156.958 JLINK_ResetPullsRESET(ON)
+T56D8 056:156.995 - 0.042ms
+T56D8 056:157.010 JLINK_ResetNoHalt()
+T56D8 056:157.319   InitTarget() start
+T56D8 056:157.358    J-Link Script File: Executing InitTarget()
+T56D8 056:157.394   InitTarget()
+T56D8 056:160.195   InitTarget() end - Took 2.78ms
+T56D8 056:161.072   Found SW-DP with ID 0x0BC11477
+T56D8 056:164.067   DPIDR: 0x0BC11477
+T56D8 056:164.116   CoreSight SoC-400 or earlier
+T56D8 056:164.137   AP map detection skipped. Manually configured AP map found.
+T56D8 056:164.155   AP[0]: AHB-AP (IDR: Not set)
+T56D8 056:165.463   AP[0]: Core found
+T56D8 056:165.490   AP[0]: AHB-AP ROM base: 0x41003000
+T56D8 056:166.253   CPUID register: 0x410CC601. Implementer code: 0x41 (ARM)
+T56D8 056:166.283   Found Cortex-M0 r0p1, Little endian.
+T56D8 056:166.736   -- Max. mem block: 0x00002860
+T56D8 056:166.783   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T56D8 056:167.503   CPU_ReadMem(4 bytes @ 0xE0002000)
+T56D8 056:168.046   FPUnit: 4 code (BP) slots and 0 literal slots
+T56D8 056:168.073   CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T56D8 056:168.498   CPU_ReadMem(4 bytes @ 0xE0001000)
+T56D8 056:169.094   CoreSight components:
+T56D8 056:169.125   ROMTbl[0] @ 41003000
+T56D8 056:169.137   CPU_ReadMem(64 bytes @ 0x41003000)
+T56D8 056:170.070   CPU_ReadMem(32 bytes @ 0xE00FFFE0)
+T56D8 056:171.107   [0][0]: E00FF000 CID B105100D PID 000BB4C0 ROM Table
+T56D8 056:171.142   ROMTbl[1] @ E00FF000
+T56D8 056:171.152   CPU_ReadMem(64 bytes @ 0xE00FF000)
+T56D8 056:171.899   CPU_ReadMem(32 bytes @ 0xE000EFE0)
+T56D8 056:172.732   [1][0]: E000E000 CID B105E00D PID 000BB008 SCS
+T56D8 056:172.762   CPU_ReadMem(32 bytes @ 0xE0001FE0)
+T56D8 056:173.433   [1][1]: E0001000 CID B105E00D PID 000BB00A DWT
+T56D8 056:173.450   CPU_ReadMem(32 bytes @ 0xE0002FE0)
+T56D8 056:173.995   [1][2]: E0002000 CID B105E00D PID 000BB00B FPB
+T56D8 056:174.011   CPU_ReadMem(32 bytes @ 0x41006FE0)
+T56D8 056:174.561   [0][1]: 41006000 CID B105900D PID 001BB932 MTB-M0+
+T56D8 056:174.591   JLINK_Reset()
+T56D8 056:174.603     CPU_ReadMem(4 bytes @ 0x20000000)
+T56D8 056:174.939     CPU_WriteMem(4 bytes @ 0x20000000)
+T56D8 056:175.319     ResetTarget() start
+T56D8 056:175.330      J-Link Script File: Executing ResetTarget()
+T56D8 056:175.716     CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T56D8 056:176.069     CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T56D8 056:176.478     CPU_WriteMem(4 bytes @ 0xE000ED0C)
+T56D8 056:178.340     CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T56D8 056:178.796     CPU_ReadMem(4 bytes @ 0x41002100)
+T56D8 056:179.260     CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T56D8 056:179.896     ResetTarget() end - Took 4.50ms
+T56D8 056:183.552     CPU_WriteMem(4 bytes @ 0xE0002000)
+T56D8 056:184.013     CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T56D8 056:184.392     CPU_ReadMem(4 bytes @ 0xE0001000)
+T56D8 056:184.775     CPU_WriteMem(4 bytes @ 0xE0001000)
+T56D8 056:185.166   - 10.584ms
+T56D8 056:185.184   JLINK_Go()
+T56D8 056:185.206     CPU_ReadMem(4 bytes @ 0xE0001000)
+T56D8 056:185.588     CPU_WriteMem(4 bytes @ 0xE0001000)
+T56D8 056:185.965     CPU_WriteMem(4 bytes @ 0xE0001004)
+T56D8 056:186.838   - 1.666ms
+T56D8 056:186.855 - 29.848ms
+T56D8 056:193.175 JLINK_Close()
+T56D8 056:222.328 - 29.177ms
+T56D8 056:222.356   
+T56D8 056:222.363   Closed

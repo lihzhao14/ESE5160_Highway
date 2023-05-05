@@ -29,9 +29,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  12 .debug_line   0001850a  00000000  00000000  00098ca6  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_str    00093c23  00000000  00000000  000b11b0  2**0
+ 13 .debug_str    00093c97  00000000  00000000  000b11b0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_frame  00003c14  00000000  00000000  00144dd4  2**2
+ 14 .debug_frame  00003c14  00000000  00000000  00144e48  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -22133,6 +22133,11 @@ static inline void system_reset(void)
     9ee4:	00009e21 	.word	0x00009e21
 
 00009ee8 <system_interrupt_enable_global>:
+ * \brief Enables global interrupts.
+ *
+ * Enables global interrupts in the device to fire any enabled interrupt handlers.
+ */
+static inline void system_interrupt_enable_global(void)
 {
     9ee8:	b580      	push	{r7, lr}
     9eea:	af00      	add	r7, sp, #0
