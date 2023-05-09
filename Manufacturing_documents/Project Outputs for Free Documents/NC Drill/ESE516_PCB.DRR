@@ -1,0 +1,22 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: ESE516_PCB.PcbDoc   2023/2/28  22:31:00
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : ESE516_PCB-RoundHoles.TXT
+ASCII SlotHoles File : ESE516_PCB-SlotHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.2mm (8mil)                                              Round             7         PTH        134.24mm (5.28inch)
+T2      0.203mm (8mil)                                            Round             252       PTH        837.69mm (32.98inch)
+T3      0.65mm (26mil)                                            Slot              2         PTH        10.52mm (0.41inch)
+T4      0.65mm (26mil)                                            Round             10        PTH        11.43mm (0.45inch)
+T5      0.7mm (28mil)                                             Round             2         PTH        2.00mm (0.08inch)
+T6      0.7mm (28mil)                                             Slot              2         PTH        17.68mm (0.70inch)
+T7      0.89mm (35mil)                                            Round             16        PTH        134.79mm (5.31inch)
+T8      2.7mm (106mil)                                            Round             4         PTH        222.95mm (8.78inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              295
+
+Total Processing Time (hh:mm:ss) : 00:00:01
