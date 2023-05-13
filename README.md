@@ -1,4 +1,4 @@
-University of Pennsylvania, ESE 5160, A13 Final Submission [Highway]
+University of Pennsylvania, Highway
     
     Team Name: HIGHWAY
     Team Members: Lihong Zhao and Chenwei Tang  
